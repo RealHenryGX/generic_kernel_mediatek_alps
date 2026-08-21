@@ -14,19 +14,25 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 4096
-          swap-size-mb: 2048
+          root-reserve-mb: 8192
+          swap-size-mb: 0
           remove-dotnet: 'true'
           remove-android: 'true'
           remove-haskell: 'true'
 
-      - name: Install deps (small, apt)
+      - name: Install deps (no apt cache growth)
         run: |
-          sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|' /etc/apt/sources.list.d/ubuntu.sources || true
-          sudo apt-get clean || true
-          timeout 300 sudo apt-get update -qq || true
-          sudo apt-get install -y -qq --no-install-recommends bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod
-          sudo rm -rf /var/cache/apt/archives/*.deb || true
+          # / 分区小,apt 写源缓存会爆。改用已有工具 + 临时目录方案
+          sudo mkdir -p /tmp/aptlists /tmp/aptcache
+          sudo sed -i 's|Dir::Cache::archives.*|Dir::Cache::archives "/tmp/aptcache/";|' /etc/apt/apt.conf.d/* 2>/dev/null || true
+          sudo sh -c 'echo "Dir::Cache::archives \"/tmp/aptcache/\";" > /etc/apt/apt.conf.d/99cache'
+          sudo sh -c 'echo "Dir::State::lists \"/tmp/aptlists/\";" >> /etc/apt/apt.conf.d/99cache'
+          timeout 300 sudo apt-get update -qq -o Dir::Cache=/tmp/aptcache -o Dir::State::lists=/tmp/aptlists || true
+          sudo apt-get install -y -qq --no-install-recommends -o Dir::Cache=/tmp/aptcache -o Dir::State::lists=/tmp/aptlists \
+            bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod || true
+          sudo rm -rf /tmp/aptcache/* /tmp/aptlists/* || true
+          # 检查关键工具
+          for t in bc bison flex cpio 7z kmod; do command -v $t >/dev/null && echo "have $t" || echo "MISSING $t"; done
           df -h / | tail -1
 
       - uses: actions/checkout@v4
