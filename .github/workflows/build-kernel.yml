@@ -38,14 +38,12 @@ jobs:
         run: |
           curl -sL -o clang.7z "https://github.com/Mandi-Sa/clang/releases/download/amd64-kernel-arm_static-22/llvm22.0.0-binutils2.45.1_amd64-kernel-arm_static-20260111.7z"
           ls -l clang.7z
-          7z x -y clang.7z > /dev/null
-          ls -d */ | head -20
-          # 找含 bin/clang 的真实工具链目录(排除内核源码里的 include/clang)
-          CLANGDIR=$(find . -maxdepth 3 -type f -name 'clang' -path '*/bin/*' | head -1 | xargs -I{} dirname {} | xargs dirname)
-          echo "CLANGDIR=$CLANGDIR"
-          echo "TOOLCHAIN=$PWD/$CLANGDIR" >> "$GITHUB_ENV"
-          "$CLANGDIR/bin/clang" --version | head -1
-          ls "$CLANGDIR/bin" | grep -E "aarch64|ld.lld|clang$" | head -10
+          mkdir -p toolchain && 7z x -y clang.7z -otoolchain > /dev/null
+          ls toolchain/
+          ls toolchain/bin/ | head -20
+          echo "TOOLCHAIN=$PWD/toolchain" >> "$GITHUB_ENV"
+          toolchain/bin/clang --version | head -1
+          ls toolchain/bin | grep -E "aarch64|ld.lld" | head -10
 
       - name: Integrate KernelSU v0.9.5
         run: |
