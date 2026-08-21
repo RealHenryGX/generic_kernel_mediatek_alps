@@ -75,8 +75,10 @@ jobs:
 
       - name: Build
         run: |
+          # vendor GPU driver (rgx/mtk_mfgsys) trips -Wint-conversion under clang-16: demote
+          find drivers/gpu -name 'Kbuild' -o -name 'Makefile' | xargs sed -i 's/-Werror\([[:space:]\|]\)/-Wno-error\1/g' 2>/dev/null || true
           make O=out ARCH=arm64 CC=clang LD=ld.lld CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-            KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time" \
+            KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion" \
             -j$(nproc) Image.gz
           ls -l out/arch/arm64/boot/Image.gz
 
