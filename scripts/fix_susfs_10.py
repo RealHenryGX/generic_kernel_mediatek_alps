@@ -117,13 +117,6 @@ void susfs_set_init_sid(void)
 {
 	susfs_set_sid(KERNEL_INIT_DOMAIN, &susfs_init_sid);
 }
-
-void susfs_init_sid(void)
-{
-	susfs_set_ksu_sid();
-	susfs_set_init_sid();
-	susfs_set_zygote_sid();
-}
 #endif
 '''
 
