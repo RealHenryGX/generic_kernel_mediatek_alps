@@ -58,6 +58,8 @@ jobs:
           patch -p1 < 50_add_susfs_in_kernel-4.19.patch || true
           cp -r susfs4ksu/kernel_patches/fs/* fs/ || true
           cp -r susfs4ksu/kernel_patches/include/linux/* include/linux/ || true
+          # remaining 50_ hunks fail on 4.19.191 baseline drift - fix idempotently
+          python3 scripts/fix_susfs_50.py
           echo "--- susfs patch done ---"
 
       - name: Banner (gravity identity)
