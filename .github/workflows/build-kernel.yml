@@ -1,0 +1,102 @@
+name: Build a25 kernel (4.19.191-gravity)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [4.19.191-gravity]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 4096
+          swap-size-mb: 2048
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+
+      - name: Install deps
+        run: |
+          sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|' /etc/apt/sources.list.d/ubuntu.sources || true
+          timeout 300 sudo apt-get update -qq || true
+          sudo apt-get install -y -qq bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod binutils-aarch64-linux-gnu binutils-arm-linux-gnueabi gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: 4.19.191-gravity
+          fetch-depth: 1
+
+      - name: Toolchain (Mandi-Sa clang)
+        run: |
+          mkdir -p toolchain && cd toolchain
+          curl -sL -o clang.zip "https://github.com/Mandi-Sa/clang/releases/download/llvm22/clang-llvm22.zip" || \
+          curl -sL -o clang.zip "https://github.com/Mandi-Sa/clang/releases/download/llvm22/clang-llvm22-ubuntu.zip"
+          unzip -q clang.zip
+          ls
+          echo "TOOLCHAIN=$PWD" >> "$GITHUB_ENV"
+          # find clang binary path
+          find . -maxdepth 3 -name 'clang' -o -maxdepth 3 -name 'clang.exe' | head
+
+      - name: Integrate KernelSU v0.9.5
+        run: |
+          git clone --depth 1 --branch v0.9.5 https://github.com/tiann/KernelSU
+          ln -sf ../KernelSU/kernel drivers/kernelsu
+          echo 'obj-$(CONFIG_KSU) += kernelsu/' >> drivers/Makefile
+          sed -i '/endmenu/i\source "drivers/kernelsu/Kconfig"' drivers/Kconfig
+
+      - name: Integrate SUSFS (kernel-4.19)
+        run: |
+          git clone --depth 1 --branch kernel-4.19 https://gitlab.com/simonpunk/susfs4ksu.git
+          cp susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch KernelSU/
+          (cd KernelSU && patch -p1 < 10_enable_susfs_for_ksu.patch)
+          cp susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.19.patch .
+          patch -p1 < 50_add_susfs_in_kernel-4.19.patch
+          cp -r susfs4ksu/kernel_patches/fs/* fs/
+          cp -r susfs4ksu/kernel_patches/include/linux/* include/linux/
+          echo "--- susfs patch done ---"
+
+      - name: Banner (gravity identity)
+        run: |
+          grep -n 'Linux version' init/version.c || true
+          # 替换 linux_banner 中的编译机器标识为 gravity@a25
+          sed -i 's|"Linux version %s (%s@%s) (%s (%s)) %s"|"Linux version %s (gravity@a25) (%s (%s)) %s"|' init/version.c || true
+          grep -n 'Linux version' init/version.c || true
+
+      - name: Configure
+        run: |
+          export PATH="$TOOLCHAIN/bin:$PATH"
+          export CROSS_COMPILE=aarch64-linux-gnu-
+          export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+          export CC=clang
+          export ARCH=arm64
+          make O=out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- a25_gravity_defconfig
+
+      - name: Build
+        run: |
+          export PATH="$TOOLCHAIN/bin:$PATH"
+          make O=out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+            KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time" \
+            -j$(nproc) Image.gz
+          ls -l out/arch/arm64/boot/Image.gz
+
+      - name: Repack boot.img
+        run: |
+          python3 scripts/repack_boot.py stock/boot_a25.img out/arch/arm64/boot/Image.gz out/boot-a25-gravity.img
+          python3 scripts/repack_boot.py stock/recovery_a25.img out/arch/arm64/boot/Image.gz out/recovery-a25-gravity.img || true
+          ls -l out/*.img
+          sha256sum out/*.img
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-gravity-kernel
+          path: |
+            out/boot-a25-gravity.img
+            out/arch/arm64/boot/Image.gz
+            out/recovery-a25-gravity.img
+          if-no-files-found: error
