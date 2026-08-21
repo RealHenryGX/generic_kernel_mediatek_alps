@@ -23,14 +23,17 @@ jobs:
       - name: Install deps + clang-16
         run: |
           sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|' /etc/apt/sources.list.d/ubuntu.sources || true
+          sudo apt-get clean || true
           timeout 300 sudo apt-get update -qq || true
-          sudo apt-get install -y -qq bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod \
+          sudo apt-get install -y -qq --no-install-recommends bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod \
             binutils-aarch64-linux-gnu binutils-arm-linux-gnueabi gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
             clang-16 llvm-16 lld-16
+          sudo rm -rf /var/cache/apt/archives/*.deb || true
           # clang-16 提供 clang/ld.lld 兼容名(内核 Makefile 直接调 clang)
           sudo ln -sf /usr/bin/clang-16 /usr/local/bin/clang
           sudo ln -sf /usr/bin/ld.lld-16 /usr/local/bin/ld.lld
           clang --version | head -1
+          df -h / | tail -1
 
       - uses: actions/checkout@v4
         with:
