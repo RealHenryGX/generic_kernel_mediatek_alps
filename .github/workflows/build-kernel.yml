@@ -20,25 +20,31 @@ jobs:
           remove-android: 'true'
           remove-haskell: 'true'
 
-      - name: Install deps + clang-16
+      - name: Install deps (small, apt)
         run: |
           sudo sed -i 's|azure.archive.ubuntu.com|archive.ubuntu.com|' /etc/apt/sources.list.d/ubuntu.sources || true
           sudo apt-get clean || true
           timeout 300 sudo apt-get update -qq || true
-          sudo apt-get install -y -qq --no-install-recommends bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod \
-            binutils-aarch64-linux-gnu binutils-arm-linux-gnueabi gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
-            clang-16 llvm-16 lld-16
+          sudo apt-get install -y -qq --no-install-recommends bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod
           sudo rm -rf /var/cache/apt/archives/*.deb || true
-          # clang-16 提供 clang/ld.lld 兼容名(内核 Makefile 直接调 clang)
-          sudo ln -sf /usr/bin/clang-16 /usr/local/bin/clang
-          sudo ln -sf /usr/bin/ld.lld-16 /usr/local/bin/ld.lld
-          clang --version | head -1
           df -h / | tail -1
 
       - uses: actions/checkout@v4
         with:
           ref: 4.19.191-gravity
           fetch-depth: 1
+
+      - name: Setup toolchain (Mandi-Sa clang-22 static, includes binutils)
+        run: |
+          curl -sL -o clang.7z "https://github.com/Mandi-Sa/clang/releases/download/amd64-kernel-arm_static-22/llvm22.0.0-binutils2.45.1_amd64-kernel-arm_static-20260111.7z"
+          ls -l clang.7z
+          7z x -y clang.7z > /dev/null
+          CLANGDIR=$(find . -maxdepth 2 -type d -name '*clang*' | head -1)
+          echo "CLANGDIR=$CLANGDIR"
+          # 目录里可能有 bin/clang 或直接 clang
+          find "$CLANGDIR" -maxdepth 2 -name 'clang' -o -maxdepth 2 -name 'clang.exe' | head
+          echo "TOOLCHAIN=$PWD/$CLANGDIR" >> "$GITHUB_ENV"
+          "$CLANGDIR/bin/clang" --version | head -1 || find "$CLANGDIR" -name clang -exec {} --version \; | head -1
 
       - name: Integrate KernelSU v0.9.5
         run: |
@@ -74,13 +80,18 @@ jobs:
       - name: Configure
         run: |
           export ARCH=arm64
-          make O=out ARCH=arm64 CC=clang LD=ld.lld CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- a25_gravity_defconfig
+          export PATH="$TOOLCHAIN/bin:$PATH"
+          # Mandi-Sa 静态包内含 aarch64 交叉 binutils;若缺少则用 clang 自带 ld.lld
+          ls "$TOOLCHAIN/bin" | head -30
+          make O=out ARCH=arm64 CC="$TOOLCHAIN/bin/clang" LD="$TOOLCHAIN/bin/ld.lld" \
+            CROSS_COMPILE="$TOOLCHAIN/bin/aarch64-linux-gnu-" a25_gravity_defconfig
 
       - name: Build
         run: |
-          # vendor GPU driver (rgx/mtk_mfgsys) trips -Wint-conversion under clang-16: demote
+          # vendor GPU driver (rgx/mtk_mfgsys) trips -Wint-conversion under clang: demote
           find drivers/gpu -name 'Kbuild' -o -name 'Makefile' | xargs sed -i 's/-Werror\([[:space:]\|]\)/-Wno-error\1/g' 2>/dev/null || true
-          make O=out ARCH=arm64 CC=clang LD=ld.lld CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+          make O=out ARCH=arm64 CC="$TOOLCHAIN/bin/clang" LD="$TOOLCHAIN/bin/ld.lld" \
+            CROSS_COMPILE="$TOOLCHAIN/bin/aarch64-linux-gnu-" \
             KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion" \
             -j$(nproc) Image.gz
           ls -l out/arch/arm64/boot/Image.gz
