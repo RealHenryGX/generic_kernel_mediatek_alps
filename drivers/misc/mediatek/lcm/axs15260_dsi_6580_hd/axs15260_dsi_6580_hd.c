@@ -19,9 +19,17 @@
 #define FRAME_WIDTH  (384)
 #define FRAME_HEIGHT (854)
 
-#define REGFLAG_DELAY      0xffe
-#define REGFLAG_UDELAY     0xffd
-#define REGFLAG_END_OF_TABLE 0xfff
+#define REGFLAG_DELAY		0xFFFC
+#define REGFLAG_UDELAY		0xFFFB
+#define REGFLAG_END_OF_TABLE	0xFFFD
+#define REGFLAG_RESET_LOW	0xFFFE
+#define REGFLAG_RESET_HIGH	0xFFFF
+
+struct LCM_setting_table {
+	unsigned int cmd;
+	unsigned char count;
+	unsigned char para_list[64];
+};
 
 static struct LCM_UTIL_FUNCS lcm_util;
 
