@@ -1,0 +1,6 @@
+config TOUCHSCREEN_MTK_AXS
+	tristate "AXS15260 TDDI touch for Mediatek package"
+	default n
+	help
+	  Say Y here if you have AXS15260 (AxsTech/爱协生) touch panel.
+	  TDDI: display+touch single chip, I2C touch interface.

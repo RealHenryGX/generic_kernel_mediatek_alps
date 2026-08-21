@@ -102,6 +102,14 @@ config TOUCHSCREEN_MTK_GT9XX_LM
 	  touch panel.
 
 source "drivers/input/touchscreen/mediatek/GT9XX_LM/Kconfig"
+config TOUCHSCREEN_MTK_AXS
+	tristate "AXS15260 TDDI touch for Mediatek package"
+	default n
+	help
+	  Say Y here if you have AXS15260 (AxsTech/爱协生) touch panel.
+	  TDDI: display+touch single chip, I2C touch interface.
+source "drivers/input/touchscreen/mediatek/AXS/Kconfig"
+
 
 config TOUCHSCREEN_FT5X26
 	bool "FT5X26 for Mediatek package"
