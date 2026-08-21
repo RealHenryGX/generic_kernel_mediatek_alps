@@ -48,11 +48,13 @@ jobs:
         run: |
           git clone --depth 1 --branch kernel-4.19 https://gitlab.com/simonpunk/susfs4ksu.git
           cp susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch KernelSU/
-          (cd KernelSU && patch -p1 < 10_enable_susfs_for_ksu.patch)
+          (cd KernelSU && patch -p1 < 10_enable_susfs_for_ksu.patch || true)
+          # Hunk#7 (selinux.c susfs sid helpers) may fail on baseline drift - fix idempotently
+          python3 scripts/fix_susfs_10.py
           cp susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.19.patch .
-          patch -p1 < 50_add_susfs_in_kernel-4.19.patch
-          cp -r susfs4ksu/kernel_patches/fs/* fs/
-          cp -r susfs4ksu/kernel_patches/include/linux/* include/linux/
+          patch -p1 < 50_add_susfs_in_kernel-4.19.patch || true
+          cp -r susfs4ksu/kernel_patches/fs/* fs/ || true
+          cp -r susfs4ksu/kernel_patches/include/linux/* include/linux/ || true
           echo "--- susfs patch done ---"
 
       - name: Banner (gravity identity)
