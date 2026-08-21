@@ -46,7 +46,10 @@ jobs:
 
       - name: Integrate SUSFS (kernel-4.19)
         run: |
-          git clone --depth 1 --branch kernel-4.19 https://gitlab.com/simonpunk/susfs4ksu.git
+          # GitLab git clone often 403s from GH runners - use archive tarball instead
+          curl -sL -o susfs4ksu.tar.gz "https://gitlab.com/simonpunk/susfs4ksu/-/archive/kernel-4.19/susfs4ksu-kernel-4.19.tar.gz"
+          tar xzf susfs4ksu.tar.gz
+          mv susfs4ksu-kernel-4.19 susfs4ksu
           cp susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch KernelSU/
           (cd KernelSU && patch -p1 < 10_enable_susfs_for_ksu.patch || true)
           # Hunk#7 (selinux.c susfs sid helpers) may fail on baseline drift - fix idempotently
