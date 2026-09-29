@@ -309,6 +309,7 @@ extern struct LCM_DRIVER hx83112b_fhdp_dsi_vdo_auo_rt5081_lcm_drv;
 extern struct LCM_DRIVER hx83112b_fhdp_dsi_cmd_auo_rt5081_hdp_lcm_drv;
 extern struct LCM_DRIVER hx83112b_fhdp_dsi_vdo_auo_rt5081_hdp_lcm_drv;
 extern struct LCM_DRIVER es6311_anx6585_zigzag_wxga_lcm_drv;
+extern struct LCM_DRIVER axs15260_dsi_6580_hd_lcm_drv;
 extern struct LCM_DRIVER ft8201_wxga_vdo_incell_boe_lcm_drv;
 extern struct LCM_DRIVER nt51021h_wuxga_vdo_oncell_boe_lcm_drv;
 extern struct LCM_DRIVER nt36672ah_hdp_dsi_vdo_tcl_csot_lcm_drv;

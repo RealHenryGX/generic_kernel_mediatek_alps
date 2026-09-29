@@ -9,9 +9,16 @@
  */
 
 #include <linux/string.h>
-#include <linux/delay.h>
 #include <linux/gpio.h>
 #include "lcm_drv.h"
+
+/* 内核 delay.h 的 mdelay/udelay 是宏,会破坏 lcm_util.<member> 访问 */
+#ifdef mdelay
+#undef mdelay
+#endif
+#ifdef udelay
+#undef udelay
+#endif
 
 #define MDELAY(n)	(lcm_util.mdelay(n))
 #define UDELAY(n)	(lcm_util.udelay(n))

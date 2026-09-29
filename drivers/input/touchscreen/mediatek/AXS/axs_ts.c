@@ -53,10 +53,9 @@ static int axs_ts_init_flag;
 
 static void axs_ts_reset(void)
 {
-	int ret = -1;
 
 	if (axs_irq_gpio >= 0) {
-		ret = gpio_direction_output(axs_irq_gpio, 0);
+		gpio_direction_output(axs_irq_gpio, 0);
 		mdelay(5);
 		gpio_direction_output(axs_irq_gpio, 1);
 		mdelay(20);
@@ -176,7 +175,7 @@ static int axs_ts_tpd_local_init(void)
 			return -ENOMEM;
 		}
 		tmp->adapter = adapter;
-		tmp->addr = 0x40; /* default AXS I2C addr, from DTS if different */
+		tmp->addr = 0x38; /* 实机 i2c-0@0x38(原厂 dtbo overlay 实锤)*/
 		ret = axs_read_version(tmp, &version);
 		if (ret == 0)
 			TPD_DMESG("probe: fw version 0x%04x\n", version);
