@@ -25,6 +25,13 @@
 
 #include "tpd.h"
 
+#ifndef TPD_RES_X
+#define TPD_RES_X 384
+#endif
+#ifndef TPD_RES_Y
+#define TPD_RES_Y 854
+#endif
+
 #define AXS_DEVICE		"axs_ts"
 #define AXS_DRIVER_VERSION	"1.0.0"
 

@@ -15,6 +15,8 @@
 
 #define MDELAY(n)	(lcm_util.mdelay(n))
 #define UDELAY(n)	(lcm_util.udelay(n))
+#define dsi_set_cmdq_V22(cmdq, cmd, count, ppara, force_update) \
+	lcm_util.dsi_set_cmdq_V22(cmdq, cmd, count, ppara, force_update)
 
 #define FRAME_WIDTH  (384)
 #define FRAME_HEIGHT (854)
@@ -129,16 +131,16 @@ static struct LCM_setting_table lcm_initialization_setting[] = {
 	/* lock */
 	{0xBB, 8, {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00} },
 	/* sleep out + display on */
-	{0x11, 0, {} },
-	{REGFLAG_DELAY, 120, {} },
-	{0x29, 0, {} },
-	{REGFLAG_DELAY, 20, {} },
+	{0x11, 0, {0} },
+	{REGFLAG_DELAY, 120, {0} },
+	{0x29, 0, {0} },
+	{REGFLAG_DELAY, 20, {0} },
 };
 
 static struct LCM_setting_table lcm_suspend_setting[] = {
-	{0x28, 0, {} },
-	{0x10, 0, {} },
-	{REGFLAG_DELAY, 120, {} },
+	{0x28, 0, {0} },
+	{0x10, 0, {0} },
+	{REGFLAG_DELAY, 120, {0} },
 };
 
 static void push_table(void *cmdq, struct LCM_setting_table *table,
@@ -182,16 +184,16 @@ static void lcm_get_params(struct LCM_PARAMS *params)
 
 	params->dsi.mode = SYNC_PULSE_VDO_MODE;
 	params->dsi.LANE_NUM = LCM_TWO_LANE;
-	params->dsi.ps = LCM_PACKED_PS_24BIT_RGB888;
+	params->dsi.PS = LCM_PACKED_PS_24BIT_RGB888;
 
 	params->dsi.vertical_sync_active = 2;
-	params->dsi.vertical_back_porch = 14;
-	params->dsi.vertical_front_porch = 4;
+	params->dsi.vertical_backporch = 14;
+	params->dsi.vertical_frontporch = 4;
 	params->dsi.vertical_active_line = FRAME_HEIGHT;
 
 	params->dsi.horizontal_sync_active = 4;
-	params->dsi.horizontal_back_porch = 20;
-	params->dsi.horizontal_front_porch = 20;
+	params->dsi.horizontal_backporch = 20;
+	params->dsi.horizontal_frontporch = 20;
 	params->dsi.horizontal_active_pixel = FRAME_WIDTH;
 
 	params->dsi.PLL_CLOCK = 280;
