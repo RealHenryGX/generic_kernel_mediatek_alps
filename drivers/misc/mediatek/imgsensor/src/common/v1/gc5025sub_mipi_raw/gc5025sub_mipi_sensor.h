@@ -16,6 +16,21 @@
 #ifndef _GC5025SUBMIPI_SENSOR_H
 #define _GC5025SUBMIPI_SENSOR_H
 
+
+/* ---------------------------------------------------------------------------
+ * 4.19 compatibility shim
+ * Upstream 4.14 / 3.18 imgsensor headers provided bare typedefs for these
+ * types; the 4.19 headers only declare tagged struct/enum. Provide the
+ * missing aliases so the ported driver source compiles unchanged.
+ * --------------------------------------------------------------------------- */
+#ifndef IMGSENSOR_4_19_COMPAT_SHIM
+#define IMGSENSOR_4_19_COMPAT_SHIM
+typedef struct SENSOR_FUNCTION_STRUCT       SENSOR_FUNCTION_STRUCT;
+typedef enum   MSDK_SCENARIO_ID_ENUM        MSDK_SCENARIO_ID_ENUM;
+typedef struct SENSOR_WINSIZE_INFO_STRUCT   SENSOR_WINSIZE_INFO_STRUCT;
+typedef struct SET_SENSOR_AWB_GAIN          SET_SENSOR_AWB_GAIN;
+typedef struct SET_SENSOR_ISO               SET_SENSOR_ISO;
+#endif /* IMGSENSOR_4_19_COMPAT_SHIM */
 //#define GC5025SUB_MIRROR_NORMAL
 //#define GC5025SUB_MIRROR_H
 //#define GC5025SUB_MIRROR_V
