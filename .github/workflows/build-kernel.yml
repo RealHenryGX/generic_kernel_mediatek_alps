@@ -91,6 +91,14 @@ jobs:
           make O=out ARCH=arm64 CC="$TOOLCHAIN/bin/clang" LD="$TOOLCHAIN/bin/ld.lld" \
             CROSS_COMPILE="$TOOLCHAIN/bin/aarch64-linux-gnu-" a25_gravity_defconfig
 
+          echo "=== DEBUG: touchscreen config in generated .config ==="
+          grep -E "CONFIG_(INPUT_)?TOUCHSCREEN" out/.config | head -25 || true
+          echo "=== DEBUG: AXS symbol value ==="
+          grep -n "TOUCHSCREEN_MTK_AXS" out/.config || echo "(AXS symbol ABSENT from .config)"
+          echo "=== DEBUG: AXS dir + config files present ==="
+          ls -la drivers/input/touchscreen/mediatek/AXS/ 2>&1 | head
+          grep -n "TOUCHSCREEN_MTK_AXS" drivers/input/touchscreen/mediatek/Makefile || true
+
       - name: Build
         run: |
           # vendor GPU driver (rgx/mtk_mfgsys) trips -Wint-conversion under clang: demote
