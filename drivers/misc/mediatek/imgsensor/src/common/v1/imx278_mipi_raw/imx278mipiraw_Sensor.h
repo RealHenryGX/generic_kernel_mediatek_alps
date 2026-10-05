@@ -26,7 +26,7 @@
  * --------------------------------------------------------------------------- */
 #ifndef IMGSENSOR_4_19_COMPAT_SHIM
 #define IMGSENSOR_4_19_COMPAT_SHIM
-/* 4.19 moved kal_*/UINT* base types here; 3.18 pulled them in via kd_imgsensor.h */
+/* 4.19 moved the kal_uint8/16/32 and UINT8/16/32 base types into this header. */
 #include "kd_camera_typedef.h"
 typedef struct SENSOR_FUNCTION_STRUCT       SENSOR_FUNCTION_STRUCT;
 typedef enum   MSDK_SCENARIO_ID_ENUM        MSDK_SCENARIO_ID_ENUM;

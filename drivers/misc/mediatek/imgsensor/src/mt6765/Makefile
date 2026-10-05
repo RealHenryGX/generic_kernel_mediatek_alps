@@ -15,6 +15,9 @@
 # Makefile for misc devices that really don't fit anywhere else.
 #
 
+# 3.18/4.14-era vendor sensor sources: relax clang -Werror checks absent back then
+ccflags-y += -Wno-error=declaration-after-statement -Wno-error=unused-variable
+
 MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
 ARCH_MTK_PROJECT := $(subst ",,$(CONFIG_ARCH_MTK_PROJECT))
 IMGSENSOR_DRIVER_PATH  := $(srctree)/drivers/misc/mediatek/imgsensor/src
