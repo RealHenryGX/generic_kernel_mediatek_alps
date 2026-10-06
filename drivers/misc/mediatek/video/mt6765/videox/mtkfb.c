@@ -1,3 +1,7 @@
+#ifdef CONFIG_A25_LCM_POWER
+#include <linux/a25_lcm_power.h>
+#include <linux/a25_touch.h>
+#endif
 // SPDX-License-Identifier: GPL-2.0
 /*
  * Copyright (c) 2019 MediaTek Inc.
@@ -2396,6 +2400,18 @@ static int mtkfb_probe(struct platform_device *pdev)
 		return -EPROBE_DEFER;
 	}
 #endif
+#ifdef CONFIG_A25_LCM_POWER
+	/* LCM .init is void: defer HERE, before allocations and display init.
+	 * TPD normally probes at late_initcall; readiness obtains only its
+	 * pinctrl on the existing TPD platform device, without probing touch.
+	 */
+	r = a25_bias_ready();
+	if (r)
+		return r;
+	r = tpd_a25_reset_ready();
+	if (r)
+		return r;
+#endif
 	_parse_tag_videolfb();
 
 	init_state = 0;
@@ -2403,6 +2419,10 @@ static int mtkfb_probe(struct platform_device *pdev)
 	/* pdev = to_platform_device(dev); */
 	/* repo call DTS gpio module, if not necessary, invoke nothing */
 	dts_gpio_state = disp_dts_gpio_init_repo(pdev);
+#ifdef CONFIG_A25_LCM_POWER
+	if (dts_gpio_state)
+		return dts_gpio_state;
+#endif
 	if (dts_gpio_state != 0)
 		DISPMSG("retrieve GPIO DTS failed.");
 
@@ -2427,7 +2447,14 @@ static int mtkfb_probe(struct platform_device *pdev)
 
 	primary_display_set_frame_buffer_address(
 		(unsigned long)(fbdev->fb_va_base), fb_pa, fb_base);
-	primary_display_init(mtkfb_find_lcm_driver(), lcd_fps, is_lcm_inited);
+	r = primary_display_init(mtkfb_find_lcm_driver(), lcd_fps, is_lcm_inited);
+#ifdef CONFIG_A25_LCM_POWER
+	/* LK handoff skips lcm_init; only publish it after display setup.
+	 * This is not a reset and cannot overwrite a prior LCM failure.
+	 */
+	if (!r && is_lcm_inited)
+		a25_touch_boot_handoff();
+#endif
 
 	init_state++;		/* 1 */
 	MTK_FB_XRES = DISP_GetScreenWidth();

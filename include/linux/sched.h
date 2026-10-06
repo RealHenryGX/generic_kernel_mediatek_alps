@@ -1324,8 +1324,16 @@ struct task_struct {
 	struct mutex			futex_exit_mutex;
 #endif
 
+#ifdef CONFIG_KSU_SUSFS
+	ANDROID_KABI_USE(7, u64 susfs_task_state);
+#else
 	ANDROID_KABI_RESERVE(7);
+#endif
+#ifdef CONFIG_KSU_SUSFS
+	ANDROID_KABI_USE(8, u64 susfs_last_fake_mnt_id);
+#else
 	ANDROID_KABI_RESERVE(8);
+#endif
 #ifdef CONFIG_MTK_TASK_TURBO
 	unsigned short turbo:1;
 	unsigned short render:1;

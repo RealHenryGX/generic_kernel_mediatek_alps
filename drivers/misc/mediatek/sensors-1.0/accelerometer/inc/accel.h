@@ -55,6 +55,9 @@ struct acc_control_path {
 	bool is_report_input_direct;
 	bool is_support_batch;
 	bool is_use_common_factory;
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	bool a25_owned;
+#endif
 };
 
 struct acc_data_path {
@@ -121,6 +124,9 @@ struct acc_context {
 
 /* for auto detect */
 extern int acc_driver_add(struct acc_init_info *obj);
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+extern void acc_unregister_a25_path(void);
+#endif
 extern int acc_data_report(struct acc_data *data);
 extern int acc_bias_report(struct acc_data *data);
 extern int acc_cali_report(struct acc_data *data);

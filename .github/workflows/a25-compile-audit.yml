@@ -1,0 +1,76 @@
+name: A25 v5 compile audit
+
+'on':
+  push:
+    branches: [audit/a25-v5-compile]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: a25-v5-compile-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  compile-audit:
+    if: github.ref == 'refs/heads/audit/a25-v5-compile'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    env:
+      AUDIT_WORK: ${{ runner.temp }}/a25-compile-audit
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Initialize evidence directory
+        run: mkdir -p "$AUDIT_WORK/evidence"
+
+      - name: Checkout this exact audit commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: false
+          lfs: false
+
+      - name: Install build dependencies
+        timeout-minutes: 6
+        run: |
+          set -euo pipefail
+          {
+            timeout 120 sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=30 update
+            timeout 180 sudo apt-get install -y --no-install-recommends \
+              build-essential bc bison flex libssl-dev libelf-dev cpio \
+              p7zip-full git kmod curl python3 xz-utils
+          } 2>&1 | tee "$AUDIT_WORK/evidence/dependencies.log"
+
+      - name: Compile Image.gz and modules, then enforce final ABI gate
+        timeout-minutes: 78
+        run: |
+          set -euo pipefail
+          python3 -u -B scripts/a25_cloud_audit.py \
+            --source "$GITHUB_WORKSPACE" --work "$AUDIT_WORK" --jobs 4
+
+      - name: Upload evidence and any available build products
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: a25-v5-compile-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/a25-compile-audit/evidence/
+            ${{ runner.temp }}/a25-compile-audit/out/vmlinux
+            ${{ runner.temp }}/a25-compile-audit/out/Module.symvers
+            ${{ runner.temp }}/a25-compile-audit/out/System.map
+            ${{ runner.temp }}/a25-compile-audit/out/arch/arm64/boot/Image
+            ${{ runner.temp }}/a25-compile-audit/out/arch/arm64/boot/Image.gz
+            ${{ runner.temp }}/a25-compile-audit/out/modules.order
+            ${{ runner.temp }}/a25-compile-audit/out/modules.builtin
+            ${{ runner.temp }}/a25-compile-audit/out/**/*.ko
+          if-no-files-found: error
+          retention-days: 5
+          compression-level: 1
+          include-hidden-files: false
+          overwrite: false

@@ -44,3 +44,6 @@ DEFINES += MTK_LCM_PHYSICAL_ROTATION=\"$(MTK_LCM_PHYSICAL_ROTATION)\"
 ccflags-$(CONFIG_MTK_LCM) += $(addprefix -D, $(DEFINES))
 ccflags-$(CONFIG_MTK_LCM_DEVICE_TREE_SUPPORT) += -DMTK_LCM_DEVICE_TREE_SUPPORT
 
+
+# A25 standalone supplier; DT-LCM remains disabled.
+obj-$(CONFIG_A25_LCM_POWER) += a25_bias.o

@@ -22,6 +22,11 @@ struct sensor_attr_dev {
 };
 extern int sensor_attr_register(struct sensor_attr_t *misc);
 extern int sensor_attr_deregister(struct sensor_attr_t *misc);
+struct attribute_group;
+/* Caller-owned queue/lifetime; never allocate/free sensor_event buffers. */
+extern int sensor_attr_register_owned(struct sensor_attr_t *misc,
+	const struct attribute_group **groups);
+extern int sensor_attr_deregister_owned(struct sensor_attr_t *misc);
 extern int __init sensor_attr_init(void);
 extern void __exit sensor_attr_exit(void);
 

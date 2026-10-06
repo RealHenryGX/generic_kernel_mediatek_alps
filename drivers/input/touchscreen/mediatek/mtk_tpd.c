@@ -3,6 +3,11 @@
  * Copyright (c) 2019 MediaTek Inc.
 */
 #include "tpd.h"
+#ifdef CONFIG_A25_LCM_POWER
+#include <linux/a25_lcm_power.h>
+#include <linux/of_platform.h>
+#include <linux/delay.h>
+#endif
 #include <linux/slab.h>
 #include <linux/device.h>
 #include <linux/miscdevice.h>
@@ -140,6 +145,125 @@ void tpd_get_dts_info(void)
 }
 
 static DEFINE_MUTEX(tpd_set_gpio_mutex);
+/* A25: keep the TPD device as pinctrl owner even before late tpd_probe. */
+#ifdef CONFIG_A25_LCM_POWER
+static struct platform_device *a25_reset_pdev;
+static struct pinctrl *a25_reset_pctrl;
+static struct pinctrl_state *a25_reset_low, *a25_reset_high;
+
+/* Caller holds tpd_set_gpio_mutex. No selection/output during readiness. */
+static int tpd_a25_prepare_locked(void)
+{
+	struct device_node *np;
+	struct platform_device *pdev;
+	struct pinctrl *p;
+	struct pinctrl_state *low, *high;
+	int ret;
+
+	if (a25_reset_pctrl)
+		return 0;
+	np = of_find_compatible_node(NULL, NULL, "goodix,touch");
+	if (!np)
+		return -ENODEV;
+	if (!of_device_is_available(np) ||
+	    of_property_read_bool(np, "tpd-use-ext-gpio")) {
+		of_node_put(np);
+		return -ENODEV;
+	}
+	pdev = of_find_device_by_node(np);
+	of_node_put(np);
+	if (!pdev)
+		return -EPROBE_DEFER;
+	/* pinctrl_get() is refcounted by device in this tree. TPD later gets
+	 * the SAME consumer, not an independent GPIO request/second owner.
+	 */
+	p = pinctrl_get(&pdev->dev);
+	if (IS_ERR(p)) {
+		ret = PTR_ERR(p);
+		goto put_dev;
+	}
+	low = pinctrl_lookup_state(p, "state_rst_output0");
+	if (IS_ERR(low)) {
+		ret = PTR_ERR(low);
+		goto put_pin;
+	}
+	high = pinctrl_lookup_state(p, "state_rst_output1");
+	if (IS_ERR(high)) {
+		ret = PTR_ERR(high);
+		goto put_pin;
+	}
+	a25_reset_pdev = pdev;
+	a25_reset_low = low;
+	a25_reset_high = high;
+	a25_reset_pctrl = p;
+	/* Built-in lifetime reference intentionally retained: display may outlive
+	 * tpd_remove. devm alone would leave the early LCM path dangling.
+	 */
+	return 0;
+put_pin:
+	pinctrl_put(p);
+put_dev:
+	put_device(&pdev->dev);
+	return ret;
+}
+
+int tpd_a25_reset_ready(void)
+{
+	int ret;
+
+	mutex_lock(&tpd_set_gpio_mutex);
+	ret = tpd_a25_prepare_locked();
+	mutex_unlock(&tpd_set_gpio_mutex);
+	return ret;
+}
+
+static int tpd_a25_reset(bool probe)
+{
+	int ret;
+
+	/* Serialize the complete pulse train, not three individually locked edges.
+	 * Stock axs_reset_proc(20): high, usleep(1000,1100), low,
+	 * usleep(10000,11000), high, msleep(20). GPIO comes from TPD DT.
+	 * Stock probe first drives this same reset high and waits 100ms.
+	 */
+	mutex_lock(&tpd_set_gpio_mutex);
+	ret = tpd_a25_prepare_locked();
+	if (ret)
+		goto out;
+	if (probe) {
+		ret = pinctrl_select_state(a25_reset_pctrl, a25_reset_high);
+		if (ret)
+			goto out;
+		msleep(100);
+	}
+	ret = pinctrl_select_state(a25_reset_pctrl, a25_reset_high);
+	if (ret)
+		goto out;
+	usleep_range(1000, 1100);
+	ret = pinctrl_select_state(a25_reset_pctrl, a25_reset_low);
+	if (ret)
+		goto out;
+	usleep_range(10000, 11000);
+	ret = pinctrl_select_state(a25_reset_pctrl, a25_reset_high);
+	if (!ret)
+		msleep(20);
+out:
+	mutex_unlock(&tpd_set_gpio_mutex);
+	return ret;
+}
+
+int tpd_a25_reset_20(void)
+{
+	return tpd_a25_reset(false);
+}
+
+int tpd_a25_probe_reset(void)
+{
+	return tpd_a25_reset(true);
+}
+#endif
+
+
 void tpd_gpio_as_int(int pin)
 {
 	mutex_lock(&tpd_set_gpio_mutex);
@@ -533,6 +657,7 @@ static void tpd_create_attributes(struct device *dev, struct tpd_attrs *attrs)
 /* touch panel probe */
 static int tpd_probe(struct platform_device *pdev)
 {
+	int axs_ret __maybe_unused;
 	int touch_type = 1;	/* 0:R-touch, 1: Cap-touch */
 	int i = 0;
 #ifndef CONFIG_CUSTOM_LCM_X
@@ -547,7 +672,11 @@ static int tpd_probe(struct platform_device *pdev)
 
 	if (misc_register(&tpd_misc_device))
 		pr_info("mtk_tpd: tpd_misc_device register failed\n");
-	tpd_get_gpio_info(pdev);
+	axs_ret = tpd_get_gpio_info(pdev);
+	if (IS_ENABLED(CONFIG_A25_LCM_POWER) && axs_ret) {
+		misc_deregister(&tpd_misc_device);
+		return axs_ret;
+	}
 	tpd = kmalloc(sizeof(struct tpd_device), GFP_KERNEL);
 	if (tpd == NULL)
 		return -ENOMEM;
@@ -636,7 +765,14 @@ static int tpd_probe(struct platform_device *pdev)
 	for (i = 1; i < TP_DRV_MAX_COUNT; i++) {
 		/* add tpd driver into list */
 		if (tpd_driver_list[i].tpd_device_name != NULL) {
-			tpd_driver_list[i].tpd_local_init();
+			axs_ret = tpd_driver_list[i].tpd_local_init();
+			if (IS_ENABLED(CONFIG_A25_LCM_POWER) && axs_ret) {
+				input_free_device(tpd->dev);
+				kfree(tpd);
+				tpd = NULL;
+				misc_deregister(&tpd_misc_device);
+				return axs_ret;
+			}
 			/* msleep(1); */
 			if (tpd_load_status == 1) {
 				TPD_DMESG("%s, tpd_driver_name=%s\n", __func__,

@@ -1,0 +1,43 @@
+config MTK_MIR3DA
+	bool "MiraMEMS MIR3DA experimental A25 candidate"
+	depends on I2C && OF && MTK_SENSOR_SUPPORT && CUSTOM_KERNEL_ACCELEROMETER
+	depends on !MTK_ACCELHUB && !NANOHUB && !CUSTOM_KERNEL_ACCELGYRO
+	depends on MTK_SENSOR_ARCHITECTURE = "1.0"
+	default n
+	help
+	  Teracube-derived candidate, not a verified A25 hardware profile.
+	  No defconfig enabling. Runtime probe is also gated until explicit
+	  lab approval; chip revision and calibration are unresolved.
+	  The optional A25 virtual PS path has a separate owned sampler.
+
+config MTK_MIR3DA_A25_STOCK_DIRECTION
+	bool "A25-only: restore stock final MIR3DA direction 4"
+	depends on MTK_MIR3DA
+	default y
+	help
+	  A25 stock probe reads direction=6 from DT then overwrites it with 4.
+	  Restore its final mounting transform (-X,+Y,-Z), not the DT input.
+	  This driver candidate only accepts the A25 DT input/address contract.
+	  Leave this enabled for A25; do not use as a generic MIR3DA setting.
+	  Calibration, chip revision and hardware validation remain separate.
+
+config MTK_MIR3DA_A25_STOCK_PIPELINE
+	bool "A25-only: stock software compensation reconstruction"
+	depends on MTK_MIR3DA_A25_STOCK_DIRECTION
+	default y
+	help
+	  Use the parsed chip selector and machine-code-verified stock
+	  30-sample stability / internal Z offset compensation for ACC data.
+	  Factory raw reads stay raw. No PS registration or sampling owner
+	  is added. Hardware validation and the existing lab opt-in remain.
+
+config MTK_MIR3DA_A25_VIRTUAL_PS
+	bool "A25-only: shared ACC/virtual proximity sampler"
+	depends on MTK_MIR3DA_A25_STOCK_PIPELINE && PM_SLEEP
+	default y
+	help
+	  Run a single compensated producer for ACC and virtual PS. Own the
+	  PS endpoint independently of ALSPS context; arbitrate sensor minor
+	  with physical ALSPS. PS holds a wakeup source because it has no IRQ.
+	  This fixes the stock missing independent sampling path, not hardware
+	  validation. MIR3DA's existing runtime hardware opt-in still applies.

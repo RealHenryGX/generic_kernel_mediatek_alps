@@ -23,3 +23,18 @@ config MTK_LCM_DEVICE_TREE_SUPPORT
 	  Please also turn on MTK_LCM_DEVICE_TREE_SUPPORT in ProjectConfig.mk.
 	  If not define MTK_LCM_DEVICE_TREE_SUPPORT
 	  there will not connect between display driver and LCM devices.
+
+
+config A25_LCM_POWER
+	bool "A25 stock LCM bias and TPD reset sequence"
+	depends on MACH_MT6765 && MTK_LCM && MTK_FB
+	depends on I2C=y && OF && PINCTRL
+	depends on TOUCHSCREEN_MTK=y && TOUCHSCREEN_MTK_AXS=y
+	depends on !MTK_LCM_DEVICE_TREE_SUPPORT && !MTK_LEGACY
+	depends on !FPGA_EARLY_PORTING
+	depends on CUSTOM_KERNEL_LCM = "axs15260_dsi_6580_hd"
+	default y
+	help
+	  Built-in-only supplier for the original A25 DT at address 0x3e.
+	  Uses only stock register bytes, not a voltage conversion table.
+	  Do not enable alongside another bias client/DT-LCM framework.

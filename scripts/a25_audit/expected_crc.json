@@ -1,0 +1,7002 @@
+{
+  "schema": 1,
+  "counts": {
+    "modules": 9,
+    "records": 977,
+    "unique_symbols": 543,
+    "kernel_records": 901,
+    "module_records": 76,
+    "module_symbols": 44
+  },
+  "modules": {
+    "module_01": {
+      "get_low_latency_mode": "0xc60dde3d",
+      "get_wifi_standalone_log_mode": "0xb94fd8af",
+      "register_file_buf_handler": "0x1ffe8f67",
+      "register_set_p2p_mode_handler": "0x38a0fd1b",
+      "update_driver_loaded_status": "0xca971b10",
+      "update_wr_mtx_down_up_status": "0x860230f4",
+      "wifi_reset_end": "0x6f3bf319",
+      "wifi_reset_start": "0xcf8cb5e3",
+      "fw_log_wifi_deinit": "0x69474ed5",
+      "fw_log_wifi_init": "0x85d85654",
+      "wifi_fwlog_event_func_register": "0xaf5eef2e",
+      "wifi_fwlog_get_fw_ver_register": "0x7c643ee5",
+      "wifi_fwlog_onoff_status": "0x79f5e673",
+      "fw_log_ics_deinit": "0xd4afd89e",
+      "fw_log_ics_init": "0xe4a989e3",
+      "wifi_ics_event_func_register": "0xf4e7df1f",
+      "wifi_ics_fwlog_write": "0x7dcf5c21"
+    },
+    "module_02": {
+      "connfem_epaelna_get_fem_info": "0x9b18ef54",
+      "connfem_epaelna_get_flags": "0xd4bdcc28",
+      "connfem_epaelna_get_flags_names": "0x0b778829",
+      "connfem_epaelna_get_pin_info": "0x6ed29590",
+      "connfem_epaelna_laa_get_pin_info": "0x76d6f438",
+      "connfem_is_available": "0xf6db78aa"
+    },
+    "module_03": {},
+    "module_04": {},
+    "module_05": {
+      "mtk_wcn_stpgps_drv_exit": "0x72da27c8",
+      "mtk_wcn_stpgps_drv_init": "0x7243e698"
+    },
+    "module_06": {},
+    "module_07": {
+      "board_sdio_ctrl": "0x69955581",
+      "mt_combo_plt_enter_deep_idle": "0xd08dfad1",
+      "mt_combo_plt_exit_deep_idle": "0x70cf9570",
+      "mtk_wcn_cmb_stub_aif_ctrl": "0x3f158ab0",
+      "mtk_wcn_cmb_stub_do_reset": "0xa9f29242",
+      "mtk_wcn_cmb_stub_func_ctrl": "0x291e50e8",
+      "mtk_wcn_cmb_stub_reg": "0x1ded9dd2",
+      "mtk_wcn_cmb_stub_unreg": "0x8a63f7d5",
+      "mtk_wcn_wmt_chipid_query": "0x6ef57895",
+      "mtk_wcn_wmt_set_chipid": "0x1a8f63ae",
+      "wmt_uart_port_desc": "0x3fab3ccd",
+      "wmt_plat_get_soc_chipid": "0x30ac2ef3",
+      "wmt_plat_read_cpupcr": "0x00371986",
+      "gConEmiPhyBase": "0x18f0a9e3",
+      "gConEmiSize": "0xf6499c27",
+      "mtk_wcn_consys_hw_efuse_paldo_ctrl": "0x462cd1ce",
+      "mtk_wcn_consys_hw_wifi_paldo_ctrl": "0xbb7925e6",
+      "mtk_wcn_stp_coredump_start_get": "0x6f565716",
+      "mtk_wcn_stp_is_ready": "0xbd9c94a3",
+      "mtk_wcn_stp_is_rxqueue_empty": "0xd5b8287f",
+      "mtk_wcn_stp_parser_data": "0xe0e5cdbe",
+      "mtk_wcn_stp_receive_data": "0x7ef22447",
+      "mtk_wcn_stp_send_data": "0xe471e19a",
+      "mtk_wcn_stp_send_data_raw": "0x40641105",
+      "mtk_wcn_stp_set_bluez": "0xcd5cff60",
+      "wmt_lib_get_fwinfor_from_emi": "0xbf70805f",
+      "mtk_wcn_stp_register_event_cb": "0xb095001c",
+      "mtk_wcn_stp_register_if_rx": "0xdbc066fe",
+      "mtk_wcn_stp_register_if_tx": "0x74affc26",
+      "mtk_wcn_stp_register_rx_has_pending_data": "0x3d80fd6c",
+      "mtk_wcn_stp_register_rx_thread_get": "0x66ae23b2",
+      "mtk_wcn_stp_register_tx_event_cb": "0x8bb55eea",
+      "mtk_wcn_stp_register_tx_has_pending_data": "0xd7ed0af1",
+      "mtk_wcn_stp_sdio_wake_up_ctrl": "0x681bdfce",
+      "mtk_wcn_set_connsys_power_off_flag": "0x1aee7536",
+      "mtk_wcn_stp_wmt_sdio_host_awake": "0x80a4a553",
+      "mtk_wcn_stp_wmt_sdio_op_reg": "0x40d3e72f",
+      "mtk_wcn_wmt_adie_workable": "0xb0390b96",
+      "mtk_wcn_wmt_assert": "0xc6e7b645",
+      "mtk_wcn_wmt_assert_keyword": "0x6290dec0",
+      "mtk_wcn_wmt_assert_timeout": "0xa68d984a",
+      "mtk_wcn_wmt_co_clock_flag_get": "0x20744741",
+      "mtk_wcn_wmt_do_reset": "0xa795daa9",
+      "mtk_wcn_wmt_do_reset_only": "0x445f1156",
+      "mtk_wcn_wmt_dsns_ctrl": "0x56cef6a6",
+      "mtk_wcn_wmt_dump_wmtd_backtrace": "0x56b6e603",
+      "mtk_wcn_wmt_flash_patch_ctrl": "0x6d0d4a93",
+      "mtk_wcn_wmt_func_off": "0xd977b15b",
+      "mtk_wcn_wmt_func_on": "0x7d6e061e",
+      "mtk_wcn_wmt_hwver_get": "0xd104bd91",
+      "mtk_wcn_wmt_ic_info_get": "0xd9b4c129",
+      "mtk_wcn_wmt_mpu_lock_aquire": "0x473c2ee3",
+      "mtk_wcn_wmt_mpu_lock_release": "0x75637533",
+      "mtk_wcn_wmt_msgcb_reg": "0xac8387ca",
+      "mtk_wcn_wmt_msgcb_unreg": "0x8c78a087",
+      "mtk_wcn_wmt_psm_ctrl": "0x14734572",
+      "mtk_wcn_wmt_set_mcif_mpu_protection": "0x435a83ba",
+      "mtk_wcn_wmt_set_wifi_ver": "0x3c3f0b6a",
+      "mtk_wcn_wmt_therm_ctrl": "0x7313efcd",
+      "mtk_wcn_wmt_wifi_fem_cfg_report": "0x78f73d6f",
+      "mtk_wcn_wmt_wlan_reg": "0xf6f3f906",
+      "mtk_wcn_wmt_wlan_unreg": "0x6c73b212",
+      "mtk_wmt_get_gps_lna_pin_num": "0x210c94ae",
+      "mtk_wmt_gps_l1_suspend_ctrl": "0xe4816910",
+      "mtk_wmt_gps_l5_suspend_ctrl": "0x950b733a",
+      "mtk_wmt_gps_mcu_ctrl": "0xe652920d",
+      "mtk_wmt_gps_suspend_ctrl": "0x8b8cc510",
+      "mtk_wmt_set_ext_ldo": "0xe0073009",
+      "mtk_wcn_hif_sdio_abort": "0x70820bf3",
+      "mtk_wcn_hif_sdio_bus_set_power": "0x95fd9270",
+      "mtk_wcn_hif_sdio_client_reg": "0x2bbcbf79",
+      "mtk_wcn_hif_sdio_client_unreg": "0xb3e4bee5",
+      "mtk_wcn_hif_sdio_driver_exit": "0x3ad7b412",
+      "mtk_wcn_hif_sdio_drv_init": "0xab6312b7",
+      "mtk_wcn_hif_sdio_enable_irq": "0xee7fda80",
+      "mtk_wcn_hif_sdio_get_dev": "0x1a8766b1",
+      "mtk_wcn_hif_sdio_get_drvdata": "0xaa4005fb",
+      "mtk_wcn_hif_sdio_read_buf": "0x5d031e81",
+      "mtk_wcn_hif_sdio_readb": "0x7f221b09",
+      "mtk_wcn_hif_sdio_readl": "0xe2753626",
+      "mtk_wcn_hif_sdio_set_drvdata": "0x8e36f453",
+      "mtk_wcn_hif_sdio_update_cb_reg": "0xa10e2a6c",
+      "mtk_wcn_hif_sdio_wmt_control": "0x229296f7",
+      "mtk_wcn_hif_sdio_write_buf": "0x1e11e1af",
+      "mtk_wcn_hif_sdio_writeb": "0xbd1cd297",
+      "mtk_wcn_hif_sdio_writel": "0xf5ca9c0e",
+      "mtk_wcn_common_drv_exit": "0x8d4fc308",
+      "mtk_wcn_common_drv_init": "0xc16c9e9f",
+      "wmt_dev_patch_get": "0x5976fdae",
+      "mtk_wcn_stp_sdio_drv_exit": "0x790c95dd",
+      "mtk_wcn_stp_sdio_drv_init": "0xa498084c",
+      "mtk_wcn_stp_uart_drv_exit": "0x18f3b943",
+      "mtk_wcn_stp_uart_drv_init": "0x7336edac",
+      "fw_log_wmt_deinit": "0x26ba9448",
+      "fw_log_wmt_init": "0x6ffac791",
+      "connsys_dedicated_log_get_utc_time": "0x0723262b",
+      "connsys_dedicated_log_path_apsoc_deinit": "0x2a93f1a8",
+      "connsys_dedicated_log_path_apsoc_init": "0x8d167e14",
+      "connsys_log_alarm_disable": "0x12807854",
+      "connsys_log_alarm_enable": "0xce4f3349",
+      "connsys_log_blank_state_changed": "0xb4c1c65d",
+      "connsys_log_deinit": "0x5b5cc9fe",
+      "connsys_log_get_buf_size": "0x93eb7ab0",
+      "connsys_log_get_emi_log_base_vir_addr": "0x8b2771c4",
+      "connsys_log_init": "0x88db89e4",
+      "connsys_log_read": "0xbf6aa137",
+      "connsys_log_read_to_user": "0x83f4ca61",
+      "connsys_log_register_event_cb": "0xc1ec710b"
+    },
+    "module_08": {
+      "g_dbg_level": "0xacc7870d"
+    },
+    "module_09": {}
+  },
+  "records": [
+    {
+      "module": "module_01",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "vmalloc",
+      "crc": "0xd6ee688f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "kvfree",
+      "crc": "0x7aa1756e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "kmalloc_order_trace",
+      "crc": "0xa202a8e5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "system_wq",
+      "crc": "0x2d3385d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "queue_work_on",
+      "crc": "0x04be4d8b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "flush_work",
+      "crc": "0xa7ab6d28",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "connsys_log_register_event_cb",
+      "crc": "0xc1ec710b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "connsys_log_read_to_user",
+      "crc": "0x83f4ca61",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "connsys_log_init",
+      "crc": "0x88db89e4",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "connsys_log_get_buf_size",
+      "crc": "0x93eb7ab0",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "connsys_log_deinit",
+      "crc": "0x5b5cc9fe",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "___ratelimit",
+      "crc": "0x1d24c881",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "up",
+      "crc": "0xcf2a6966",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "register_chrdev_region",
+      "crc": "0x3fd78f3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "preempt_schedule",
+      "crc": "0x43b0c9c3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "param_ops_uint",
+      "crc": "0x9718a890",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "mtk_wcn_wmt_func_on",
+      "crc": "0x7d6e061e",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "mtk_wcn_wmt_func_off",
+      "crc": "0xd977b15b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_01",
+      "symbol": "msleep",
+      "crc": "0xf9a482f9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "init_net",
+      "crc": "0xc553d2f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "down_trylock",
+      "crc": "0xfc7e2596",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "down",
+      "crc": "0x6626afca",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "dev_get_by_name",
+      "crc": "0x05b9ce26",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_01",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "strncpy",
+      "crc": "0x9166fada",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "strcmp",
+      "crc": "0xe2d5255a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "strncmp",
+      "crc": "0x5a921311",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "snprintf",
+      "crc": "0x28318305",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "pinctrl_select_state",
+      "crc": "0xc728b8a1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "pinctrl_lookup_state",
+      "crc": "0x265dbf9f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_property_read_u32_index",
+      "crc": "0x1d369b88",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_property_read_string_helper",
+      "crc": "0x5414310d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_property_match_string",
+      "crc": "0x45d6dc65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_property_count_elems_of_size",
+      "crc": "0x7d330a46",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_prop_next_string",
+      "crc": "0x5e23fd20",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_parse_phandle",
+      "crc": "0xcbe333b5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_get_property",
+      "crc": "0xec8c6219",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_get_next_child",
+      "crc": "0xceb697f6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_get_named_gpio_flags",
+      "crc": "0x789e776e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_get_child_by_name",
+      "crc": "0x88485e76",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_find_property",
+      "crc": "0x87642d6e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_count_phandle_with_args",
+      "crc": "0xb5926586",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "iio_read_channel_processed",
+      "crc": "0x33422396",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "gpiod_get_raw_value",
+      "crc": "0xf6da50ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "gpio_to_desc",
+      "crc": "0x178f96ae",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "devm_pinctrl_put",
+      "crc": "0xfa3901f3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "devm_pinctrl_get",
+      "crc": "0x1a8b5514",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "devm_iio_channel_get",
+      "crc": "0x97b1c80e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__kmalloc",
+      "crc": "0xd2b09ce5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "platform_driver_unregister",
+      "crc": "0x552b5e9d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "param_ops_uint",
+      "crc": "0x9718a890",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "of_device_get_match_data",
+      "crc": "0x279cd51c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__platform_driver_register",
+      "crc": "0x98b8641f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_02",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_03",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_03",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_03",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "connsys_log_register_event_cb",
+      "crc": "0xc1ec710b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "connsys_log_read_to_user",
+      "crc": "0x83f4ca61",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "connsys_log_init",
+      "crc": "0x88db89e4",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "connsys_log_get_buf_size",
+      "crc": "0x93eb7ab0",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "connsys_log_deinit",
+      "crc": "0x5b5cc9fe",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_seq_printf",
+      "crc": "0x11caddc7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_raw_output_prep",
+      "crc": "0x56355d01",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_handle_return",
+      "crc": "0xdaddbd5a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_event_reg",
+      "crc": "0xe449f221",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_event_raw_init",
+      "crc": "0x53bb7115",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_event_ignore_this_pid",
+      "crc": "0x87bcee08",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_event_buffer_reserve",
+      "crc": "0x6945b831",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_event_buffer_commit",
+      "crc": "0xa28a9dd5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "trace_define_field",
+      "crc": "0x0ac1fb3a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "strncat",
+      "crc": "0x2e2b40d2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "preempt_schedule_notrace",
+      "crc": "0xf70e4a4d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "perf_trace_run_bpf_submit",
+      "crc": "0x062e8520",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "perf_trace_buf_alloc",
+      "crc": "0x2e21ffae",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "event_triggers_call",
+      "crc": "0x8124f268",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cpu_number",
+      "crc": "0x7a2af7b4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "bpf_trace_run4",
+      "crc": "0xde2f73a2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__cpu_online_mask",
+      "crc": "0x7bcf5f59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "wait_for_completion_timeout",
+      "crc": "0x4d1ff60a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "strsep",
+      "crc": "0x85df9b6c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "proc_remove",
+      "crc": "0xd76bf527",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "proc_create",
+      "crc": "0x83c348ac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mutex_unlock",
+      "crc": "0xa6093a32",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mutex_lock_killable",
+      "crc": "0x9999c989",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_adie_workable",
+      "crc": "0xb0390b96",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "kstrtoll",
+      "crc": "0x779a18af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "complete",
+      "crc": "0x29361773",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__mutex_init",
+      "crc": "0x9a76f11f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "wakeup_source_unregister",
+      "crc": "0x68c52650",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "wakeup_source_register",
+      "crc": "0x0bfd3f0d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "up",
+      "crc": "0xcf2a6966",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "unregister_pm_notifier",
+      "crc": "0x7681946c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "strncpy",
+      "crc": "0x9166fada",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "snprintf",
+      "crc": "0x28318305",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "schedule",
+      "crc": "0x01000e51",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "register_pm_notifier",
+      "crc": "0x9cc4f70a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "register_chrdev_region",
+      "crc": "0x3fd78f3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "queue_delayed_work_on",
+      "crc": "0xaeca7f89",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "prepare_to_wait_event",
+      "crc": "0x8c26d495",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "pm_wakeup_ws_event",
+      "crc": "0xb98e6e69",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "pm_qos_update_request",
+      "crc": "0x52a3217e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "pm_qos_remove_request",
+      "crc": "0x817c63b0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "pm_qos_add_request",
+      "crc": "0xebfb4294",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "param_ops_uint",
+      "crc": "0x9718a890",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "of_find_compatible_node",
+      "crc": "0x2c413fcc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_psm_ctrl",
+      "crc": "0x14734572",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_msgcb_unreg",
+      "crc": "0x8c78a087",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_msgcb_reg",
+      "crc": "0xac8387ca",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_ic_info_get",
+      "crc": "0xd9b4c129",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_func_on",
+      "crc": "0x7d6e061e",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_func_off",
+      "crc": "0xd977b15b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_wmt_assert",
+      "crc": "0xc6e7b645",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_set_bluez",
+      "crc": "0xcd5cff60",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_send_data",
+      "crc": "0xe471e19a",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_register_event_cb",
+      "crc": "0xb095001c",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_receive_data",
+      "crc": "0x7ef22447",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_is_rxqueue_empty",
+      "crc": "0xd5b8287f",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "mtk_wcn_stp_is_ready",
+      "crc": "0xbd9c94a3",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_04",
+      "symbol": "msleep",
+      "crc": "0xf9a482f9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "init_wait_entry",
+      "crc": "0xfe487975",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "init_timer_key",
+      "crc": "0x79cf5987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "flush_workqueue",
+      "crc": "0x42160169",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "finish_wait",
+      "crc": "0x92540fbf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "down",
+      "crc": "0x6626afca",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "destroy_workqueue",
+      "crc": "0x8c03d20c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "delayed_work_timer_fn",
+      "crc": "0x253af43d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cpu_hwcaps",
+      "crc": "0x5c1c3eb4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cpu_hwcap_keys",
+      "crc": "0x552e51da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "cancel_delayed_work",
+      "crc": "0x672bf342",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "arm64_const_caps_ready",
+      "crc": "0x52da2b65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "_copy_from_iter",
+      "crc": "0x869e096f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__iounmap",
+      "crc": "0x45a55ec8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__ioremap",
+      "crc": "0x6b4b2933",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "__alloc_workqueue_key",
+      "crc": "0x43a53735",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_04",
+      "symbol": "___ratelimit",
+      "crc": "0x1d24c881",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "connsys_log_register_event_cb",
+      "crc": "0xc1ec710b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "connsys_log_read_to_user",
+      "crc": "0x83f4ca61",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "connsys_log_init",
+      "crc": "0x88db89e4",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "connsys_log_get_buf_size",
+      "crc": "0x93eb7ab0",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "connsys_log_deinit",
+      "crc": "0x5b5cc9fe",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "request_firmware",
+      "crc": "0x0a35ae59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "release_firmware",
+      "crc": "0xcea7eb71",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "nonseekable_open",
+      "crc": "0x3ac38f00",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "gConEmiPhyBase",
+      "crc": "0x18f0a9e3",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "emi_mpu_set_protection",
+      "crc": "0xf47e6964",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "wakeup_source_unregister",
+      "crc": "0x68c52650",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "wakeup_source_register",
+      "crc": "0x0bfd3f0d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "up",
+      "crc": "0xcf2a6966",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "schedule",
+      "crc": "0x01000e51",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "sched_clock",
+      "crc": "0x3a26ed11",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "register_chrdev_region",
+      "crc": "0x3fd78f3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "prepare_to_wait_event",
+      "crc": "0x8c26d495",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "param_ops_uint",
+      "crc": "0x9718a890",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wmt_gps_suspend_ctrl",
+      "crc": "0x8b8cc510",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wmt_gps_mcu_ctrl",
+      "crc": "0xe652920d",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wmt_get_gps_lna_pin_num",
+      "crc": "0x210c94ae",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_msgcb_unreg",
+      "crc": "0x8c78a087",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_msgcb_reg",
+      "crc": "0xac8387ca",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_ic_info_get",
+      "crc": "0xd9b4c129",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_func_on",
+      "crc": "0x7d6e061e",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_func_off",
+      "crc": "0xd977b15b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_co_clock_flag_get",
+      "crc": "0x20744741",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_wmt_assert",
+      "crc": "0xc6e7b645",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_stp_send_data",
+      "crc": "0xe471e19a",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_stp_register_event_cb",
+      "crc": "0xb095001c",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_stp_receive_data",
+      "crc": "0x7ef22447",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "mtk_wcn_stp_is_ready",
+      "crc": "0xbd9c94a3",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_05",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "ktime_get_real_ts64",
+      "crc": "0x9ec6ca96",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "init_wait_entry",
+      "crc": "0xfe487975",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "finish_wait",
+      "crc": "0x92540fbf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "dvfsrc_enable_dvfs_freq_hopping",
+      "crc": "0xc59be8e6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "down",
+      "crc": "0x6626afca",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "cpu_hwcaps",
+      "crc": "0x5c1c3eb4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "cpu_hwcap_keys",
+      "crc": "0x552e51da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "arm64_const_caps_ready",
+      "crc": "0x52da2b65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__pm_stay_awake",
+      "crc": "0xffc61867",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__pm_relax",
+      "crc": "0x4fb295e0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__iounmap",
+      "crc": "0x45a55ec8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__ioremap",
+      "crc": "0x6b4b2933",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__dynamic_pr_debug",
+      "crc": "0x44b1d426",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_05",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_event_buffer_size",
+      "crc": "0xf092ad6d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_max_events",
+      "crc": "0xd1dc7e9e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_ko_enabled",
+      "crc": "0x456dce4f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_spid_sub_assign",
+      "crc": "0xb2fdf81f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_extra_sub_assign",
+      "crc": "0x00adefd8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_fps_choice",
+      "crc": "0x067b03ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_fps_num",
+      "crc": "0xe71cf282",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_is_eara_active",
+      "crc": "0xb311a5e4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_check_main_sf_pid",
+      "crc": "0x639b337c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_set_timer_info",
+      "crc": "0xcd088dd4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_set_logical_render_info",
+      "crc": "0x66f9e1be",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_set_logical_render_runtime",
+      "crc": "0x984a5f1d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_separate_runtime_enable",
+      "crc": "0xb9a06894",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_check_specific_pid",
+      "crc": "0x78cc6734",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_num_possible_cpus",
+      "crc": "0x9f7e0a15",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_event_data",
+      "crc": "0xf2036ebd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_event_data_idx",
+      "crc": "0xfc4437f6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_get_process_id",
+      "crc": "0xb6006b29",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_target_fps_margin_high_fps",
+      "crc": "0x4abf2131",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_target_fps_margin_low_fps",
+      "crc": "0xd46466cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_can_update_thr",
+      "crc": "0x53df6247",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_no_stable_multiple_eara",
+      "crc": "0x89afdf15",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_no_stable_multiple",
+      "crc": "0x6672daba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_no_stable_thr",
+      "crc": "0xaa10801e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fstb_frame_num",
+      "crc": "0x46028740",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_get_display_rate",
+      "crc": "0x6338576b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgff_dep_frames_mod",
+      "crc": "0xcd587984",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgff_get_dep",
+      "crc": "0xe67704eb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgff_clean_deps_list",
+      "crc": "0xe33491b1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "rb_erase",
+      "crc": "0x4d9b652b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "rb_next",
+      "crc": "0xca9360b5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "rb_first",
+      "crc": "0xece784c2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_dep_frames_mod",
+      "crc": "0x896272f2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_hw_events_update",
+      "crc": "0x57454ca5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_free",
+      "crc": "0x134267d4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_get_dep",
+      "crc": "0xadc17a49",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_alloc",
+      "crc": "0x35811a9a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_clean_deps_list",
+      "crc": "0x8aefe2a7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_event_data",
+      "crc": "0x5a2b1b32",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_atomic_read",
+      "crc": "0x344d7494",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_event_index",
+      "crc": "0x0078d1b7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_trace",
+      "crc": "0x46ea2c6b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_lockprove",
+      "crc": "0x1b334f73",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgff_update_start_prev_index_fp",
+      "crc": "0x537145a7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgff_est_runtime_fp",
+      "crc": "0xb3452313",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_est_runtime_fp",
+      "crc": "0x202796ea",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_ema2_predict_fp",
+      "crc": "0xef954693",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "xgf_ema2_init_fp",
+      "crc": "0x8456af27",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "notify_xgf_ko_ready",
+      "crc": "0x09322005",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fpsgo_xgf2ko_do_recycle_fp",
+      "crc": "0x76f71979",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "fpsgo_xgf2ko_calculate_target_fps_fp",
+      "crc": "0x92bc2f14",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_06",
+      "symbol": "__dynamic_pr_debug",
+      "crc": "0x44b1d426",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_write",
+      "crc": "0x281ca2ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_wakeup_consys",
+      "crc": "0x30b59ea8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_rx_cb_register",
+      "crc": "0x2e8a2538",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_parser_wmt_evt",
+      "crc": "0xe9a009d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_open",
+      "crc": "0xb32f99b1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_loopback_ctrl",
+      "crc": "0xa0fcb7c0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_dpidle_ctrl",
+      "crc": "0xd54d6da4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_dbg_ctrl",
+      "crc": "0xf8c1afa1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_btif_close",
+      "crc": "0x05b602b4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_btif_exp_tx_has_pending_data",
+      "crc": "0x08f6325f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_btif_exp_rx_thread_get",
+      "crc": "0xc7a9c9ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_btif_exp_rx_has_pending_data",
+      "crc": "0x93263291",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "alarm_start_relative",
+      "crc": "0xf4c845c2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "alarm_init",
+      "crc": "0x63c58846",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "alarm_cancel",
+      "crc": "0xf0b3bbbb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "remove_proc_entry",
+      "crc": "0x2992cbea",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "zlib_deflate_workspacesize",
+      "crc": "0xe9f7149c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "zlib_deflateReset",
+      "crc": "0x6aeefac4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "zlib_deflateInit2",
+      "crc": "0x5a0b73d0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "zlib_deflateEnd",
+      "crc": "0xc890c008",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "zlib_deflate",
+      "crc": "0xf2c43f3f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "nla_put",
+      "crc": "0x97cdc797",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "genlmsg_put",
+      "crc": "0x4bbc6c38",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "genl_unregister_family",
+      "crc": "0x7d9957d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "genl_register_family",
+      "crc": "0x8b0d5676",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "crc32_le",
+      "crc": "0xe78bfacd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "aed_combo_exception_api",
+      "crc": "0x4af93671",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regmap_read",
+      "crc": "0x8744fe72",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "tty_unregister_ldisc",
+      "crc": "0xa120d33c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "tty_register_ldisc",
+      "crc": "0x0f7411e3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "tty_driver_flush_buffer",
+      "crc": "0xc017dbc5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "tasklet_kill",
+      "crc": "0x82072614",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "tasklet_init",
+      "crc": "0x9545af6d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "n_tty_ioctl_helper",
+      "crc": "0x01c0a5dc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__tasklet_schedule",
+      "crc": "0x0faef0ed",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_conn_md_bridge_unreg",
+      "crc": "0x41fdf9e9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_conn_md_bridge_send_msg",
+      "crc": "0xa4094358",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_conn_md_bridge_reg",
+      "crc": "0xe071b277",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "refcount_inc_checked",
+      "crc": "0x1ee8d6d4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "netlink_unicast",
+      "crc": "0x3b1cc526",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "netlink_kernel_release",
+      "crc": "0x26866728",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kfree_skb",
+      "crc": "0xae98229e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "init_net",
+      "crc": "0xc553d2f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__nlmsg_put",
+      "crc": "0x4098328b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__netlink_kernel_create",
+      "crc": "0x0349f95d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__alloc_skb",
+      "crc": "0x2ef94ede",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "proc_remove",
+      "crc": "0xd76bf527",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "proc_create",
+      "crc": "0x83c348ac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kmalloc_order_trace",
+      "crc": "0xa202a8e5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "flush_workqueue",
+      "crc": "0x42160169",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strncasecmp",
+      "crc": "0x96b29254",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "request_firmware",
+      "crc": "0x0a35ae59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "remap_pfn_range",
+      "crc": "0xda86a7ac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "release_firmware",
+      "crc": "0xcea7eb71",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kstrtouint",
+      "crc": "0x69ad2f20",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "fb_unregister_client",
+      "crc": "0xb12cbacb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "fb_register_client",
+      "crc": "0x80d68d3e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wakeup_source_unregister",
+      "crc": "0x68c52650",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wakeup_source_register",
+      "crc": "0x0bfd3f0d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wake_up_process",
+      "crc": "0xdb19e602",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wait_for_completion_timeout",
+      "crc": "0x4d1ff60a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wait_for_completion_interruptible",
+      "crc": "0x262e823a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "vsnprintf",
+      "crc": "0x8ab2e3d5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strstr",
+      "crc": "0x1e6d26a8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strsep",
+      "crc": "0x85df9b6c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strnstr",
+      "crc": "0xc310b981",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strncpy",
+      "crc": "0x9166fada",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strncmp",
+      "crc": "0x5a921311",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strcmp",
+      "crc": "0xe2d5255a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strchr",
+      "crc": "0x349cba85",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "schedule_timeout",
+      "crc": "0x8ddd8aad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "schedule",
+      "crc": "0x01000e51",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sched_clock",
+      "crc": "0x3a26ed11",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "prepare_to_wait_event",
+      "crc": "0x8c26d495",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mutex_trylock",
+      "crc": "0xb3b42a38",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mutex_lock_killable",
+      "crc": "0x9999c989",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mod_timer",
+      "crc": "0x72cd0f7f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "memcmp",
+      "crc": "0x449ad0a7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kvfree",
+      "crc": "0x7aa1756e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "ktime_get_real_ts64",
+      "crc": "0x9ec6ca96",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kthread_stop",
+      "crc": "0xf3911418",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kthread_should_stop",
+      "crc": "0xb3f7646e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kthread_create_on_node",
+      "crc": "0x5e3d7607",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kstrtoll",
+      "crc": "0x779a18af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "init_wait_entry",
+      "crc": "0xfe487975",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "init_timer_key",
+      "crc": "0x79cf5987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "finish_wait",
+      "crc": "0x92540fbf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "del_timer_sync",
+      "crc": "0xf15e728e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "del_timer",
+      "crc": "0xaa4008af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "connectivity_export_show_stack",
+      "crc": "0x37f99733",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "connectivity_export_dump_thread_state",
+      "crc": "0xdced65b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "complete",
+      "crc": "0x29361773",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "aee_kernel_warning_api_func",
+      "crc": "0xdb976d85",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "aee_is_printk_too_much",
+      "crc": "0x29c37d82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "add_timer",
+      "crc": "0x65744673",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_raw_spin_trylock",
+      "crc": "0x8c3253ec",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__udelay",
+      "crc": "0x9e7d6bd0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__trace_bprintk",
+      "crc": "0xc72e1233",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__pm_stay_awake",
+      "crc": "0xffc61867",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__pm_relax",
+      "crc": "0x4fb295e0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__msecs_to_jiffies",
+      "crc": "0x7f02188f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__memcpy_toio",
+      "crc": "0xf77555cd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__memcpy_fromio",
+      "crc": "0x5d112304",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic64_or",
+      "crc": "0xad1c144b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic64_fetch_or",
+      "crc": "0x67d370ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic64_fetch_andnot",
+      "crc": "0x83b30940",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic64_andnot",
+      "crc": "0x08aa9477",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kmalloc",
+      "crc": "0xd2b09ce5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kfifo_out",
+      "crc": "0x13d0adf7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kfifo_init",
+      "crc": "0xbd462b55",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kfifo_in",
+      "crc": "0xf23fcb99",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kfifo_free",
+      "crc": "0xdb760f52",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__kfifo_alloc",
+      "crc": "0x97868aef",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__dynamic_pr_debug",
+      "crc": "0x44b1d426",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wmt_export_mtk_wcn_sdio_irq_flag_set",
+      "crc": "0xbcada9fb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "vmalloc",
+      "crc": "0xd6ee688f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "vfree",
+      "crc": "0x999e8297",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_writesb",
+      "crc": "0x06e012e7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_writel",
+      "crc": "0x90b4eb2f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_writeb",
+      "crc": "0x28bb8ac7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_set_host_pm_flags",
+      "crc": "0x10870adc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_set_block_size",
+      "crc": "0xb2356317",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_release_irq",
+      "crc": "0xacc9c8ed",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_readsb",
+      "crc": "0x32ec67c9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_readl",
+      "crc": "0x046bb75b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_readb",
+      "crc": "0x56f7be1d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_get_host_pm_caps",
+      "crc": "0x9abdf11f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_f0_writeb",
+      "crc": "0x9d1f7f3e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_f0_readb",
+      "crc": "0xc975183f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_claim_irq",
+      "crc": "0xb86dd33b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mutex_unlock",
+      "crc": "0xa6093a32",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mutex_lock",
+      "crc": "0x41aed6e7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "connectivity_export_mmc_io_rw_direct",
+      "crc": "0x1cecc784",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_raw_spin_unlock_bh",
+      "crc": "0x49c41a57",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_raw_spin_lock_bh",
+      "crc": "0xb3635b01",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__mutex_init",
+      "crc": "0x9a76f11f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "set_user_nice",
+      "crc": "0x64d3acbe",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sys_tz",
+      "crc": "0xfe5d4bb2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "rtc_time64_to_tm",
+      "crc": "0x356461c8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic_add_return",
+      "crc": "0x7c97c8a4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic_add",
+      "crc": "0x1f7386be",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic_sub_return",
+      "crc": "0xec2ac905",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ll_sc_atomic_sub",
+      "crc": "0xf9a3efb9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "connectivity_export_clk_buf_show_status_info",
+      "crc": "0x441abdee",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "jiffies_to_msecs",
+      "crc": "0x37befc70",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "jiffies",
+      "crc": "0x15ba50a6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "___ratelimit",
+      "crc": "0x1d24c881",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strncat",
+      "crc": "0x2e2b40d2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "unregister_pm_notifier",
+      "crc": "0x7681946c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "system_wq",
+      "crc": "0x2d3385d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "register_pm_notifier",
+      "crc": "0x9cc4f70a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "queue_work_on",
+      "crc": "0x04be4d8b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "pm_runtime_enable",
+      "crc": "0xcb610878",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "platform_driver_unregister",
+      "crc": "0x552b5e9d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_reserved_mem_lookup",
+      "crc": "0x9daaeb5a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_parse_phandle",
+      "crc": "0xcbe333b5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_match_node",
+      "crc": "0xfa9245af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_get_child_by_name",
+      "crc": "0x88485e76",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_find_device_by_node",
+      "crc": "0x595cf83b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "devm_thermal_zone_of_sensor_register",
+      "crc": "0x42eb6878",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__pm_runtime_disable",
+      "crc": "0x522bc974",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__platform_driver_register",
+      "crc": "0x98b8641f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "request_threaded_irq",
+      "crc": "0x2072ee9b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "free_irq",
+      "crc": "0xc1514a3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "enable_irq",
+      "crc": "0xfcec0987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "disable_irq_nosync",
+      "crc": "0x27bbf221",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_raw_spin_unlock_irqrestore",
+      "crc": "0x3812050a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_raw_spin_lock_irqsave",
+      "crc": "0x51760917",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "usleep_range",
+      "crc": "0x12a38747",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "snprintf",
+      "crc": "0x28318305",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regulator_set_voltage",
+      "crc": "0x2a0b2f46",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regulator_get",
+      "crc": "0x7e795ade",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regulator_enable",
+      "crc": "0x4f20eb3a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regulator_disable",
+      "crc": "0xfef22999",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "regmap_write",
+      "crc": "0x253cc40d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_iomap",
+      "crc": "0xaede5d2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "irq_of_parse_and_map",
+      "crc": "0x759376d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "irq_get_irq_data",
+      "crc": "0x99ad9e9c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "emi_mpu_set_protection",
+      "crc": "0xf47e6964",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "devm_clk_get",
+      "crc": "0xf5cfefc4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "cpu_hwcaps",
+      "crc": "0x5c1c3eb4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "cpu_hwcap_keys",
+      "crc": "0x552e51da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "connectivity_export_clk_buf_ctrl",
+      "crc": "0xd42ba19b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "clk_unprepare",
+      "crc": "0xb077e70a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "clk_prepare",
+      "crc": "0x7c9a7371",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "clk_enable",
+      "crc": "0x815588a6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "clk_disable",
+      "crc": "0xb6e6d99d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "arm64_const_caps_ready",
+      "crc": "0x52da2b65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__memset_io",
+      "crc": "0x18b48e28",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__iounmap",
+      "crc": "0x45a55ec8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__ioremap",
+      "crc": "0x6b4b2933",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__const_udelay",
+      "crc": "0xeae3dfd6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "pinctrl_lookup_state",
+      "crc": "0x265dbf9f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_get_named_gpio_flags",
+      "crc": "0x789e776e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "of_find_compatible_node",
+      "crc": "0x2c413fcc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "devm_pinctrl_put",
+      "crc": "0xfa3901f3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "devm_pinctrl_get",
+      "crc": "0x1a8b5514",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wmt_export_platform_bridge_unregister",
+      "crc": "0x606be4ee",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wmt_export_platform_bridge_register",
+      "crc": "0xc47cda9d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wmt_export_mtk_wcn_cmb_sdio_disable_eirq",
+      "crc": "0x3296a2c2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "wifi_irq",
+      "crc": "0x6cd4e698",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_cmb_sdio_pm_data",
+      "crc": "0x21c68dad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "mtk_wcn_cmb_sdio_pm_cb",
+      "crc": "0xccf21e34",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "irq_set_irq_wake",
+      "crc": "0xce2840e7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_unregister_driver",
+      "crc": "0x5f94031d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_release_host",
+      "crc": "0xd17aef5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_register_driver",
+      "crc": "0x6b6797ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_enable_func",
+      "crc": "0x0afc068d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_disable_func",
+      "crc": "0x2c6a86bb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "sdio_claim_host",
+      "crc": "0x540cc547",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "register_chrdev_region",
+      "crc": "0x3fd78f3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "param_ops_uint",
+      "crc": "0x9718a890",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "pinctrl_select_state",
+      "crc": "0xc728b8a1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "msleep",
+      "crc": "0xf9a482f9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "gpiod_to_irq",
+      "crc": "0xa78d2595",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "gpiod_get_raw_value",
+      "crc": "0xf6da50ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "gpiod_direction_output_raw",
+      "crc": "0x93562524",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "gpio_to_desc",
+      "crc": "0x178f96ae",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_07",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_wmt_msgcb_reg",
+      "crc": "0xac8387ca",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_wmt_chipid_query",
+      "crc": "0x6ef57895",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_stp_send_data",
+      "crc": "0xe471e19a",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_stp_register_event_cb",
+      "crc": "0xb095001c",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_stp_receive_data",
+      "crc": "0x7ef22447",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kmalloc_order_trace",
+      "crc": "0xa202a8e5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "___ratelimit",
+      "crc": "0x1d24c881",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "wakeup_source_unregister",
+      "crc": "0x68c52650",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "wakeup_source_register",
+      "crc": "0x0bfd3f0d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "up",
+      "crc": "0xcf2a6966",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "schedule_timeout",
+      "crc": "0x8ddd8aad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "schedule",
+      "crc": "0x01000e51",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "queue_work_on",
+      "crc": "0x04be4d8b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "prepare_to_wait_event",
+      "crc": "0x8c26d495",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "msleep_interruptible",
+      "crc": "0xcc5005fe",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "msleep",
+      "crc": "0xf9a482f9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mod_timer",
+      "crc": "0x72cd0f7f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "init_wait_entry",
+      "crc": "0xfe487975",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "init_timer_key",
+      "crc": "0x79cf5987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "finish_wait",
+      "crc": "0x92540fbf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "down_trylock",
+      "crc": "0xfc7e2596",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "down_interruptible",
+      "crc": "0x81b395b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "destroy_workqueue",
+      "crc": "0x8c03d20c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "del_timer",
+      "crc": "0xaa4008af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "add_timer",
+      "crc": "0x65744673",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "_raw_spin_unlock_bh",
+      "crc": "0x49c41a57",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "_raw_spin_lock_bh",
+      "crc": "0xb3635b01",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__udelay",
+      "crc": "0x9e7d6bd0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__pm_stay_awake",
+      "crc": "0xffc61867",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__pm_relax",
+      "crc": "0x4fb295e0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__alloc_workqueue_key",
+      "crc": "0x43a53735",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "wake_up_process",
+      "crc": "0xdb19e602",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "wait_for_completion",
+      "crc": "0x6de13801",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "request_firmware",
+      "crc": "0x0a35ae59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "release_firmware",
+      "crc": "0xcea7eb71",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kthread_create_on_node",
+      "crc": "0x5e3d7607",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "complete",
+      "crc": "0x29361773",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "bcmp",
+      "crc": "0x263c3152",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "strncmp",
+      "crc": "0x5a921311",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "strcmp",
+      "crc": "0xe2d5255a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "jiffies_to_msecs",
+      "crc": "0x37befc70",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "jiffies",
+      "crc": "0x15ba50a6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "unregister_chrdev_region",
+      "crc": "0x6091b333",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "remove_proc_entry",
+      "crc": "0x2992cbea",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "proc_create",
+      "crc": "0x83c348ac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "platform_driver_unregister",
+      "crc": "0x552b5e9d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "platform_device_unregister",
+      "crc": "0xbd54b217",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "platform_device_put",
+      "crc": "0xd5f6b6a1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "platform_device_alloc",
+      "crc": "0x03bb2d56",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "platform_device_add",
+      "crc": "0x4cd60971",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "of_get_property",
+      "crc": "0xec8c6219",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "of_get_named_gpio_flags",
+      "crc": "0x789e776e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "of_find_compatible_node",
+      "crc": "0x2c413fcc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kstrtouint",
+      "crc": "0x69ad2f20",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "irq_of_parse_and_map",
+      "crc": "0x759376d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "gpiod_set_raw_value",
+      "crc": "0xbfcb463c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "gpiod_direction_output_raw",
+      "crc": "0x93562524",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "gpio_to_desc",
+      "crc": "0x178f96ae",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "gpio_request",
+      "crc": "0x47229b5c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "gpio_free",
+      "crc": "0xfe990052",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "device_destroy",
+      "crc": "0x5b78a018",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "device_create",
+      "crc": "0x9a82f02d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "class_destroy",
+      "crc": "0x7ec5ee98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "cdev_init",
+      "crc": "0x082f4121",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "cdev_del",
+      "crc": "0x676dfb5f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "cdev_add",
+      "crc": "0x9c23bc2a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "alloc_chrdev_region",
+      "crc": "0xe3ec2f2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__platform_driver_register",
+      "crc": "0x98b8641f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__ll_sc_atomic_sub_return",
+      "crc": "0xec2ac905",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__ll_sc_atomic_add",
+      "crc": "0x1f7386be",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__ll_sc_atomic64_or",
+      "crc": "0xad1c144b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__ll_sc_atomic64_andnot",
+      "crc": "0x08aa9477",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__kmalloc",
+      "crc": "0xd2b09ce5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__class_create",
+      "crc": "0xbc03a0cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "vmalloc",
+      "crc": "0xd6ee688f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "vfree",
+      "crc": "0x999e8297",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "sprintf",
+      "crc": "0x91715312",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_wmt_ic_info_get",
+      "crc": "0xd9b4c129",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_wmt_func_on",
+      "crc": "0x7d6e061e",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "mtk_wcn_wmt_func_off",
+      "crc": "0xd977b15b",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_08",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "module_layout",
+      "crc": "0x3c6e983b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "enable_irq",
+      "crc": "0xfcec0987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "disable_irq_nosync",
+      "crc": "0x27bbf221",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_tdls_oper_request",
+      "crc": "0xf325d767",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ieee80211_operating_class_to_band",
+      "crc": "0x81d5d8aa",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "regulatory_hint",
+      "crc": "0x9378d724",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "synchronize_irq",
+      "crc": "0xe523ad75",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "request_threaded_irq",
+      "crc": "0x2072ee9b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "platform_driver_unregister",
+      "crc": "0x552b5e9d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_reserved_mem_device_init_by_idx",
+      "crc": "0x04afbcb1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_property_read_variable_u64_array",
+      "crc": "0xa50376b8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_property_read_variable_u32_array",
+      "crc": "0x9bef19b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_property_read_string",
+      "crc": "0xe9a750b9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_parse_phandle",
+      "crc": "0xcbe333b5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_iomap",
+      "crc": "0xaede5d2b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_find_compatible_node",
+      "crc": "0x2c413fcc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "of_address_to_resource",
+      "crc": "0x5aa1e2c3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_wlan_unreg",
+      "crc": "0x6c73b212",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_wlan_reg",
+      "crc": "0xf6f3f906",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_consys_hw_wifi_paldo_ctrl",
+      "crc": "0xbb7925e6",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "irq_set_irq_wake",
+      "crc": "0xce2840e7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "irq_of_parse_and_map",
+      "crc": "0x759376d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "free_irq",
+      "crc": "0xc1514a3b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "dummy_dma_ops",
+      "crc": "0xa6bf03ba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "dma_release_from_dev_coherent",
+      "crc": "0x76924c7c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "dma_alloc_from_dev_coherent",
+      "crc": "0xc7031e66",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__platform_driver_register",
+      "crc": "0x98b8641f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__release_region",
+      "crc": "0x1848221d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__memset_io",
+      "crc": "0x18b48e28",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__memcpy_toio",
+      "crc": "0xf77555cd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "list_sort",
+      "crc": "0xf0ef15b4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__list_add_valid",
+      "crc": "0x68f31cbd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "usleep_range",
+      "crc": "0x12a38747",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__udelay",
+      "crc": "0x9e7d6bd0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__list_del_entry_valid",
+      "crc": "0xe1537255",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__const_udelay",
+      "crc": "0xeae3dfd6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_new_sta",
+      "crc": "0x719f2a28",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_del_sta_sinfo",
+      "crc": "0x6d0cac4e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "unregister_netdevice_queue",
+      "crc": "0x595fd16e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_netdevice",
+      "crc": "0x2e92ec4d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "rtnl_is_locked",
+      "crc": "0x85670f1d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "unregister_netdevice_notifier",
+      "crc": "0x9d0d6206",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "unregister_inetaddr_notifier",
+      "crc": "0xfe029963",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_netdevice_notifier",
+      "crc": "0xd2da1048",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_inetaddr_notifier",
+      "crc": "0xf68285c0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "nla_parse",
+      "crc": "0x43dae11a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__memcpy_fromio",
+      "crc": "0x5d112304",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_release",
+      "crc": "0xeb809e71",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_read",
+      "crc": "0xd0934675",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_puts",
+      "crc": "0x3e06c06e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_printf",
+      "crc": "0x0fe6e3b1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_open",
+      "crc": "0x1c41a957",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "seq_lseek",
+      "crc": "0x3c1e8191",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "remove_proc_subtree",
+      "crc": "0x95786a07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "proc_set_user",
+      "crc": "0x2bf460b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wiphy_apply_custom_regulatory",
+      "crc": "0x8c5cdbca",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "nla_put_nohdr",
+      "crc": "0x3300238f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_vendor_cmd_reply",
+      "crc": "0x0c18c0c3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_find_ie_match",
+      "crc": "0xb9f3ed41",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__cfg80211_alloc_reply_skb",
+      "crc": "0x074aa094",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_reset_start",
+      "crc": "0xcf8cb5e3",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_reset_end",
+      "crc": "0x6f3bf319",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_msgcb_unreg",
+      "crc": "0x8c78a087",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_msgcb_reg",
+      "crc": "0xac8387ca",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_assert_keyword",
+      "crc": "0x6290dec0",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_set_connsys_power_off_flag",
+      "crc": "0x1aee7536",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_ctype",
+      "crc": "0x11089ac7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wireless_send_event",
+      "crc": "0xaf36d1cf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "complete_all",
+      "crc": "0xfd94814e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__arch_copy_to_user",
+      "crc": "0x6b2941b2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wait_for_completion_timeout",
+      "crc": "0x4d1ff60a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "vsprintf",
+      "crc": "0x0ef8a5bf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "vfree",
+      "crc": "0x999e8297",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_seq_printf",
+      "crc": "0x11caddc7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_raw_output_prep",
+      "crc": "0x56355d01",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_handle_return",
+      "crc": "0xdaddbd5a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_event_reg",
+      "crc": "0xe449f221",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_event_raw_init",
+      "crc": "0x53bb7115",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_event_ignore_this_pid",
+      "crc": "0x87bcee08",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_event_buffer_reserve",
+      "crc": "0x6945b831",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_event_buffer_commit",
+      "crc": "0xa28a9dd5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "trace_define_field",
+      "crc": "0x0ac1fb3a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "sys_tz",
+      "crc": "0xfe5d4bb2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strlcpy",
+      "crc": "0x5792f848",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strcpy",
+      "crc": "0xe914e41e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "static_key_initialized",
+      "crc": "0xbea5ff1e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_trim",
+      "crc": "0x2b788350",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_realloc_headroom",
+      "crc": "0xe4f43c62",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_put",
+      "crc": "0xc7707316",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_pull_rcsum",
+      "crc": "0x0f50df08",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_copy_expand",
+      "crc": "0xf02ece40",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "set_user_nice",
+      "crc": "0x64d3acbe",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "schedule",
+      "crc": "0x01000e51",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "rps_needed",
+      "crc": "0xc1569d4a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "request_firmware",
+      "crc": "0x0a35ae59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "remove_proc_entry",
+      "crc": "0x2992cbea",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "release_firmware",
+      "crc": "0xcea7eb71",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "queue_work_on",
+      "crc": "0x04be4d8b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "proc_mkdir",
+      "crc": "0x03c00318",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "proc_create",
+      "crc": "0x83c348ac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "prepare_to_wait_event",
+      "crc": "0x8c26d495",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "preempt_schedule_notrace",
+      "crc": "0xf70e4a4d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "preempt_schedule",
+      "crc": "0x43b0c9c3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "pm_wakeup_ws_event",
+      "crc": "0xb98e6e69",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "perf_trace_run_bpf_submit",
+      "crc": "0x062e8520",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "perf_trace_buf_alloc",
+      "crc": "0x2e21ffae",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ns_to_timespec",
+      "crc": "0x66decfd5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "nr_cpu_ids",
+      "crc": "0x017de3d5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "nla_put",
+      "crc": "0x97cdc797",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_tx_wake_queue",
+      "crc": "0xc930bd21",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_rx_ni",
+      "crc": "0xc7920560",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_rx",
+      "crc": "0xa5fdf2c9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_carrier_on",
+      "crc": "0xd1579b49",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "napi_gro_receive",
+      "crc": "0xd0387df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "napi_gro_flush",
+      "crc": "0x5d446f99",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mutex_unlock",
+      "crc": "0xa6093a32",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mutex_lock",
+      "crc": "0x41aed6e7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "misc_register",
+      "crc": "0xf0635362",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "misc_deregister",
+      "crc": "0x917ffdb0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "lbat_user_register",
+      "crc": "0x625b7470",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ktime_get_with_offset",
+      "crc": "0xc4f0da12",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kobject_uevent_env",
+      "crc": "0x63a961f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kobject_uevent",
+      "crc": "0xbf2b716d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kfree_skb",
+      "crc": "0xae98229e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kfree_call_rcu",
+      "crc": "0x19f462ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "init_wait_entry",
+      "crc": "0xfe487975",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "init_net",
+      "crc": "0xc553d2f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ieee80211_channel_to_frequency",
+      "crc": "0xe8663ae6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "get_wifi_standalone_log_mode",
+      "crc": "0xb94fd8af",
+      "weak": true,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "get_random_bytes",
+      "crc": "0x79aa04a2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "finish_wait",
+      "crc": "0x92540fbf",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "fb_unregister_client",
+      "crc": "0xb12cbacb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "fb_register_client",
+      "crc": "0x80d68d3e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "event_triggers_call",
+      "crc": "0x8124f268",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "eth_type_trans",
+      "crc": "0x53180444",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "dump_stack",
+      "crc": "0x6b2dc060",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "down_trylock",
+      "crc": "0xfc7e2596",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "down_timeout",
+      "crc": "0x09682235",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "down_interruptible",
+      "crc": "0x81b395b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "device_init_wakeup",
+      "crc": "0x107ecf40",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "del_timer_sync",
+      "crc": "0xf15e728e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cpumask_next_and",
+      "crc": "0x62e15f26",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cpu_number",
+      "crc": "0x7a2af7b4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_unlink_bss",
+      "crc": "0x92eebc19",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_sched_scan_results",
+      "crc": "0xc2f00a8f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_rx_mgmt",
+      "crc": "0x4e482a75",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_roamed",
+      "crc": "0xaefdcb00",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_remain_on_channel_expired",
+      "crc": "0xe5e7b2da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_ready_on_channel",
+      "crc": "0xc7b4f39a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_put_bss",
+      "crc": "0x1abe2327",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_port_authorized",
+      "crc": "0x01d48c78",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_pmksa_candidate_notify",
+      "crc": "0x3c6bdfcc",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_michael_mic_failure",
+      "crc": "0x9798cf32",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_mgmt_tx_status",
+      "crc": "0x503d46b6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_inform_bss_frame_data",
+      "crc": "0x501752ab",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_inform_bss_data",
+      "crc": "0x24dcaa4f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_get_bss",
+      "crc": "0x094e45f6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_ft_event",
+      "crc": "0x0973b8f7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_external_auth_request",
+      "crc": "0x823b0f6f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_connect_done",
+      "crc": "0xe0a80f8b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_chandef_create",
+      "crc": "0x60fe7d24",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_ch_switch_notify",
+      "crc": "0x6281ba77",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "bpf_trace_run1",
+      "crc": "0x3828aa24",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "add_timer",
+      "crc": "0x65744673",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__warn_printk",
+      "crc": "0xad27f361",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__sw_hweight64",
+      "crc": "0x9f46ced8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__pm_stay_awake",
+      "crc": "0xffc61867",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__netdev_alloc_skb",
+      "crc": "0x52507067",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__msecs_to_jiffies",
+      "crc": "0x7f02188f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__dev_kfree_skb_any",
+      "crc": "0xa57aad69",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__cpu_online_mask",
+      "crc": "0x7bcf5f59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__cfg80211_send_event_skb",
+      "crc": "0x9e8dcade",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__cfg80211_alloc_event_skb",
+      "crc": "0x21e28f78",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wiphy_unregister",
+      "crc": "0xa50fbfe1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wiphy_register",
+      "crc": "0xc7a14eba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wiphy_new_nm",
+      "crc": "0xa188b9f1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wiphy_free",
+      "crc": "0x5246612d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_ics_event_func_register",
+      "crc": "0xf4e7df1f",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_fwlog_get_fw_ver_register",
+      "crc": "0x7c643ee5",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_fwlog_event_func_register",
+      "crc": "0xaf5eef2e",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wakeup_source_unregister",
+      "crc": "0x68c52650",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wakeup_source_register",
+      "crc": "0x0bfd3f0d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wake_up_process",
+      "crc": "0xdb19e602",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wait_for_completion_interruptible_timeout",
+      "crc": "0xa33c0eac",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wait_for_completion_interruptible",
+      "crc": "0x262e823a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "update_driver_loaded_status",
+      "crc": "0xca971b10",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "up",
+      "crc": "0xcf2a6966",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "unregister_netdev",
+      "crc": "0x11ef905e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "tasklet_kill",
+      "crc": "0x82072614",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "tasklet_init",
+      "crc": "0x9545af6d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "system_wq",
+      "crc": "0x2d3385d3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "rtnl_unlock",
+      "crc": "0x6e720ff2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "rtnl_lock",
+      "crc": "0xc7a4fbed",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_set_p2p_mode_handler",
+      "crc": "0x38a0fd1b",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_netdev",
+      "crc": "0x4f3bbc27",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "register_file_buf_handler",
+      "crc": "0x1ffe8f67",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "queue_delayed_work_on",
+      "crc": "0xaeca7f89",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_tx_stop_all_queues",
+      "crc": "0x70cdc50a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_napi_add",
+      "crc": "0x062a8f6b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_device_detach",
+      "crc": "0x1b7dae78",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_device_attach",
+      "crc": "0x2e868a25",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "netif_carrier_off",
+      "crc": "0x7f004467",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_mpu_lock_release",
+      "crc": "0x75637533",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mtk_wcn_wmt_mpu_lock_aquire",
+      "crc": "0x473c2ee3",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kthread_create_on_node",
+      "crc": "0x5e3d7607",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "init_timer_key",
+      "crc": "0x79cf5987",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ieee80211_get_channel",
+      "crc": "0x75d92862",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "gConEmiSize",
+      "crc": "0xf6499c27",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "free_netdev",
+      "crc": "0x448e9736",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "flush_work",
+      "crc": "0xa7ab6d28",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "flush_delayed_work",
+      "crc": "0x45ffb39d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ether_setup",
+      "crc": "0xbd71cbc7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "down",
+      "crc": "0x6626afca",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "delayed_work_timer_fn",
+      "crc": "0x253af43d",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "consume_skb",
+      "crc": "0xa237b93e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "connectivity_export_show_stack",
+      "crc": "0x37f99733",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "completion_done",
+      "crc": "0x51bd55b5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "complete",
+      "crc": "0x29361773",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_sched_scan_stopped",
+      "crc": "0xb6728ee5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_scan_done",
+      "crc": "0xf365404e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_disconnected",
+      "crc": "0x95222bb0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cfg80211_classify8021d",
+      "crc": "0xb908f5eb",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cancel_delayed_work_sync",
+      "crc": "0xec306b1c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "alloc_netdev_mqs",
+      "crc": "0x23bbe7b0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_raw_spin_unlock_irqrestore",
+      "crc": "0x3812050a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_raw_spin_lock_irqsave",
+      "crc": "0x51760917",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__wake_up",
+      "crc": "0x3eeb2322",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__mutex_init",
+      "crc": "0x9a76f11f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ll_sc_atomic64_or",
+      "crc": "0xad1c144b",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ll_sc_atomic64_fetch_andnot",
+      "crc": "0x83b30940",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ll_sc_atomic64_andnot",
+      "crc": "0x08aa9477",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__check_object_size",
+      "crc": "0x88db9f48",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__arch_copy_from_user",
+      "crc": "0xaf507de1",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "sprintf",
+      "crc": "0x91715312",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "rtc_time64_to_tm",
+      "crc": "0x356461c8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ktime_get_real_ts64",
+      "crc": "0x9ec6ca96",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtoull",
+      "crc": "0x3c80c06c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "iomem_resource",
+      "crc": "0xc7da062f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "gConEmiPhyBase",
+      "crc": "0x18f0a9e3",
+      "weak": false,
+      "provider": "module_07"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cpu_hwcaps",
+      "crc": "0x5c1c3eb4",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "cpu_hwcap_keys",
+      "crc": "0x552e51da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "arm64_const_caps_ready",
+      "crc": "0x52da2b65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__request_region",
+      "crc": "0x0ca39ba0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ioremap",
+      "crc": "0x6b4b2933",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "wifi_ics_fwlog_write",
+      "crc": "0x7dcf5c21",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_queue_tail",
+      "crc": "0x99958d67",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_queue_head",
+      "crc": "0x913f6cc2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_push",
+      "crc": "0x6d5c8cbd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "skb_dequeue",
+      "crc": "0x06df8b59",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "mod_timer",
+      "crc": "0x72cd0f7f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_raw_spin_unlock_bh",
+      "crc": "0x49c41a57",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_raw_spin_lock_bh",
+      "crc": "0xb3635b01",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__iounmap",
+      "crc": "0x45a55ec8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "vsnprintf",
+      "crc": "0x8ab2e3d5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "ktime_get_ts64",
+      "crc": "0x5e515be6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "hex_dump_to_buffer",
+      "crc": "0xfe916dc6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "bcmp",
+      "crc": "0x263c3152",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "vmalloc",
+      "crc": "0xd6ee688f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strsep",
+      "crc": "0x85df9b6c",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strncpy",
+      "crc": "0x9166fada",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strncmp",
+      "crc": "0x5a921311",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "scnprintf",
+      "crc": "0x4ca9669f",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "sched_clock",
+      "crc": "0x3a26ed11",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "msleep",
+      "crc": "0xf9a482f9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kvfree",
+      "crc": "0x7aa1756e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtoint",
+      "crc": "0x2276db98",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kmem_cache_alloc_trace",
+      "crc": "0xdb048a82",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kmalloc_caches",
+      "crc": "0x19cb47bd",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "jiffies_to_msecs",
+      "crc": "0x37befc70",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "jiffies",
+      "crc": "0x15ba50a6",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "get_low_latency_mode",
+      "crc": "0xc60dde3d",
+      "weak": false,
+      "provider": "module_01"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__pm_relax",
+      "crc": "0x4fb295e0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ll_sc_atomic_sub",
+      "crc": "0xf9a3efb9",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__ll_sc_atomic_add",
+      "crc": "0x1f7386be",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "___ratelimit",
+      "crc": "0x1d24c881",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "snprintf",
+      "crc": "0x28318305",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "memmove",
+      "crc": "0x5a9f1d63",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "memcmp",
+      "crc": "0x449ad0a7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kfree",
+      "crc": "0x037a0cba",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__kmalloc",
+      "crc": "0xd2b09ce5",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__init_waitqueue_head",
+      "crc": "0xd9a5ea54",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strstr",
+      "crc": "0x1e6d26a8",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strspn",
+      "crc": "0xc29bf967",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strpbrk",
+      "crc": "0x9a1dfd65",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strnlen",
+      "crc": "0xa916b694",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strncasecmp",
+      "crc": "0x96b29254",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strlen",
+      "crc": "0x98cf60b3",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strcmp",
+      "crc": "0xe2d5255a",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "strchr",
+      "crc": "0x349cba85",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "sscanf",
+      "crc": "0x20c55ae0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "printk",
+      "crc": "0x7c32d0f0",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "memset",
+      "crc": "0xdcb764ad",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "memcpy",
+      "crc": "0x4829a47e",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtouint",
+      "crc": "0x69ad2f20",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtou8",
+      "crc": "0x46045dd7",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtou16",
+      "crc": "0x7b0192da",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "kstrtoll",
+      "crc": "0x779a18af",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "update_userlimit_cpu_freq",
+      "crc": "0xdfc098aa",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "topo_ctrl_get_nr_clusters",
+      "crc": "0xcdac5f83",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "emi_mpu_set_protection",
+      "crc": "0xf47e6964",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "_mcount",
+      "crc": "0x1fdc7df2",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__stack_chk_guard",
+      "crc": "0x8f678b07",
+      "weak": false,
+      "provider": "vmlinux"
+    },
+    {
+      "module": "module_09",
+      "symbol": "__stack_chk_fail",
+      "crc": "0xf0fdf6cb",
+      "weak": false,
+      "provider": "vmlinux"
+    }
+  ]
+}

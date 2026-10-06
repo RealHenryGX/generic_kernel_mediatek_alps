@@ -103,7 +103,8 @@ config TOUCHSCREEN_MTK_GT9XX_LM
 
 source "drivers/input/touchscreen/mediatek/GT9XX_LM/Kconfig"
 config TOUCHSCREEN_MTK_AXS
-	tristate "AXS15260 TDDI touch for Mediatek package"
+	bool "AXS15260 TDDI touch for Mediatek package"
+	depends on MACH_MT6765 && I2C=y && TOUCHSCREEN_MTK=y && OF && PINCTRL
 	default n
 	---help---
 	  Say Y here if you have AXS15260 (AxsTech) touch panel.

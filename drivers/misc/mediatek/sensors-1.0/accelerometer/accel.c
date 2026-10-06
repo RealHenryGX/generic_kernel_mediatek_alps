@@ -287,6 +287,24 @@ static ssize_t accenablenodata_store(struct device *dev,
 	struct acc_context *cxt = acc_context_obj;
 	int err = 0;
 
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	cxt = acc_context_obj;
+	if (cxt && cxt->acc_ctl.a25_owned) {
+	int value, result;
+		if (kstrtoint(buf, 10, &value) || (value != 0 && value != 1))
+			return -EINVAL;
+		mutex_lock(&cxt->acc_op_mutex);
+		result = cxt->acc_ctl.enable_nodata(value);
+		if (!result) {
+			cxt->is_active_nodata = value;
+			cxt->enable = value || cxt->is_active_data;
+			cxt->power = cxt->enable;
+		}
+		mutex_unlock(&cxt->acc_op_mutex);
+		return result ? result : count;
+	}
+#endif
+
 	pr_debug("acc_store_enable nodata buf=%s\n", buf);
 	mutex_lock(&acc_context_obj->acc_op_mutex);
 	if (!strncmp(buf, "1", 1)) {
@@ -327,6 +345,24 @@ static ssize_t accactive_store(struct device *dev,
 {
 	struct acc_context *cxt = acc_context_obj;
 	int err = 0;
+
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	cxt = acc_context_obj;
+	if (cxt && cxt->acc_ctl.a25_owned) {
+	int value, result;
+		if (kstrtoint(buf, 10, &value) || (value != 0 && value != 1))
+			return -EINVAL;
+		mutex_lock(&cxt->acc_op_mutex);
+		result = cxt->acc_ctl.open_report_data(value);
+		if (!result) {
+			cxt->is_active_data = value;
+			cxt->enable = value || cxt->is_active_nodata;
+			cxt->power = cxt->enable;
+		}
+		mutex_unlock(&cxt->acc_op_mutex);
+		return result ? result : count;
+	}
+#endif
 
 	pr_debug("%s buf=%s\n", __func__, buf);
 	mutex_lock(&acc_context_obj->acc_op_mutex);
@@ -395,6 +431,24 @@ static ssize_t accbatch_store(struct device *dev,
 	struct acc_context *cxt = acc_context_obj;
 	int handle = 0, flag = 0, err = 0;
 
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	cxt = acc_context_obj;
+	if (cxt && cxt->acc_ctl.a25_owned) {
+	long long ns, latency;
+		int handle, flag, result;
+		if (sscanf(buf, "%d,%d,%lld,%lld", &handle, &flag, &ns, &latency) != 4)
+			return -EINVAL;
+		mutex_lock(&cxt->acc_op_mutex);
+		result = cxt->acc_ctl.batch(flag, ns, latency);
+		if (!result) {
+			cxt->delay_ns = ns;
+			cxt->latency_ns = latency;
+		}
+		mutex_unlock(&cxt->acc_op_mutex);
+		return result ? result : count;
+	}
+#endif
+
 	pr_debug("%s %s\n", __func__, buf);
 	err = sscanf(buf, "%d,%d,%lld,%lld", &handle, &flag, &cxt->delay_ns,
 		     &cxt->latency_ns);
@@ -433,6 +487,19 @@ static ssize_t accflush_store(struct device *dev,
 {
 	struct acc_context *cxt = NULL;
 	int handle = 0, err = 0;
+
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	cxt = acc_context_obj;
+	if (cxt && cxt->acc_ctl.a25_owned) {
+	int handle, result = kstrtoint(buf, 10, &handle);
+		if (result)
+			return result;
+		mutex_lock(&cxt->acc_op_mutex);
+		result = cxt->acc_ctl.flush ? cxt->acc_ctl.flush() : -EOPNOTSUPP;
+		mutex_unlock(&cxt->acc_op_mutex);
+		return result ? result : count;
+	}
+#endif
 
 	err = kstrtoint(buf, 10, &handle);
 	if (err != 0)
@@ -473,6 +540,20 @@ static ssize_t acccali_store(struct device *dev, struct device_attribute *attr,
 	struct acc_context *cxt = NULL;
 	int err = 0;
 	uint8_t *cali_buf = NULL;
+
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	cxt = acc_context_obj;
+	if (cxt && cxt->acc_ctl.a25_owned) {
+	int result;
+		if (count != 24)
+			return -EINVAL;
+		mutex_lock(&cxt->acc_op_mutex);
+		result = cxt->acc_ctl.set_cali ?
+			cxt->acc_ctl.set_cali((uint8_t *)buf, count) : -EOPNOTSUPP;
+		mutex_unlock(&cxt->acc_op_mutex);
+		return result ? result : count;
+	}
+#endif
 
 	cali_buf = vzalloc(count);
 	if (cali_buf == NULL)
@@ -671,6 +752,10 @@ static struct attribute_group acc_attribute_group = {
 	.attrs = acc_attributes
 };
 
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+#include "a25_acc_queue.inc"
+#endif
+
 int acc_register_data_path(struct acc_data_path *data)
 {
 	struct acc_context *cxt = NULL;
@@ -693,6 +778,12 @@ int acc_register_control_path(struct acc_control_path *ctl)
 	struct acc_context *cxt = NULL;
 	int err = 0;
 
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (ctl->a25_owned)
+		return acc_register_a25_path(ctl);
+	/* A failed A25 probe may be followed by a legacy driver candidate. */
+	acc_context_obj->acc_ctl.a25_owned = false;
+#endif
 	cxt = acc_context_obj;
 	cxt->acc_ctl.enable_nodata = ctl->enable_nodata;
 	cxt->acc_ctl.batch = ctl->batch;
@@ -743,6 +834,10 @@ int acc_data_report(struct acc_data *data)
 	if (event.reserved == 1)
 		mark_timestamp(ID_ACCELEROMETER, DATA_REPORT,
 			       ktime_get_boot_ns(), event.time_stamp);
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned)
+		return a25_acc_emit(&event);
+#endif
 	err = sensor_input_event(acc_context_obj->mdev.minor, &event);
 	return err;
 }
@@ -759,6 +854,10 @@ int acc_bias_report(struct acc_data *data)
 	event.word[1] = data->y;
 	event.word[2] = data->z;
 	/* pr_err("x:%d,y:%d,z:%d,time:%lld\n", x, y, z, nt); */
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned)
+		return a25_acc_emit(&event);
+#endif
 	err = sensor_input_event(acc_context_obj->mdev.minor, &event);
 	return err;
 }
@@ -775,6 +874,10 @@ int acc_cali_report(struct acc_data *data)
 	event.word[1] = data->y;
 	event.word[2] = data->z;
 	/* pr_err("x:%d,y:%d,z:%d,time:%lld\n", x, y, z, nt); */
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned)
+		return a25_acc_emit(&event);
+#endif
 	err = sensor_input_event(acc_context_obj->mdev.minor, &event);
 	return err;
 }
@@ -788,6 +891,10 @@ int acc_flush_report(void)
 
 	pr_debug_ratelimited("flush\n");
 	event.flush_action = FLUSH_ACTION;
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned)
+		return a25_acc_emit(&event);
+#endif
 	err = sensor_input_event(acc_context_obj->mdev.minor, &event);
 	return err;
 }
@@ -815,6 +922,15 @@ static int acc_probe(void)
 	return 0;
 
 real_driver_init_fail:
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned) {
+		acc_unregister_a25_path();
+		destroy_workqueue(acc_context_obj->accel_workqueue);
+		kfree(acc_context_obj);
+		acc_context_obj = NULL;
+		goto exit_alloc_data_failed;
+	}
+#endif
 	kfree(acc_context_obj);
 
 exit_alloc_data_failed:
@@ -828,6 +944,15 @@ static int acc_remove(void)
 	int err = 0;
 
 	acc_real_driver_uninit();
+#ifdef CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS
+	if (acc_context_obj->acc_ctl.a25_owned) {
+		acc_unregister_a25_path();
+		destroy_workqueue(acc_context_obj->accel_workqueue);
+		kfree(acc_context_obj);
+		acc_context_obj = NULL;
+		return 0;
+	}
+#endif
 
 	sysfs_remove_group(&acc_context_obj->mdev.this_device->kobj,
 			   &acc_attribute_group);

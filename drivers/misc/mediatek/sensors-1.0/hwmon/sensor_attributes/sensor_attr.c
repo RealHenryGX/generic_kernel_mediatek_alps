@@ -67,6 +67,54 @@ static const struct file_operations sensor_attr_fops = {
 	.open = sensor_attr_open,
 };
 
+/* Separate transactional entry for an endpoint owning its own queue.
+ * Same mutex/minor list arbitrates against real ALSPS, in either init order.
+ * Existing drivers keep their original registration path unchanged.
+ */
+int sensor_attr_register_owned(struct sensor_attr_t *misc,
+	const struct attribute_group **groups)
+{
+	struct sensor_attr_t *c;
+	int err = 0;
+
+	if (!misc || !misc->fops || !misc->name)
+		return -EINVAL;
+	mutex_lock(&sensor_attr_mtx);
+	list_for_each_entry(c, &sensor_attr_list, list) {
+		if (c->minor == misc->minor) {
+			err = -EBUSY;
+			goto out;
+		}
+	}
+	INIT_LIST_HEAD(&misc->list);
+	misc->this_device = device_create_with_groups(sensor_attr_class,
+		misc->parent, MKDEV(sensor_attr_major, misc->minor), misc,
+		groups, "%s", misc->name);
+	if (IS_ERR(misc->this_device)) {
+		err = PTR_ERR(misc->this_device);
+		misc->this_device = NULL;
+		goto out;
+	}
+	list_add(&misc->list, &sensor_attr_list);
+out:
+	mutex_unlock(&sensor_attr_mtx);
+	return err;
+}
+
+int sensor_attr_deregister_owned(struct sensor_attr_t *misc)
+{
+	mutex_lock(&sensor_attr_mtx);
+	if (!misc->this_device) {
+		mutex_unlock(&sensor_attr_mtx);
+		return -ENODEV;
+	}
+	list_del_init(&misc->list);
+	device_destroy(sensor_attr_class, MKDEV(sensor_attr_major, misc->minor));
+	misc->this_device = NULL;
+	mutex_unlock(&sensor_attr_mtx);
+	return 0;
+}
+
 int sensor_attr_register(struct sensor_attr_t *misc)
 {
 	dev_t dev;

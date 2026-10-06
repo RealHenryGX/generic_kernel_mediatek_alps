@@ -50,7 +50,7 @@ static long _set_state(const char *name)
 	}
 
 	/* select state! */
-	pinctrl_select_state(this_pctrl, pState);
+	ret = pinctrl_select_state(this_pctrl, pState);
 
 exit:
 	return ret; /* Good! */
