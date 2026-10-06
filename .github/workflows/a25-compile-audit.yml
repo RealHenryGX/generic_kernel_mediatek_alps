@@ -21,11 +21,13 @@ jobs:
       run:
         shell: bash
     env:
-      AUDIT_WORK: ${{ runner.temp }}/a25-compile-audit
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - name: Initialize evidence directory
-        run: mkdir -p "$AUDIT_WORK/evidence"
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/a25-compile-audit/evidence"
+          printf 'AUDIT_WORK=%s/a25-compile-audit\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
 
       - name: Checkout this exact audit commit
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
