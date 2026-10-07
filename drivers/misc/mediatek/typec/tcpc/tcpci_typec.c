@@ -2626,6 +2626,9 @@ static const char *const typec_role_name[] = {
 #ifdef CONFIG_TYPEC_CAP_ROLE_SWAP
 int tcpc_typec_swap_role(struct tcpc_device *tcpc)
 {
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	if (tcpc->typec_role < TYPEC_ROLE_DRP)
 		return TCPM_ERROR_NOT_DRP_ROLE;
 
@@ -2671,6 +2674,9 @@ int tcpc_typec_set_rp_level(struct tcpc_device *tcpc, uint8_t rp_lvl)
 
 int tcpc_typec_error_recovery(struct tcpc_device *tcpc)
 {
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	if (tcpc->typec_state != typec_errorrecovery)
 		typec_error_recovery_entry(tcpc);
 
@@ -2679,6 +2685,9 @@ int tcpc_typec_error_recovery(struct tcpc_device *tcpc)
 
 int tcpc_typec_disable(struct tcpc_device *tcpc)
 {
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	if (tcpc->typec_state != typec_disabled)
 		typec_disable_entry(tcpc);
 
@@ -2687,6 +2696,9 @@ int tcpc_typec_disable(struct tcpc_device *tcpc)
 
 int tcpc_typec_enable(struct tcpc_device *tcpc)
 {
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	if (tcpc->typec_state == typec_disabled)
 		typec_unattached_entry(tcpc);
 
@@ -2696,6 +2708,9 @@ int tcpc_typec_enable(struct tcpc_device *tcpc)
 int tcpc_typec_change_role(
 	struct tcpc_device *tcpc, uint8_t typec_role, bool postpone)
 {
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	if (typec_role == TYPEC_ROLE_UNKNOWN ||
 		typec_role >= TYPEC_ROLE_NR) {
 		TYPEC_INFO("Wrong TypeC-Role: %d\n", typec_role);

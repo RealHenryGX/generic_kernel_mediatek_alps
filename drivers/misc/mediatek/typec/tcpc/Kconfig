@@ -99,3 +99,13 @@ config MTK_TYPEC_WATER_DETECT_BY_PCB
 	  need to be enabled.
 	  Say Yes to let PCB decides enabling water detection or not.
 	  If unsure, say N.
+
+config TCPC_WUSB3801_A25_CANDIDATE
+	bool "A25 WUSB3801 sink-only OFFLINE candidate"
+	depends on TCPC_CLASS && I2C && OF && GPIOLIB
+	depends on !USB_POWER_DELIVERY
+	default n
+	help
+	  Not hardware-qualified. Explicit hardware_reviewed boot parameter is
+	  additionally required before ANY bus access. No OTG, accessories,
+	  role swapping, wakeup or hibernation. PSC5425E remains a separate blocker.

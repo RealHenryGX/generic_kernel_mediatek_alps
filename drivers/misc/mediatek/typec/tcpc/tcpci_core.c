@@ -263,6 +263,9 @@ static ssize_t tcpc_store_property(struct device *dev,
 	int ret;
 	long val;
 
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
+
 	switch (offset) {
 	case TCPC_DESC_ROLE_DEF:
 		ret = get_parameters((char *)buf, &val, 1);
@@ -355,6 +358,9 @@ static int tcpc_match_device_by_name(struct device *dev, const void *data)
 	const char *name = data;
 	struct tcpc_device *tcpc = dev_get_drvdata(dev);
 
+	if ((tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY) &&
+	    !READ_ONCE(tcpc->a25_live))
+		return 0;
 	return strcmp(tcpc->desc.name, name) == 0;
 }
 
@@ -382,6 +388,8 @@ static void tcpc_device_release(struct device *dev)
 	/* Do initialization */
 }
 
+#include "a25_notify.inc"
+
 static void tcpc_init_work(struct work_struct *work);
 static void tcpc_event_init_work(struct work_struct *work);
 
@@ -390,6 +398,9 @@ struct tcpc_device *tcpc_device_register(struct device *parent,
 {
 	struct tcpc_device *tcpc;
 	int ret = 0, i = 0;
+
+	if (ops->a25_sink_only)
+		return a25_device_register(parent, tcpc_desc, ops, drv_data);
 
 	pr_info("%s register tcpc device (%s)\n", __func__, tcpc_desc->name);
 	tcpc = devm_kzalloc(parent, sizeof(*tcpc), GFP_KERNEL);
@@ -418,6 +429,8 @@ struct tcpc_device *tcpc_device_register(struct device *parent,
 	dev_set_name(&tcpc->dev, "%s", tcpc_desc->name);
 	tcpc->desc = *tcpc_desc;
 	tcpc->ops = ops;
+	if (ops->a25_sink_only)
+		tcpc->tcpc_flags |= TCPC_FLAGS_A25_SINK_ONLY;
 	tcpc->typec_local_rp_level = tcpc_desc->rp_lvl;
 
 #ifdef CONFIG_TCPC_VCONN_SUPPLY_MODE
@@ -455,6 +468,9 @@ EXPORT_SYMBOL(tcpc_device_register);
 static int tcpc_device_irq_enable(struct tcpc_device *tcpc)
 {
 	int ret;
+
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return -EOPNOTSUPP;
 
 	if (!tcpc->ops->init) {
 		pr_err("%s Please implment tcpc ops init function\n",
@@ -709,6 +725,9 @@ int register_tcp_dev_notifier(struct tcpc_device *tcp_dev,
 {
 	int ret = 0, i = 0;
 
+	if (tcp_dev->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return a25_register_notifier(tcp_dev, nb, flags);
+
 	if (__is_mulit_bits_set(flags)) {
 		for (i = 0; i < TCP_NOTIFY_IDX_NR; i++) {
 			if (flags & (1 << i)) {
@@ -798,6 +817,9 @@ int unregister_tcp_dev_notifier(struct tcpc_device *tcp_dev,
 {
 	int i = 0, ret = 0;
 
+	if (tcp_dev->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return a25_unregister_notifier(tcp_dev, nb, flags);
+
 	for (i = 0; i < TCP_NOTIFY_IDX_NR; i++) {
 		if (flags & (1 << i)) {
 			ret = __unregister_tcp_dev_notifier(tcp_dev, nb, i);
@@ -817,6 +839,10 @@ void tcpc_device_unregister(struct device *dev, struct tcpc_device *tcpc)
 {
 	if (!tcpc)
 		return;
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY) {
+		a25_device_unregister(tcpc);
+		return;
+	}
 
 	tcpc_typec_deinit(tcpc);
 

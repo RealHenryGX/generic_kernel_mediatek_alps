@@ -156,6 +156,7 @@ struct tcpc_desc {
 #define TCPC_FLAGS_CABLE_TYPE_DETECTION		(1<<10)
 #define TCPC_FLAGS_VCONN_SAFE5V_ONLY		(1<<11)
 #define TCPC_FLAGS_ALERT_V10			(1<<12)
+#define TCPC_FLAGS_A25_SINK_ONLY			(1U<<30)
 
 #define TYPEC_CC_PULL(rp_lvl, res)	((rp_lvl & 0x03) << 3 | (res & 0x07))
 
@@ -196,6 +197,8 @@ enum tcpm_rx_cap_type {
 };
 
 struct tcpc_ops {
+	/* Controller owns attach state; disallow generic role/source paths. */
+	bool a25_sink_only;
 	int (*init)(struct tcpc_device *tcpc, bool sw_reset);
 	int (*init_alert_mask)(struct tcpc_device *tcpc);
 	int (*alert_status_clear)(struct tcpc_device *tcpc, uint32_t mask);
@@ -330,6 +333,9 @@ struct tcpc_device {
 	struct delayed_work	init_work;
 	struct delayed_work	event_init_work;
 	struct workqueue_struct *evt_wq;
+	/* Owned by the isolated sink-only notification implementation. */
+	struct a25_notifications *a25_notifications;
+	bool a25_live;
 	struct srcu_notifier_head evt_nh[TCP_NOTIFY_IDX_NR];
 	struct tcpc_managed_res *mr_head;
 	struct mutex mr_lock;
@@ -680,5 +686,9 @@ static inline bool pd_check_rev30(struct pd_port *pd_port)
 #endif
 
 #endif	/* CONFIG_USB_PD_ALT_MODE_RTDC */
+
+struct tcp_notify;
+int tcpc_a25_notify(struct tcpc_device *tcpc, const struct tcp_notify *data,
+	uint8_t type, uint8_t event);
 
 #endif /* #ifndef __LINUX_RT_TCPCI_CORE_H */

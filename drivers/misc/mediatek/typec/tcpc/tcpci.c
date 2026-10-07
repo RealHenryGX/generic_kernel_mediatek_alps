@@ -47,6 +47,9 @@ static int tcpc_check_notify_time(struct tcpc_device *tcpc,
 {
 	struct tcp_notify_work *tn_work;
 
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return tcpc_a25_notify(tcpc, tcp_noti, type, state);
+
 	tn_work = kzalloc(sizeof(*tn_work), GFP_KERNEL);
 	if (!tn_work)
 		return -ENOMEM;
@@ -67,6 +70,11 @@ static int tcpc_check_notify_time(struct tcpc_device *tcpc,
 #ifdef CONFIG_PD_BEGUG_ON
 	struct timeval begin, end;
 	int timeval = 0;
+
+#endif
+	if (tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY)
+		return tcpc_a25_notify(tcpc, tcp_noti, type, state);
+#ifdef CONFIG_PD_BEGUG_ON
 
 	do_gettimeofday(&begin);
 	ret = srcu_notifier_call_chain(&tcpc->evt_nh[type], state, tcp_noti);
@@ -467,6 +475,11 @@ int tcpci_notify_typec_state(struct tcpc_device *tcpc)
 	struct tcp_notify tcp_noti;
 	int ret;
 
+	if ((tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY) &&
+	    tcpc->typec_attach_new != TYPEC_UNATTACHED &&
+	    tcpc->typec_attach_new != TYPEC_ATTACHED_SNK)
+		return -EPERM;
+
 	tcp_noti.typec_state.polarity = tcpc->typec_polarity;
 	tcp_noti.typec_state.old_state = tcpc->typec_attach_old;
 	tcp_noti.typec_state.new_state = tcpc->typec_attach_new;
@@ -542,6 +555,9 @@ int tcpci_source_vbus(
 {
 	struct tcp_notify tcp_noti;
 	int ret;
+
+	if ((tcpc->tcpc_flags & TCPC_FLAGS_A25_SINK_ONLY) && mv != 0)
+		return -EPERM;
 
 #ifdef CONFIG_USB_POWER_DELIVERY
 	if (type >= TCP_VBUS_CTRL_PD &&

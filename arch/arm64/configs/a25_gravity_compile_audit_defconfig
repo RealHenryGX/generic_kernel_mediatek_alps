@@ -5587,3 +5587,7 @@ CONFIG_MTK_MIR3DA=y
 CONFIG_MTK_MIR3DA_A25_STOCK_DIRECTION=y
 CONFIG_MTK_MIR3DA_A25_STOCK_PIPELINE=y
 CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS=y
+
+# Compile-audit only: the reviewed sink-only Type-C candidate stays
+# hardware-gated (hardware_reviewed boot parameter) and PD remains disabled.
+CONFIG_TCPC_WUSB3801_A25_CANDIDATE=y
