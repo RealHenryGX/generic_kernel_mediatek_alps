@@ -36,7 +36,7 @@ GATE_HASHES = {
     'audit_final.py': '0064e31c2b377b0bad097b8b57fe820a043a911f17c40afa75a3fb5668ada534',
     'policy.json': 'cb5bb8065f9ed1e39172df4c51e01b1e115d34ab85648f03bbbe78de54694c25',
     'expected_crc.json': 'f50414f983954aa8b9dba2ac73f81b0955102b80c7cd3bc240fc940134d23b7c',
-    'source_lock.json': '885f9cf108b225c6285064c4c7e296d60ca16b9922faaaa966780db7f726f65a',
+    'source_lock.json': '62a1715118a716af1d12c6f8366de79eaf032eb739d9993a6b8525360b1a127a',
 }
 # Retain diagnostics as warnings, not silence. Original workflow's list plus
 # incompatible-pointer-types: the top-level Makefile explicitly promotes it.

@@ -15,7 +15,7 @@
     "100644 blob 2b5ccceaf513e4c6d21dec933b358b471c90f768\tOWNERS",
     "100644 blob 2c927ccbd97055c71cda2fccc1eaa8b12b93374a\tREADME",
     "040000 tree b49a172fe4839b3f80c8fbd83c083758d7d15087\tandroid",
-    "040000 tree 5d1d6e5b5e9f1f3c2db3aec5f41a2c4f5d654e35\tarch",
+    "040000 tree ce0e5418a1d8a6d6fdb185cec824992c37248f2f\tarch",
     "040000 tree 123ea77374fb46828caa6e03db1a0f55b9dc60d1\tblock",
     "100644 blob 3b9ccac718a915b02dce193340a66f32f42da26b\tbuild.config.aarch64",
     "100644 blob 103d1cdf4edcbde37e445a792b592f8c67866aec\tbuild.config.allmodconfig",
@@ -45,7 +45,7 @@
     "100644 blob cc3c66e7d3d5cf70d007cd588e771b5d0cf5f2d2\tbuild.config.x86_64",
     "040000 tree 9727ba112b1bd1f59f76fe4157b764d744268746\tcerts",
     "040000 tree eda7427b567e1f7f5f9f1e3c1516daa52f777fb0\tcrypto",
-    "040000 tree 3bcc86c14b2fc393fc13d3e489f78339419a9a48\tdrivers",
+    "040000 tree 9daa1fc1cbbb422ba9dc34b3e47e2873d598abc8\tdrivers",
     "040000 tree faf7f25318c127f1a35be965320925e6f6b116c6\tfirmware",
     "040000 tree 90b1e9cb4e94da64e65e54e0893a7f0d613e22ff\tfs",
     "040000 tree 4e23d8fdb9962da9081baaad6a2ec0fbf3f70d3d\tinclude",
@@ -204,5 +204,6 @@
   "github": [
     "100644 blob ec453c9e4a04445c2f290b7c647df6b102bca08a\t.github/workflows/build-kernel.yml"
   ],
-  "excluded_prepared_reference": "KernelSU/ (unused duplicate reference; drivers/kernelsu remains exact)"
+  "excluded_prepared_reference": "KernelSU/ (unused duplicate reference; drivers/kernelsu remains exact)",
+  "relock_note": "arch and drivers subtrees re-locked: additive compile-audit defconfig line enabling the reviewed sink-only Type-C candidate, plus the candidate sources themselves; all other top-level entries unchanged"
 }
