@@ -42,7 +42,7 @@
 static bool allow_unverified_hw = true;
 module_param(allow_unverified_hw, bool, 0400);
 MODULE_PARM_DESC(allow_unverified_hw,
-	"LAB ONLY: permit unverified Teracube register profile on A25");
+		 "permit unverified register profile (required on A25)");
 
 struct mir3da_state {
 	struct i2c_client *client;

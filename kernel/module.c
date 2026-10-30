@@ -1294,11 +1294,12 @@ static int check_version(const struct load_info *info,
 	if (!crc)
 		return 1;
 
-	/* CAMDBG_NO_CRC: vendor .ko carry their own __versions CRCs that were
-	 * generated against the stock kernel. Our LOCALVERSION differs, so
-	 * every symbol reports "disagrees about version". Skip the CRC
-	 * comparison entirely - same effect as modprobe --force. Kernel is
-	 * tainted TAINT_FORCED_MODULE by try_to_force_load below.
+	/* Stock vendor modules ship __versions CRCs generated against the
+	 * stock kernel. This build's LOCALVERSION carries a -gravity-<commit>
+	 * suffix (kernel identification), so those CRCs never match and every
+	 * symbol reports "disagrees about version". Skip the CRC comparison:
+	 * equivalent to modprobe --force. try_to_force_load() below taints
+	 * the kernel TAINT_FORCED_MODULE.
 	 */
 	if (try_to_force_load(mod, symname) == 0)
 		return 1;
@@ -3117,11 +3118,11 @@ static int check_modinfo(struct module *mod, struct load_info *info, int flags)
 		if (err)
 			return err;
 	} else if (!same_magic(modmagic, vermagic, info->index.vers)) {
-		/* CAMDBG_FORCE_VERMAGIC: LOCALVERSION carries -gravity-<commit>
-		 * for kernel identification, so stock vendor modules whose
-		 * vermagic is plain "4.19.191" never match. Android's Toybox
-		 * insmod/modprobe cannot pass MODULE_INIT_IGNORE_VERMAGIC, so
-		 * attempt the forced-load path here instead. Succeeds only
+		/* LOCALVERSION carries -gravity-<commit> for kernel
+		 * identification, so stock vendor modules whose vermagic is
+		 * plain "4.19.191" never match. Android's Toybox
+		 * insmod/modprobe cannot pass MODULE_INIT_IGNORE_VERMAGIC,
+		 * so take the forced-load path here instead. Succeeds only
 		 * when CONFIG_MODULE_FORCE_LOAD=y (taints the kernel).
 		 */
 		err = try_to_force_load(mod, "bad vermagic");
