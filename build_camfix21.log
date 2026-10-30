@@ -1,0 +1,2709 @@
+make[1]: Entering directory '/home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild'
+  GEN     ./Makefile
+drivers/misc/mediatek/base/power/Kconfig:82:warning: ignoring type redefinition of 'MTK_QOS_FRAMEWORK' from 'tristate' to 'bool'
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:4:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:5:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:6:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:7:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:8:warning: ignoring unsupported character ''
+drivers/soc/mediatek/Kconfig:7:warning: ignoring type redefinition of 'MTK_CMDQ' from 'bool' to 'tristate'
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:19:warning: choice value used outside its choice group
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:28:warning: choice value used outside its choice group
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:16:warning: choice default symbol 'TOUCHSCREEN_HIMAX_INCELL' is not contained in the choice
+
+WARNING: unmet direct dependencies detected for MTK_TINYSYS_SCP_CM4_SUPPORT
+  Depends on [n]: MTK_TINYSYS_SCP_SUPPORT [=n]
+  Selected by [y]:
+  - MACH_MT6765 [=y]
+
+WARNING: unmet direct dependencies detected for MTK_TINYSYS_SCP_CM4_SUPPORT
+  Depends on [n]: MTK_TINYSYS_SCP_SUPPORT [=n]
+  Selected by [y]:
+  - MACH_MT6765 [=y]
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild'
+DEFCONFIG_EXIT 0 ELAPSED 1.2
+/usr/bin/make -C /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild KBUILD_SRC=/home/builder/work/build/a25-wusb-kbuild-integration/kernel \
+-f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/Makefile Image.gz
+make[1]: Entering directory '/home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild'
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/Makefile syncconfig
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/basic
+ln -fsn /home/builder/work/build/a25-wusb-kbuild-integration/kernel source
+rm -f .tmp_quiet_recordmcount
+/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mkmakefile \
+    /home/builder/work/build/a25-wusb-kbuild-integration/kernel . 4 19
+  GEN     ./Makefile
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/kconfig syncconfig
+scripts/kconfig/conf  --syncconfig Kconfig
+drivers/misc/mediatek/base/power/Kconfig:82:warning: ignoring type redefinition of 'MTK_QOS_FRAMEWORK' from 'tristate' to 'bool'
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:4:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:5:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:6:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:7:warning: ignoring unsupported character ''
+drivers/input/touchscreen/mediatek/goodix_berlin_driver/Kconfig:8:warning: ignoring unsupported character ''
+drivers/soc/mediatek/Kconfig:7:warning: ignoring type redefinition of 'MTK_CMDQ' from 'bool' to 'tristate'
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:19:warning: choice value used outside its choice group
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:28:warning: choice value used outside its choice group
+drivers/input/touchscreen/mediatek/hxchipset_hx83102p/Kconfig:16:warning: choice default symbol 'TOUCHSCREEN_HIMAX_INCELL' is not contained in the choice
+
+WARNING: unmet direct dependencies detected for MTK_TINYSYS_SCP_CM4_SUPPORT
+  Depends on [n]: MTK_TINYSYS_SCP_SUPPORT [=n]
+  Selected by [y]:
+  - MACH_MT6765 [=y]
+
+WARNING: unmet direct dependencies detected for MTK_TINYSYS_SCP_CM4_SUPPORT
+  Depends on [n]: MTK_TINYSYS_SCP_SUPPORT [=n]
+  Selected by [y]:
+  - MACH_MT6765 [=y]
+
+WARNING: unmet direct dependencies detected for MTK_TINYSYS_SCP_CM4_SUPPORT
+  Depends on [n]: MTK_TINYSYS_SCP_SUPPORT [=n]
+  Selected by [y]:
+  - MACH_MT6765 [=y]
+set -e; mkdir -p include/config/; 	echo "4.19.191$(/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/setlocalversion /home/builder/work/build/a25-wusb-kbuild-integration/kernel  )" > include/config/kernel.release.tmp; if [ -r include/config/kernel.release ] && cmp -s include/config/kernel.release include/config/kernel.release.tmp; then rm -f include/config/kernel.release.tmp; else : '  UPD     include/config/kernel.release'; mv -f include/config/kernel.release.tmp include/config/kernel.release; fi
+ln -fsn /home/builder/work/build/a25-wusb-kbuild-integration/kernel source
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.asm-generic \
+            src=uapi/asm obj=arch/arm64/include/generated/uapi/asm
+/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mkmakefile \
+    /home/builder/work/build/a25-wusb-kbuild-integration/kernel . 4 19
+  GEN     ./Makefile
+set -e; mkdir -p include/generated/uapi/linux/; 	(echo \#define LINUX_VERSION_CODE 267199; echo '#define KERNEL_VERSION(a,b,c) (((a) << 16) + ((b) << 8) + (c))';) > include/generated/uapi/linux/version.h.tmp; if [ -r include/generated/uapi/linux/version.h ] && cmp -s include/generated/uapi/linux/version.h include/generated/uapi/linux/version.h.tmp; then rm -f include/generated/uapi/linux/version.h.tmp; else : '  UPD     include/generated/uapi/linux/version.h'; mv -f include/generated/uapi/linux/version.h.tmp include/generated/uapi/linux/version.h; fi
+rm -f include/linux/version.h
+set -e; mkdir -p include/generated/; 	if [ `echo -n "4.19.191-gravity-g53d31dab5" | wc -c ` -gt 64 ]; then echo '"4.19.191-gravity-g53d31dab5" exceeds 64 characters' >&2; exit 1; fi; (echo \#define UTS_RELEASE \"4.19.191-gravity-g53d31dab5\";) > include/generated/utsrelease.h.tmp; if [ -r include/generated/utsrelease.h ] && cmp -s include/generated/utsrelease.h include/generated/utsrelease.h.tmp; then rm -f include/generated/utsrelease.h.tmp; else : '  UPD     include/generated/utsrelease.h'; mv -f include/generated/utsrelease.h.tmp include/generated/utsrelease.h; fi
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/basic
+rm -f .tmp_quiet_recordmcount
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.asm-generic \
+            src=asm obj=arch/arm64/include/generated/asm
+if [ -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/.config -o -d /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/config ]; then \
+	echo >&2 "  /home/builder/work/build/a25-wusb-kbuild-integration/kernel is not clean, please run 'make mrproper'"; \
+	echo >&2 "  in the '/home/builder/work/build/a25-wusb-kbuild-integration/kernel' directory.";\
+	/bin/false; \
+fi;
+mkdir -p .tmp_versions 
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/dtc need-builtin=
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/genksyms need-builtin=
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/mod need-builtin=
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/selinux need-builtin=
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/selinux/genheaders need-builtin=
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=scripts/selinux/mdp need-builtin=
+set -e; mkdir -p scripts/mod/; 	(set -e; echo "#ifndef __DEVICETABLE_OFFSETS_H__"; echo "#define __DEVICETABLE_OFFSETS_H__"; echo "/*"; echo " * DO NOT MODIFY."; echo " *"; echo " * This file was generated by Kbuild"; echo " */"; echo ""; sed -ne 	's:^[[:space:]]*\.ascii[[:space:]]*"\(.*\)".*:\1:; /^->/{s:->#\(.*\):/* \1 */:; s:^->\([^ ]*\) [\$#]*\([^ ]*\) \(.*\):#define \1 \2 /* \3 */:; s:->::; p;}' < scripts/mod/devicetable-offsets.s; echo ""; echo "#endif" ) > scripts/mod/devicetable-offsets.h.tmp; if [ -r scripts/mod/devicetable-offsets.h ] && cmp -s scripts/mod/devicetable-offsets.h scripts/mod/devicetable-offsets.h.tmp; then rm -f scripts/mod/devicetable-offsets.h.tmp; else : '  UPD     scripts/mod/devicetable-offsets.h'; mv -f scripts/mod/devicetable-offsets.h.tmp scripts/mod/devicetable-offsets.h; fi
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=.
+set -e; mkdir -p include/generated/; 	(set -e; echo "#ifndef __LINUX_BOUNDS_H__"; echo "#define __LINUX_BOUNDS_H__"; echo "/*"; echo " * DO NOT MODIFY."; echo " *"; echo " * This file was generated by Kbuild"; echo " */"; echo ""; sed -ne 	's:^[[:space:]]*\.ascii[[:space:]]*"\(.*\)".*:\1:; /^->/{s:->#\(.*\):/* \1 */:; s:^->\([^ ]*\) [\$#]*\([^ ]*\) \(.*\):#define \1 \2 /* \3 */:; s:->::; p;}' < kernel/bounds.s; echo ""; echo "#endif" ) > include/generated/bounds.h.tmp; if [ -r include/generated/bounds.h ] && cmp -s include/generated/bounds.h include/generated/bounds.h.tmp; then rm -f include/generated/bounds.h.tmp; else : '  UPD     include/generated/bounds.h'; mv -f include/generated/bounds.h.tmp include/generated/bounds.h; fi
+set -e; mkdir -p include/generated/; 	(echo 250 | bc -q /home/builder/work/build/a25-wusb-kbuild-integration/kernel/kernel/time/timeconst.bc ) > include/generated/timeconst.h.tmp; if [ -r include/generated/timeconst.h ] && cmp -s include/generated/timeconst.h include/generated/timeconst.h.tmp; then rm -f include/generated/timeconst.h.tmp; else : '  UPD     include/generated/timeconst.h'; mv -f include/generated/timeconst.h.tmp include/generated/timeconst.h; fi
+set -e; mkdir -p include/generated/; 	(set -e; echo "#ifndef __ASM_OFFSETS_H__"; echo "#define __ASM_OFFSETS_H__"; echo "/*"; echo " * DO NOT MODIFY."; echo " *"; echo " * This file was generated by Kbuild"; echo " */"; echo ""; sed -ne 	's:^[[:space:]]*\.ascii[[:space:]]*"\(.*\)".*:\1:; /^->/{s:->#\(.*\):/* \1 */:; s:^->\([^ ]*\) [\$#]*\([^ ]*\) \(.*\):#define \1 \2 /* \3 */:; s:->::; p;}' < arch/arm64/kernel/asm-offsets.s; echo ""; echo "#endif" ) > include/generated/asm-offsets.h.tmp; if [ -r include/generated/asm-offsets.h ] && cmp -s include/generated/asm-offsets.h include/generated/asm-offsets.h.tmp; then rm -f include/generated/asm-offsets.h.tmp; else : '  UPD     include/generated/asm-offsets.h'; mv -f include/generated/asm-offsets.h.tmp include/generated/asm-offsets.h; fi
+  /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/checksyscalls.sh /usr/bin/clang --target=aarch64-linux-gnu -Wp,-MD,./.missing-syscalls.d -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/compiler_types.h  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/. -I. -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Werror=return-type -Wno-format-security -std=gnu89 -Werror=unknown-warning-option -fno-PIE -mgeneral-regs-only -DCONFIG_AS_LSE=1 -fno-asynchronous-unwind-tables -Wno-psabi -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -Wno-address-of-packed-member -Os -Wframe-larger-than=2800 -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu -Wno-tautological-compare -mno-global-merge -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg -Wdeclaration-after-statement -Wno-pointer-sign -Wno-array-bounds -fno-strict-overflow -fno-merge-all-constants -fno-stack-check -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -fmacro-prefix-map=/home/builder/work/build/a25-wusb-kbuild-integration/kernel/= -Wno-initializer-overrides -Wno-unused-value -Wno-format -Wno-sign-compare -Wno-format-zero-length -Wno-uninitialized -Wno-pointer-to-enum-cast -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=declaration-after-statement -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=sign-compare -Wno-error=missing-prototypes -Wno-error=enum-conversion -Wno-error=constant-conversion -Wno-error=incompatible-pointer-types    -DKBUILD_BASENAME='"missing_syscalls"' -DKBUILD_MODNAME='"missing_syscalls"' 
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel/vdso include/generated/vdso-offsets.h
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel/vdso32 include/generated/vdso32-offsets.h
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=init need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=usr need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel need-builtin=1
+/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/usr/gen_initramfs_list.sh -l -d > usr/.initramfs_data.cpio.d
+/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mkcompile_h include/generated/compile.h	\
+"aarch64" "y" "y"	\
+"/usr/bin/clang --target=aarch64-linux-gnu -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Werror=return-type -Wno-format-security -std=gnu89 -Werror=unknown-warning-option -fno-PIE -mgeneral-regs-only -DCONFIG_AS_LSE=1   -fno-asynchronous-unwind-tables -Wno-psabi -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -Wno-address-of-packed-member -Os -Wframe-larger-than=2800 -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu -Wno-tautological-compare  -mno-global-merge -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg  -Wdeclaration-after-statement -Wno-pointer-sign -Wno-array-bounds -fno-strict-overflow -fno-merge-all-constants -fno-stack-check -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -fmacro-prefix-map=/home/builder/work/build/a25-wusb-kbuild-integration/kernel/= -Wno-initializer-overrides -Wno-unused-value -Wno-format -Wno-sign-compare -Wno-format-zero-length -Wno-uninitialized -Wno-pointer-to-enum-cast    -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=declaration-after-statement -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=sign-compare -Wno-error=missing-prototypes -Wno-error=enum-conversion -Wno-error=constant-conversion -Wno-error=incompatible-pointer-types " "/usr/bin/ld.lld"
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/mm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/net need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/crypto need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=certs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=mm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=ipc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=security need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=crypto need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=security/integrity need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=security/keys need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=security/selinux need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=block need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/amba need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/android need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/auxdisplay need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/base need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/block need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/bluetooth need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/bus need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel/probes need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/cdrom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel/vdso need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/block/zram need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/arm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/kernel/vdso32 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=firmware need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/atmel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers/mpu401 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers/opl3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/char need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers/opl4 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers/pcsp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/drivers/vx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/char/ipmi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/char/agp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/char/hw_random need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/char/rpmb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/firewire need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/lib need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/base/firmware_loader need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/bpf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clocksource need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/802 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/base/power need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=block/partitions need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/base/regmap need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/cgroup need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/hda need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/i2c need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/bluetooth need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/i2c/other need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/ad1816a need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/ad1848 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/cs423x need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/actions need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/es1688 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/bcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/galaxy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/imgtec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/gus need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/msnd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/opti9xx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/sb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/wavefront need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/cpufreq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/isa/wss need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/base/test need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/mips need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/parisc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/cpuidle need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ac97 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ali5451 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/asihpi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pcmcia need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/au88x0 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pcmcia/pdaudiocf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/aw2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pcmcia/vx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ca0106 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/cs46xx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/cs5535audio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ctxfi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/echoaudio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/cpuidle/governors need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/emu10k1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/hda need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ice1712 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/korg1212 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/lola need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=virt need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/lx6464es need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/mixart need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/nm256 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/oxygen need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/crypto need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/pcxhr need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/riptide need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/dma need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/crypto/hisilicon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/rme9652 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/trident need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=virt/lib need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/crypto/virtio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/vx222 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/devfreq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/bpf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/pci/ymfpci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/ppc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/configfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/sh need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/mvebu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/renesas need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/clk/ti need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/events need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/sparc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/crypto need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/bridge need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/ethernet need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma-buf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma/qcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma/ti need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/dma/xilinx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/spi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/irq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/devpts need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/exofs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/ipv4 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/adi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/ipv6 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/amd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/atmel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/au1x need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/exportfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/edac need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/bcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/cirrus need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/codecs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/ext4 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/energy_model need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/davinci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/key need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/dwc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/fsl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/generic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/hisilicon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/livepatch need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/synth need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/img need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/extcon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/fat need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/fuse need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/intel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=crypto/asymmetric_keys need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/intel/boards need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/intel/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firewire need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firmware need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/jz4740 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/locking need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/kirkwood need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/l2tp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firmware/arm_scmi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/meson need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/llc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/power need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/crypto need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mediatek/codec/mt6357 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/bridge/netfilter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/fonts need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firmware/broadcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mxs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/printk need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firmware/meson need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mediatek/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/lz4 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/firmware/tegra need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/incfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/nuc900 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mediatek/common_int need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/jbd2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/lzo need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/omap need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/rcu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/mpi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/kernfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/mac80211 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/ged need-builtin=1
+$GED: CONFIG_MTK_PLATFORM is ["mt6765"]
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/sched need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/trace need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/nls need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/6fire need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/bcd2000 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/caiaq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/hiface need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/notify need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/misc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/usb/usx2y need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/pxa need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hid need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/reed_solomon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/xz need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/gpu_rgx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/zlib_deflate need-builtin=1
+[GPU_DEBUG] MTK_GPU_VERSION 2 = doma
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/gpu_rgx/m1.13ED5776728 need-builtin=1
+[GPU_DEBUG] MTK_PLATFORM = mt6765
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/notify/dnotify need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/zlib_inflate need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/notify/fanotify need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/notify/inotify need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=lib/zstd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hid/usbhid need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/mediatek/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/netfilter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/vga need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/time need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/x86 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/gpufreq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/gpufreq/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/qcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/overlayfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/rockchip need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/samsung need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/sh need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/sirf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/spear need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/sti need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/stm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/sunxi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/tegra need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/txx9 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/uniphier need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/ux500 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/mediatek/hal need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/xtensa need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/soc/zte need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/proc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=sound/xen need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hwspinlock need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/trace need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/netlink need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/packet need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hwtracing/coresight need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/rfkill need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/sched need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hwtracing/intel_th need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/pstore need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/ipv6/netfilter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/hwtracing/stm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/sctp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/ipv4/netfilter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/i2c need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/quota need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=kernel/sched/extension need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/i2c/algos need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/amd/lib need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/bridge need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/bridge/synopsys need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/hisilicon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/i2c/busses need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/i2c need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/omapdrm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/omapdrm/displays need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/panel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/omapdrm/dss need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/ramfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/sysfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/tilcdc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/ttm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/gpu/drm/virtio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/i2c/muxes need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/tracefs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/tipc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/unix need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/unicode need-builtin=1
+  (cat .config | gzip -n -f -9 > kernel/config_data.gz) || (rm -f kernel/config_data.gz ; false)
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=fs/verity need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/vmw_vsock need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/i3c need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/wireless need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/idle need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=net/xfrm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/accel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/adc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/afe need-builtin=1
+set -e; mkdir -p kernel/; (echo "static const char kernel_config_data[] __used = MAGIC_START"; cat kernel/config_data.gz | scripts/bin2c; echo "MAGIC_END;") > kernel/config_data.h.tmp; if [ -r kernel/config_data.h ] && cmp -s kernel/config_data.h kernel/config_data.h.tmp; then rm -f kernel/config_data.h.tmp; else : '  UPD     kernel/config_data.h'; mv -f kernel/config_data.h.tmp kernel/config_data.h; fi
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/serio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/amplifiers need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/buffer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iommu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/chemical need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/irqchip need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/counter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common/cros_ec_sensors need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/kernelsu need-builtin=1
+-- KernelSU pinned version: 11872
+-- KernelSU Manager signature size: 0x033b
+-- KernelSU Manager signature hash: c371061b19d8c7d7d6133c6a9bafe198fa944e50c1b31c9d8daa8d7f1fc2d2d6
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common/hid-sensors need-builtin=1
+
+-- SUSFS_VERSION: v1.5.5
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common/ms_sensors need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common/ssp_sensors need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/common/st_sensors need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/dac need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/dummy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/frequency need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/gyro need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/leds need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/health need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/humidity need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/imu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/light need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/joystick need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/magnetometer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/imu/bmi160 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/macintosh need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/imu/inv_mpu6050 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/keyboard need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/imu/st_lsm6dsx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/multiplexer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/misc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/leds/trigger need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/touchscreen need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/orientation need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/potentiometer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mailbox need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/potentiostat need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/pressure need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/keyboard/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/md need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/touchscreen/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/proximity need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/memory need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/resolver need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/temperature need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/iio/trigger need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/memory/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/keyboard/mediatek/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mfd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/cb710 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common/b2c2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/eeprom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/lis3lv02d need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mmc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common/saa7146 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mmc/core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common/siano need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common/v4l2-tpg need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/common/videobuf2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mic/bus need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/input/touchscreen/mediatek/AXS need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/firewire need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/nfc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mmc/host need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mmc/host/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/i2c need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/ti-st need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/mmc/host/mediatek/ComboA need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/i2c/soc_camera need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/mmc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/nvme need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/aee need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/nvme/host need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/mmc/siano need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/b2c2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/nvme/target need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/aee/aed need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/atf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/ddbridge need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/nvmem need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform/cros-ec-cec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/dm1105 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform/davinci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform/meson need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/intel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/of need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform/omap need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/intel/ipu3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/platform/stm32 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/dsa need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/opp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/dsa/b53 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/mantis need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/dsa/microchip need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/netup_unidvb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/dsa/mv88e6xxx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/aee/mrdump need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/phy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/ngene need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/pluto2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/ppp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/radio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/pt1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/slip need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/pt3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/saa7146 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/rc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/smipcie need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/rc/keymaps need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/spi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/pci/ttpci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pci/controller need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/tuners need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pci/controller/dwc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pci/switch need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/cpufreq_v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/v4l2-core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/b2c2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/cpufreq_v1/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/dvb-usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/dvb-usb-v2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/net/wireless need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/cpuidle_v3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/s2255 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/siano need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/perf need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/stkwebcam need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/ttusb-budget need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/blocktag need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/eem_v2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/hps_v3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/ttusb-dec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/eem_v2/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/media/usb/zr364xx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/btif need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/leakage_table_v2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/broadcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/btif/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/hisilicon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/c2k_usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/marvell need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/mcdi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/mdpm_v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cache need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/mdpm_v1/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/motorola need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/qualcomm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/platform need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/cpufreq_v1/src/mach need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/ralink need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/samsung need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ccci_util need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ccmni need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/dip need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/st need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/mcdi/mcdi_v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/phy/ti need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/dpe need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/mcdi/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/pbm_v4 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ccu/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/fdvt need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cirq need-builtin=1
+FDVT: Drv use 4.0 folder
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/fdvt/4.0 need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/ccu/src/Makefile:33: CCU_MAKE_FILE_CALLED
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/power_gs_v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ccu/src/1.2 need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cameraisp/src/mt6765 need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/ccu/src/1.2/Makefile:28: CCU_INC=/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/ccu/src/mt6765/ccu_ext_interface
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/power need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/power_gs_v1/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/power/avs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/ptp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/actions need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/ppm_v3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/power/reset need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/qos need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/bcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/clkbuf need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/base/power/qos/Makefile:45: extraneous text after 'else' directive
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/power/supply need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/cirrus need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/ppm_v3/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/freescale need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ccu/src/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pwm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/ras need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/spm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/udi_v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/spm/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/mvebu need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/nomadik need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/upower_v2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/spm/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/regulator need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/base/power/upower_v2/Makefile:33: extraneous text after 'ifeq' directive
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/reset need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/sprd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cm_mgr need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/pinctrl/ti need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/rtc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/scsi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/reset/hisilicon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/amlogic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/bcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/fsl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/mediatek need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/qcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cmdq need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/spi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cmdq/mdp_sync need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/spm/common/mtk_idle_fs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cmdq/v3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/renesas need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/conn_md need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/spmi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/xilinx need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/ppm_v3/src/mach need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/connectivity need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/mediatek/devapc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dbgtop need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/base/power/ppm_v3/src/mach/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/soc/mediatek/devapc/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/android need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/thermal need-builtin=1
+ION:enable mtk ion
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/debug_latch need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/debug_latch/plat_dbg_info need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/uio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/accel need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/adc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/addac need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/cdc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/android/mtk_ion need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/media need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/frequency need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/devinfo need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/impedance-analyzer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/gadget need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/meter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/iio/resolver need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/virtio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dfd need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/misc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/backlight need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dramc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/watchdog need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev/core need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/thermal/broadcom need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/phy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/thermal/samsung need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/thermal/tegra need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/roles need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/storage need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dramc/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/dvfsrc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/emi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/gadget/function need-builtin=1
+CONFIG_MTK_PLATFORM_CCCI := mt6765
+CONFIG_MTK_PLATFORM_CCCI := "mt6765"
+MTK_PLATFORM_CCCI := mt6765
+CONFIG_MTK_PLATFORM := mt6765
+CONFIG_MTK_PLATFORM := "mt6765"
+MTK_PLATFORM := "mt6765"
+CONFIG_MTK_PLATFORM := mt6765
+CONFIG_MTK_PLATFORM := "mt6765"
+MTK_PLATFORM := "mt6765"
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/emi/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/gadget/legacy need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ext_disp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/hvc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ext_gic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ext_disp/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ext_disp/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/cmdq/v3/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/ipwireless need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ext_gic/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/serdev need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/staging/android/mtk_ion/mtk need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/serial need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/extcon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev/omap2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev/omap2/omapfb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/serial/8250 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev/omap2/omapfb/displays need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/video/fbdev/omap2/omapfb/dss need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/typec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/gadget/udc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci/"mt6765" need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci/fsm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci/hif need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/typec/altmodes need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/typec/fusb302 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci/port need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/usb/typec/mux need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/tty/vt need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/eccci/udc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/flashlight need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/geniezone need-builtin=1
+************  drivers/trusty/mtee-kree mk ************
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/ice_debug need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/jpeg need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lcm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/jpeg/v2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/leds need-builtin=1
+imgsensor drv by common ../common/v1/gc5025sub_mipi_raw/ ../common/v1/imx278_mipi_raw/
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/log_store need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens/mtk/main need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/leds/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/m4u need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lcm/axs15260_dsi_6580_hd need-builtin=1
+M4U platform folder:"mt6765"
+M4U version:2.0
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/masp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/m4u/2.0 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mdp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/m4u/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/geniezone/gz-trusty need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens/mtk/main2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/memory-amms need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mmdvfs need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens/mtk/main3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mmp need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/monitor_hang need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mmp/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens/mtk/sub need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/../common/v1/gc5025sub_mipi_raw need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/lens/mtk/sub2 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/../common/v1/imx278_mipi_raw need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/camera_hw need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mtprintk need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/camera_hw/gpio need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/mtprof need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/camera_hw/mclk need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/imgsensor/src/mt6765/camera_hw/regulator need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance need-builtin=1
+   rm -f drivers/misc/mediatek/eccci/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/mediatek/eccci/built-in.a drivers/misc/mediatek/eccci/ccci_core.o drivers/misc/mediatek/eccci/ccci_bm.o drivers/misc/mediatek/eccci/ccci_modem.o drivers/misc/mediatek/eccci/ccci_rtc.o drivers/misc/mediatek/eccci/modem_sys1.o drivers/misc/mediatek/eccci/ccci_md_clk.o drivers/misc/mediatek/eccci/ccci_auxadc.o drivers/misc/mediatek/eccci/fsm/built-in.a drivers/misc/mediatek/eccci/hif/built-in.a drivers/misc/mediatek/eccci/port/built-in.a drivers/misc/mediatek/eccci/udc/built-in.a drivers/misc/mediatek/eccci/"mt6765"/built-in.a
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/pmic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/power_throttling need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/pmic/mt6397 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/qos need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/rps need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/smi need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/spi_slave_drv need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/accelerometer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/alsps need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sspm need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/hwmsen need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/base need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/boost_ctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/sensor_attributes need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/sensor_dts need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/subpmic need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sync need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/systracker need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/sensor_event need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/boost_ctrl/cpu_ctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/boost_ctrl/dram_ctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/sensor_list need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/sensors-1.0/hwmon/sensor_performance need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/fpsgo_v3 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/load_track need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/boost_ctrl/eas_ctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/perf_ioctl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/syslimiter need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/tchbst need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/uload_ind need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/boost_ctrl/topo_ctrl need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/timer need-builtin=1
+  /usr/bin/clang --target=aarch64-linux-gnu -Wp,-MD,drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/.mir3da_cust.o.d -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/compiler_types.h  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da -Idrivers/misc/mediatek/sensors-1.0/accelerometer/mir3da -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Werror=return-type -Wno-format-security -std=gnu89 -Werror=unknown-warning-option -fno-PIE -mgeneral-regs-only -DCONFIG_AS_LSE=1 -fno-asynchronous-unwind-tables -Wno-psabi -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -Wno-address-of-packed-member -Os -Wframe-larger-than=2800 -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu -Wno-tautological-compare -mno-global-merge -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg -Wdeclaration-after-statement -Wno-pointer-sign -Wno-array-bounds -fno-strict-overflow -fno-merge-all-constants -fno-stack-check -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -fmacro-prefix-map=/home/builder/work/build/a25-wusb-kbuild-integration/kernel/= -Wno-initializer-overrides -Wno-unused-value -Wno-format -Wno-sign-compare -Wno-format-zero-length -Wno-uninitialized -Wno-pointer-to-enum-cast -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=declaration-after-statement -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=sign-compare -Wno-error=missing-prototypes -Wno-error=enum-conversion -Wno-error=constant-conversion -Wno-error=incompatible-pointer-types -Werror -Wno-unused-but-set-variable  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include/mt-plat/mt6765/include  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include/mt-plat/  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/mmc/host/mediatek/mt6765  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/accelerometer/inc  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/hwmon/include  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/include    -DKBUILD_BASENAME='"mir3da_cust"' -DKBUILD_MODNAME='"mir3da"' -c -o drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/.tmp_mir3da_cust.o /home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_cust.c
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/timer/timesync need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/trusted_mem need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/tchbst/user need-builtin=1
+TCORE_UT_TESTS_SUPPORT = n
+TCORE_PROFILING_SUPPORT = n
+TCORE_PROFILING_AUTO_DUMP = n
+TCORE_MEMORY_LEAK_DETECTION_SUPPORT = n
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/fpsgo_v3/base need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/fpsgo_v3/composer need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/fpsgo_v3/fbt need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/performance/fpsgo_v3/fstb need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/typec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal/mt6765/src need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/usb20 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/typec/tcpc need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/usb_boost need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/videocodec need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/usb_boost/v1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/mt6765 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/aal30 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal/common/coolers need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/mt6765/dispsys need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/videocodec/mt6765 need-builtin=1
+shaohua
+
+y
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/thermal/common/thermal_zones need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/color20 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/corr10 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/layering_rule_base need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/layering_rule_base/v1.1 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/mt6765/videox need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/video/common/pwm10 need-builtin=1
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=drivers/misc/mediatek/usb20/mt6765 need-builtin=1
+/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_cust.c:299:36: warning: unused variable 'mir_factory' [-Wunused-variable]
+  299 | static struct accel_factory_public mir_factory = {
+      |                                    ^~~~~~~~~~~
+1 warning generated.
+  if [ "-pg" = "-pg" ]; then if [ drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_cust.o != "scripts/mod/empty.o" ]; then ./scripts/recordmcount  "drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_cust.o"; fi; fi;
+   rm -f drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/built-in.a drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_cust.o drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/mir3da_core.o drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/stock_pipeline.o drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/virtual_ps.o
+   rm -f drivers/misc/mediatek/sensors-1.0/accelerometer/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/mediatek/sensors-1.0/accelerometer/built-in.a drivers/misc/mediatek/sensors-1.0/accelerometer/accel.o drivers/misc/mediatek/sensors-1.0/accelerometer/accel_factory.o drivers/misc/mediatek/sensors-1.0/accelerometer/mir3da/built-in.a
+   rm -f drivers/misc/mediatek/sensors-1.0/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/mediatek/sensors-1.0/built-in.a drivers/misc/mediatek/sensors-1.0/hwmon/built-in.a drivers/misc/mediatek/sensors-1.0/alsps/built-in.a drivers/misc/mediatek/sensors-1.0/accelerometer/built-in.a
+   rm -f drivers/misc/mediatek/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/mediatek/built-in.a drivers/misc/mediatek/power_throttling/built-in.a drivers/misc/mediatek/devinfo/built-in.a drivers/misc/mediatek/subpmic/built-in.a drivers/misc/mediatek/base/built-in.a drivers/misc/mediatek/sensors-1.0/built-in.a drivers/misc/mediatek/ccci_util/built-in.a drivers/misc/mediatek/ccmni/built-in.a drivers/misc/mediatek/dramc/built-in.a drivers/misc/mediatek/eccci/built-in.a drivers/misc/mediatek/emi/built-in.a drivers/misc/mediatek/mmp/built-in.a drivers/misc/mediatek/trusted_mem/built-in.a drivers/misc/mediatek/geniezone/built-in.a drivers/misc/mediatek/cmdq/built-in.a drivers/misc/mediatek/mdp/built-in.a drivers/misc/mediatek/lcm/built-in.a drivers/misc/mediatek/ext_disp/built-in.a drivers/misc/mediatek/spi_slave_drv/built-in.a drivers/misc/mediatek/video/built-in.a drivers/misc/mediatek/sync/built-in.a drivers/misc/mediatek/atf/built-in.a drivers/misc/mediatek/memory-amms/built-in.a drivers/misc/mediatek/mtprof/built-in.a drivers/misc/mediatek/ice_debug/built-in.a drivers/misc/mediatek/sspm/built-in.a drivers/misc/mediatek/dvfsrc/built-in.a drivers/misc/mediatek/aee/built-in.a drivers/misc/mediatek/clkbuf/built-in.a drivers/misc/mediatek/qos/built-in.a drivers/misc/mediatek/cm_mgr/built-in.a drivers/misc/mediatek/connectivity/built-in.a drivers/misc/mediatek/btif/built-in.a drivers/misc/mediatek/conn_md/built-in.a drivers/misc/mediatek/dcm/built-in.a drivers/misc/mediatek/smi/built-in.a drivers/misc/mediatek/performance/built-in.a drivers/misc/mediatek/mmdvfs/built-in.a drivers/misc/mediatek/systracker/built-in.a drivers/misc/mediatek/monitor_hang/built-in.a drivers/misc/mediatek/thermal/built-in.a drivers/misc/mediatek/debug_latch/built-in.a drivers/misc/mediatek/cache/built-in.a drivers/misc/mediatek/mtprintk/built-in.a drivers/misc/mediatek/leds/built-in.a drivers/misc/mediatek/cameraisp/built-in.a drivers/misc/mediatek/imgsensor/src/built-in.a drivers/misc/mediatek/lens/built-in.a drivers/misc/mediatek/m4u/built-in.a drivers/misc/mediatek/pmic/built-in.a drivers/misc/mediatek/videocodec/built-in.a drivers/misc/mediatek/flashlight/built-in.a drivers/misc/mediatek/usb_boost/built-in.a drivers/misc/mediatek/usb20/built-in.a drivers/misc/mediatek/extcon/built-in.a drivers/misc/mediatek/log_store/built-in.a drivers/misc/mediatek/c2k_usb/built-in.a drivers/misc/mediatek/typec/built-in.a drivers/misc/mediatek/ccu/src/built-in.a drivers/misc/mediatek/blocktag/built-in.a drivers/misc/mediatek/jpeg/built-in.a drivers/misc/mediatek/timer/built-in.a drivers/misc/mediatek/dbgtop/built-in.a drivers/misc/mediatek/dfd/built-in.a drivers/misc/mediatek/ext_gic/built-in.a drivers/misc/mediatek/cirq/built-in.a drivers/misc/mediatek/masp/built-in.a drivers/misc/mediatek/rps/built-in.a
+   rm -f drivers/misc/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/misc/built-in.a drivers/misc/eeprom/built-in.a drivers/misc/cb710/built-in.a drivers/misc/ti-st/built-in.a drivers/misc/lis3lv02d/built-in.a drivers/misc/mic/built-in.a drivers/misc/uid_sys_stats.o drivers/misc/mediatek/built-in.a
+   rm -f drivers/built-in.a; /usr/bin/llvm-ar rcSTPD drivers/built-in.a drivers/irqchip/built-in.a drivers/bus/built-in.a drivers/phy/built-in.a drivers/pinctrl/built-in.a drivers/gpio/built-in.a drivers/pwm/built-in.a drivers/pci/built-in.a drivers/video/built-in.a drivers/idle/built-in.a drivers/char/ipmi/built-in.a drivers/amba/built-in.a drivers/clk/built-in.a drivers/dma/built-in.a drivers/soc/built-in.a drivers/virtio/built-in.a drivers/regulator/built-in.a drivers/reset/built-in.a drivers/tty/built-in.a drivers/char/built-in.a drivers/iommu/built-in.a drivers/gpu/built-in.a drivers/spi/built-in.a drivers/memory/built-in.a drivers/base/built-in.a drivers/block/built-in.a drivers/misc/built-in.a drivers/mfd/built-in.a drivers/nfc/built-in.a drivers/dma-buf/built-in.a drivers/macintosh/built-in.a drivers/scsi/built-in.a drivers/nvme/built-in.a drivers/spmi/built-in.a drivers/net/built-in.a drivers/firewire/built-in.a drivers/uio/built-in.a drivers/cdrom/built-in.a drivers/auxdisplay/built-in.a drivers/usb/built-in.a drivers/input/serio/built-in.a drivers/input/built-in.a drivers/rtc/built-in.a drivers/i2c/built-in.a drivers/media/built-in.a drivers/i3c/built-in.a drivers/ptp/built-in.a drivers/power/built-in.a drivers/thermal/built-in.a drivers/watchdog/built-in.a drivers/md/built-in.a drivers/bluetooth/built-in.a drivers/edac/built-in.a drivers/opp/built-in.a drivers/cpufreq/built-in.a drivers/cpuidle/built-in.a drivers/mmc/built-in.a drivers/leds/built-in.a drivers/firmware/built-in.a drivers/crypto/built-in.a drivers/clocksource/built-in.a drivers/hid/built-in.a drivers/of/built-in.a drivers/staging/built-in.a drivers/platform/built-in.a drivers/mailbox/built-in.a drivers/hwspinlock/built-in.a drivers/energy_model/built-in.a drivers/devfreq/built-in.a drivers/extcon/built-in.a drivers/iio/built-in.a drivers/perf/built-in.a drivers/ras/built-in.a drivers/hwtracing/coresight/built-in.a drivers/hwtracing/intel_th/built-in.a drivers/hwtracing/stm/built-in.a drivers/android/built-in.a drivers/nvmem/built-in.a drivers/kernelsu/built-in.a
+  /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/link-vmlinux.sh /usr/bin/ld.lld -EL  -maarch64elf --no-undefined -X -z norelro -shared -Bsymbolic -z notext  --no-apply-dynamic-relocs --fix-cortex-a53-843419  --build-id --pack-dyn-relocs=relr ;  true
++ '[' /usr/bin/ld.lld = clean ']'
++ . include/config/auto.conf
+++ CONFIG_NLS_CODEPAGE_861=y
+++ CONFIG_RING_BUFFER=y
+++ CONFIG_HARDENED_USERCOPY_FALLBACK=y
+++ CONFIG_NF_CONNTRACK_H323=y
+++ CONFIG_HAVE_ARCH_SECCOMP_FILTER=y
+++ CONFIG_SND_PROC_FS=y
+++ CONFIG_SCSI_DMA=y
+++ CONFIG_NETFILTER_FAMILY_BRIDGE=y
+++ CONFIG_KERNEL_GZIP=y
+++ CONFIG_CC_HAS_SANCOV_TRACE_PC=y
+++ CONFIG_ARM64_PAGE_SHIFT=12
+++ CONFIG_INPUT_KEYBOARD=y
+++ CONFIG_ARCH_SUPPORTS_INT128=y
+++ CONFIG_MEMORY_ISOLATION=y
+++ CONFIG_SLUB_CPU_PARTIAL=y
+++ CONFIG_RFS_ACCEL=y
+++ CONFIG_MTK_LEGACY_THERMAL=y
+++ CONFIG_IP_NF_TARGET_REDIRECT=y
+++ CONFIG_CRC32=y
+++ CONFIG_I2C_BOARDINFO=y
+++ CONFIG_NF_NAT_PROTO_SCTP=y
+++ CONFIG_DM_SNAPSHOT=y
+++ CONFIG_MTK_MUSB_DUAL_ROLE=y
+++ CONFIG_UNICODE=y
+++ CONFIG_MTK_ECCCI_CLDMA=y
+++ CONFIG_CPU_FREQ_GOV_CONSERVATIVE=y
+++ CONFIG_SECCOMP=y
+++ CONFIG_HIGH_RES_TIMERS=y
+++ CONFIG_ARCH_HAS_SET_MEMORY=y
+++ CONFIG_BLK_DEV_DM=y
+++ CONFIG_IP_MULTIPLE_TABLES=y
+++ CONFIG_FIX_EARLYCON_MEM=y
+++ CONFIG_BLK_INLINE_ENCRYPTION=y
+++ CONFIG_XZ_DEC_IA64=y
+++ CONFIG_SND_SOC_MT6357_ACCDET=y
+++ CONFIG_INOTIFY_USER=y
+++ CONFIG_NF_CONNTRACK_NETBIOS_NS=y
+++ CONFIG_HDMI=y
+++ CONFIG_MTK_THERMAL=y
+++ CONFIG_NETWORK_FILESYSTEMS=y
+++ CONFIG_TCPC_CLASS=y
+++ CONFIG_MTK_DHCPV6C_WIFI=y
+++ CONFIG_ARM64_VA_BITS=39
+++ CONFIG_EXT4_ENCRYPTION=y
+++ CONFIG_FS_ENCRYPTION_INLINE_CRYPT=y
+++ CONFIG_GLOB=y
+++ CONFIG_ARCH_SUSPEND_POSSIBLE=y
+++ CONFIG_COMPAT_NETLINK_MESSAGES=y
+++ CONFIG_CGROUP_WRITEBACK=y
+++ CONFIG_MAC80211_STA_HASH_MAX_SIZE=0
+++ CONFIG_NLS_MAC_TURKISH=y
+++ CONFIG_HAVE_ARCH_MMAP_RND_BITS=y
+++ CONFIG_KASAN_STACK=0
+++ CONFIG_CPU_FREQ_GOV_ATTR_SET=y
+++ CONFIG_ARM64_ERRATUM_1024718=y
+++ CONFIG_TCP_CONG_HTCP=m
+++ CONFIG_EXT4_FS_POSIX_ACL=y
+++ CONFIG_GKI_HIDDEN_SOC_PM_CONFIGS=y
+++ CONFIG_USB_F_AUDIO_SRC=y
+++ CONFIG_ZSTD_COMPRESS=y
+++ CONFIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT=y
+++ CONFIG_NETFILTER_XT_MATCH_HELPER=y
+++ CONFIG_SSB_POSSIBLE=y
+++ CONFIG_ASYMMETRIC_KEY_TYPE=y
+++ CONFIG_NETFILTER_XT_MATCH_STATISTIC=y
+++ CONFIG_NLS_CODEPAGE_855=y
+++ CONFIG_MTK_SENSOR_SUPPORT=y
+++ CONFIG_UHID=y
+++ CONFIG_IP_NF_NAT=y
+++ CONFIG_MTK_CLK_BUFFER=y
+++ CONFIG_USB_OHCI_LITTLE_ENDIAN=y
+++ CONFIG_NET_SCH_FIFO=y
+++ CONFIG_SWPHY=y
+++ CONFIG_FSNOTIFY=y
+++ CONFIG_BLK_DEV_LOOP_MIN_COUNT=16
+++ CONFIG_STP=y
+++ CONFIG_ARCH_FLATMEM_ENABLE=y
+++ CONFIG_INET6_TUNNEL=y
+++ CONFIG_UCLAMP_BUCKETS_COUNT=5
+++ CONFIG_CRYPTO_MANAGER_DISABLE_TESTS=y
+++ CONFIG_HIDRAW=y
+++ CONFIG_MTK_GPU_VERSION='rgx doma m1.11ED5425693'
+++ CONFIG_USB_F_MTK_FASTMETA=y
+++ CONFIG_GENERIC_SMP_IDLE_THREAD=y
+++ CONFIG_PINCTRL_SINGLE=y
+++ CONFIG_ARCH_SUPPORTS_NUMA_BALANCING=y
+++ CONFIG_DYNAMIC_DEBUG=y
+++ CONFIG_HAVE_MEMORY_PRESENT=y
+++ CONFIG_PSTORE_COMPRESS_DEFAULT=deflate
+++ CONFIG_LDISC_AUTOLOAD=y
+++ CONFIG_FIB_RULES=y
+++ CONFIG_MMC_MTK_PRO=y
+++ CONFIG_IP6_NF_MANGLE=y
+++ CONFIG_HAVE_IRQ_TIME_ACCOUNTING=y
+++ CONFIG_NETFILTER_XT_MATCH_REALM=y
+++ CONFIG_MTK_PQ_COLOR_MODE=DISP
+++ CONFIG_ARCH_HAS_DEVMEM_IS_ALLOWED=y
+++ CONFIG_IPV6=y
+++ CONFIG_HAVE_STACKPROTECTOR=y
+++ CONFIG_CRYPTO_AEAD=y
+++ CONFIG_COMPAT=y
+++ CONFIG_CPU_FREQ_DEFAULT_GOV_SCHEDUTIL=y
+++ CONFIG_MAGIC_SYSRQ_SERIAL=y
+++ CONFIG_BQL=y
+++ CONFIG_DEFAULT_TCP_CONG=bic
+++ CONFIG_NET_CLS_FLOW=y
+++ CONFIG_OF_IOMMU=y
+++ CONFIG_MTK_COMBO_PLAT_PATH=
+++ CONFIG_NET_IPVTI=y
+++ CONFIG_USB_STORAGE_USBAT=y
+++ CONFIG_MTK_BLOCK_TAG=y
+++ CONFIG_NF_NAT_PROTO_GRE=y
+++ CONFIG_MTK_TIMER=y
+++ CONFIG_NLS_ISO8859_7=y
+++ CONFIG_ANDROID_BINDER_IPC=y
+++ CONFIG_IP6_NF_TARGET_REJECT=y
+++ CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MAX=16
+++ CONFIG_UPROBES=y
+++ CONFIG_ARCH_SPARSEMEM_ENABLE=y
+++ CONFIG_NF_NAT_REDIRECT=y
+++ CONFIG_HOTPLUG_CPU=y
+++ CONFIG_INET_DIAG_DESTROY=y
+++ CONFIG_SND_SOC_GENERIC_DMAENGINE_PCM=y
+++ CONFIG_NLS_MAC_CYRILLIC=y
+++ CONFIG_WLAN=y
+++ CONFIG_MTK_MIR3DA_A25_VIRTUAL_PS=y
+++ CONFIG_SYS_SUPPORTS_HUGETLBFS=y
+++ CONFIG_NAMESPACES=y
+++ CONFIG_TOUCHSCREEN_PHYSICAL_ROTATION_WITH_LCM=y
+++ CONFIG_HAVE_CMPXCHG_DOUBLE=y
+++ CONFIG_INET6_XFRM_MODE_ROUTEOPTIMIZATION=y
+++ CONFIG_HAVE_ARCH_HUGE_VMAP=y
+++ CONFIG_USB_CONFIGFS=y
+++ CONFIG_BLK_DEV_BSG=y
+++ CONFIG_CRYPTO_ADIANTUM=y
+++ CONFIG_NETFILTER_XT_MATCH_QUOTA2_LOG=y
+++ CONFIG_COMMON_CLK_MT6765_MIPI0ASYS=y
+++ CONFIG_COMMON_CLK_MT6765_CAMSYS=y
+++ CONFIG_INTEGRITY=y
+++ CONFIG_XFRM_IPCOMP=y
+++ CONFIG_CRYPTO_RNG2=y
+++ CONFIG_CRYPTO_DRBG_MENU=y
+++ CONFIG_NETFILTER_NETLINK_QUEUE=y
+++ CONFIG_MSDOS_FS=y
+++ CONFIG_USB_U_SERIAL=y
+++ CONFIG_TUN=y
+++ CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS=y
+++ CONFIG_IPV6_PIMSM_V2=y
+++ CONFIG_CFG80211=y
+++ CONFIG_CRYPTO_CHACHA20POLY1305=y
+++ CONFIG_MTK_CMDQ_MBOX=y
+++ CONFIG_GENERIC_PINCTRL_GROUPS=y
+++ CONFIG_NLS_CODEPAGE_1250=y
+++ CONFIG_OF_RESERVED_MEM=y
+++ CONFIG_DM_CRYPT=y
+++ CONFIG_REED_SOLOMON_ENC8=y
+++ CONFIG_SERIAL_8250=y
+++ CONFIG_CRYPTO_AES_ARM64=y
+++ CONFIG_CAVIUM_ERRATUM_30115=y
+++ CONFIG_LZO_DECOMPRESS=y
+++ CONFIG_IOMMU_SUPPORT=y
+++ CONFIG_NLS_CODEPAGE_862=y
+++ CONFIG_MTK_LPM_GS_DUMP_VERSION=v1
+++ CONFIG_COMPAT_BINFMT_ELF=y
+++ CONFIG_MTK_NET_CCMNI=y
+++ CONFIG_USB=y
+++ CONFIG_GPIO_PL061=y
+++ CONFIG_MODULES_USE_ELF_RELA=y
+++ CONFIG_CRYPTO_HMAC=y
+++ CONFIG_BRANCH_PROFILE_NONE=y
+++ CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG=y
+++ CONFIG_SND_HRTIMER=y
+++ CONFIG_HAVE_DMA_CONTIGUOUS=y
+++ CONFIG_DQL=y
+++ CONFIG_SOCK_CGROUP_DATA=y
+++ CONFIG_COREDUMP=y
+++ CONFIG_IP_NF_ARPTABLES=y
+++ CONFIG_KSU_SUSFS_TRY_UMOUNT=y
+++ CONFIG_BCMA_POSSIBLE=y
+++ CONFIG_USB_CONFIGFS_RNDIS=y
+++ CONFIG_ZRAM=y
+++ CONFIG_FORCE_MAX_ZONEORDER=11
+++ CONFIG_SND_SOC=y
+++ CONFIG_NET_IPGRE_DEMUX=y
+++ CONFIG_PRINTK=y
+++ CONFIG_MTK_GIC_EXT=y
+++ CONFIG_TIMERFD=y
+++ CONFIG_CRYPTO_LIB_CHACHA_GENERIC=y
+++ CONFIG_KSU_SUSFS_SUS_OVERLAYFS=y
+++ CONFIG_MTK_CAMERA_ISP_FD_SUPPORT=y
+++ CONFIG_MTK_INFRACFG=y
+++ CONFIG_TRACEPOINTS=y
+++ CONFIG_IKHEADERS=m
+++ CONFIG_CRYPTO_AUTHENC=y
+++ CONFIG_NET_EMATCH_STACK=32
+++ CONFIG_PRINTK_MTK=y
+++ CONFIG_UCLAMP_TASK_GROUP=y
+++ CONFIG_NLS_MAC_CENTEURO=y
+++ CONFIG_ARCH_HAS_SYSCALL_WRAPPER=y
+++ CONFIG_COMPAT_32BIT_TIME=y
+++ CONFIG_SHMEM=y
+++ CONFIG_MIGRATION=y
+++ CONFIG_HAVE_ARCH_JUMP_LABEL=y
+++ CONFIG_BUILD_SALT=
+++ CONFIG_MMC_BLOCK_MINORS=32
+++ CONFIG_MTK_FLASHLIGHT_PT=y
+++ CONFIG_HAVE_ARCH_PREL32_RELOCATIONS=y
+++ CONFIG_PMIC_LBAT_SERVICE=y
+++ CONFIG_MTK_COMBO_GPS=y
+++ CONFIG_NLS_CODEPAGE_850=y
+++ CONFIG_ARCH_MTK_PROJECT=r65v3_pmz_w1a
+++ CONFIG_CRYPTO_CTS=y
+++ CONFIG_GENERIC_NET_UTILS=y
+++ CONFIG_USB_ROLE_SWITCH=y
+++ CONFIG_CRYPTO_DES=y
+++ CONFIG_GPIOLIB_FASTPATH_LIMIT=512
+++ CONFIG_STM=y
+++ CONFIG_SND_SOC_COMPRESS=y
+++ CONFIG_NLS_CODEPAGE_437=y
+++ CONFIG_BT_HS=y
+++ CONFIG_ARCH_PROC_KCORE_TEXT=y
+++ CONFIG_GKI_HIDDEN_VIRTUAL_CONFIGS=y
+++ CONFIG_NET_CLS_U32=y
+++ CONFIG_EXPORTFS=y
+++ CONFIG_IP_MROUTE_COMMON=y
+++ CONFIG_NET_INGRESS=y
+++ CONFIG_TOUCHSCREEN_MTK_AXS=y
+++ CONFIG_ARM_GIC=y
+++ CONFIG_OLD_SIGSUSPEND3=y
+++ CONFIG_SERIO=y
+++ CONFIG_SCHEDSTATS=y
+++ CONFIG_ARCH_HAS_SG_CHAIN=y
+++ CONFIG_RTC_INTF_SYSFS=y
+++ CONFIG_NET_EMATCH_U32=y
+++ CONFIG_CPU_FREQ_GOV_COMMON=y
+++ CONFIG_BLK_DEV_INITRD=y
+++ CONFIG_DM_BUFIO=y
+++ CONFIG_DRM_VIRTIO_GPU=y
+++ CONFIG_CRYPTO_BLOWFISH_COMMON=y
+++ CONFIG_NF_CONNTRACK_SANE=y
+++ CONFIG_ARCH_CLOCKSOURCE_DATA=y
+++ CONFIG_SERIAL_DEV_BUS=y
+++ CONFIG_NF_CT_PROTO_DCCP=y
+++ CONFIG_ZLIB_INFLATE=y
+++ CONFIG_CC_IS_CLANG=y
+++ CONFIG_THERMAL_OF=y
+++ CONFIG_CRYPTO_TWOFISH_COMMON=y
+++ CONFIG_AUDITSYSCALL=y
+++ CONFIG_USB_PHY=y
+++ CONFIG_NLS_ISO8859_2=y
+++ CONFIG_IP_PNP=y
+++ CONFIG_RTC_INTF_PROC=y
+++ CONFIG_PM_CLK=y
+++ CONFIG_USB_CONFIGFS_F_HID=y
+++ CONFIG_CMA_SIZE_SEL_MBYTES=y
+++ CONFIG_CPU_IDLE_GOV_MENU=y
+++ CONFIG_MTK_STATIC_POWER=y
+++ CONFIG_ARCH_HAS_UBSAN_SANITIZE_ALL=y
+++ CONFIG_STACKTRACE_SUPPORT=y
+++ CONFIG_RESET_CONTROLLER=y
+++ CONFIG_BATTERY_MT6357=y
+++ CONFIG_MTK_DVFSRC=y
+++ CONFIG_USB_F_FS=y
+++ CONFIG_PD_DBG_INFO=y
+++ CONFIG_USB_CONFIGFS_F_ACC=y
+++ CONFIG_CRYPTO_KPP2=y
+++ CONFIG_RTC_DRV_MT6397=y
+++ CONFIG_NET_UDP_TUNNEL=y
+++ CONFIG_MTK_SYSTRACKER_V2=y
+++ CONFIG_REFCOUNT_FULL=y
+++ CONFIG_NO_HZ_IDLE=y
+++ CONFIG_NLS_MAC_ROMANIAN=y
+++ CONFIG_CFG80211_REQUIRE_SIGNED_REGDB=y
+++ CONFIG_ARM_SCMI_PROTOCOL=y
+++ CONFIG_MTK_AVB20_SUPPORT=y
+++ CONFIG_MTK_GPS_SUPPORT=y
+++ CONFIG_NETFILTER_XT_MATCH_STRING=y
+++ CONFIG_CRYPTO_DRBG_HMAC=y
+++ CONFIG_MTK_EMMC_SUPPORT=y
+++ CONFIG_DRM_BRIDGE=y
+++ CONFIG_USB_F_SERIAL=y
+++ CONFIG_EXTCON_MTK_USB=y
+++ CONFIG_NETFILTER_XT_MATCH_BPF=y
+++ CONFIG_USB_STORAGE=y
+++ CONFIG_GENERIC_CPU_AUTOPROBE=y
+++ CONFIG_STANDALONE=y
+++ CONFIG_SCHED_MC=y
+++ CONFIG_CPU_FREQ_GOV_PERFORMANCE=y
+++ CONFIG_RATIONAL=y
+++ CONFIG_I2C_MUX=y
+++ CONFIG_ARM64_LSE_ATOMICS=y
+++ CONFIG_SYSTEM_TRUSTED_KEYRING=y
+++ CONFIG_WATCHDOG_CORE=y
+++ CONFIG_GENERIC_EARLY_IOREMAP=y
+++ CONFIG_SND_USB_AUDIO=y
+++ CONFIG_VMAP_STACK=y
+++ CONFIG_ASHMEM=y
+++ CONFIG_BLOCK=y
+++ CONFIG_HID_APPLE=y
+++ CONFIG_MTK_TRUSTED_MEMORY_SUBSYSTEM=y
+++ CONFIG_SPECULATIVE_PAGE_FAULT=y
+++ CONFIG_INIT_ENV_ARG_LIMIT=32
+++ CONFIG_IP_NF_ARP_MANGLE=y
+++ CONFIG_CRYPTO_USER=y
+++ CONFIG_NF_CONNTRACK_PPTP=y
+++ CONFIG_TMPFS_POSIX_ACL=y
+++ CONFIG_STRICT_KERNEL_RWX=y
+++ CONFIG_BUG=y
+++ CONFIG_CONTEXT_SWITCH_TRACER=y
+++ CONFIG_MTK_LOW_BATTERY_POWER_THROTTLING=y
+++ CONFIG_MTK_FLASHLIGHT=y
+++ CONFIG_MTK_ATF_LOGGER=y
+++ CONFIG_ARCH_HAS_MEMBARRIER_SYNC_CORE=y
+++ CONFIG_PM=y
+++ CONFIG_MEMCG=y
+++ CONFIG_SPI=y
+++ CONFIG_NF_CONNTRACK_IRC=y
+++ CONFIG_OF_IRQ=y
+++ CONFIG_LIBFDT=y
+++ CONFIG_ANDROID_DEFAULT_SETTING=y
+++ CONFIG_NET_FAILOVER=y
+++ CONFIG_PPP_DEFLATE=y
+++ CONFIG_TEXTSEARCH_KMP=y
+++ CONFIG_MTK_MD1_SUPPORT=9
+++ CONFIG_COMMON_CLK_MT6765_VCODECSYS=y
+++ CONFIG_DTC=y
+++ CONFIG_NETFILTER_XT_TARGET_CLASSIFY=y
+++ CONFIG_REGMAP_SPI=y
+++ CONFIG_BT_BREDR=y
+++ CONFIG_WATCHDOG_HANDLE_BOOT_ENABLED=y
+++ CONFIG_SPLIT_PTLOCK_CPUS=4
+++ CONFIG_SBITMAP=y
+++ CONFIG_MT6359_EFUSE=y
+++ CONFIG_POWER_SUPPLY=y
+++ CONFIG_SCTP_COOKIE_HMAC_MD5=y
+++ CONFIG_CRYPTO_ZSTD=y
+++ CONFIG_SND_DMAENGINE_PCM=y
+++ CONFIG_NETFILTER_XT_TARGET_NFQUEUE=y
+++ CONFIG_HAVE_RCU_TABLE_FREE=y
+++ CONFIG_WEXT_CORE=y
+++ CONFIG_GENERIC_IRQ_CHIP=y
+++ CONFIG_NLS=y
+++ CONFIG_MTK_ROUND_CORNER_SUPPORT=y
+++ CONFIG_SCHED_AUTOGROUP=y
+++ CONFIG_MEDIA_CAMERA_SUPPORT=y
+++ CONFIG_ARM64_PAN=y
+++ CONFIG_NETFILTER_XT_TARGET_SECMARK=y
+++ CONFIG_HID_MAGICMOUSE=y
+++ CONFIG_INET_UDP_DIAG=y
+++ CONFIG_USB_CONFIGFS_ACM=y
+++ CONFIG_CGROUP_BPF=y
+++ CONFIG_NF_NAT_IPV6=y
+++ CONFIG_PINCTRL_MT6765=y
+++ CONFIG_NETFILTER_XT_MATCH_OWNER=y
+++ CONFIG_PSTORE_DEFLATE_COMPRESS_DEFAULT=y
+++ CONFIG_REED_SOLOMON_DEC8=y
+++ CONFIG_IRQ_WORK=y
+++ CONFIG_IP_ADVANCED_ROUTER=y
+++ CONFIG_ARCH_SUPPORTS_SHADOW_CALL_STACK=y
+++ CONFIG_USB_STORAGE_ALAUDA=y
+++ CONFIG_SPARSEMEM_EXTREME=y
+++ CONFIG_USB_COMMON=y
+++ CONFIG_TASK_XACCT=y
+++ CONFIG_IP6_NF_IPTABLES=y
+++ CONFIG_LZ4_COMPRESS=y
+++ CONFIG_NL80211_TESTMODE=y
+++ CONFIG_FIXED_PHY=y
+++ CONFIG_NLS_MAC_GAELIC=y
+++ CONFIG_LOG_CPU_MAX_BUF_SHIFT=12
+++ CONFIG_BLK_DEV_DM_BUILTIN=y
+++ CONFIG_INET_IPCOMP=y
+++ CONFIG_TASKS_RCU=y
+++ CONFIG_OF_NET=y
+++ CONFIG_GENERIC_PINCONF=y
+++ CONFIG_ARM_ARCH_TIMER=y
+++ CONFIG_EVENT_TRACING=y
+++ CONFIG_SG_POOL=y
+++ CONFIG_DRM_KMS_HELPER=y
+++ CONFIG_MTK_HSDMA=y
+++ CONFIG_NF_SOCKET_IPV6=y
+++ CONFIG_NLS_ISO8859_1=y
+++ CONFIG_CRYPTO_WORKQUEUE=y
+++ CONFIG_PINCTRL_MTK=y
+++ CONFIG_TEXTSEARCH_BM=y
+++ CONFIG_FS_IOMAP=y
+++ CONFIG_NF_CONNTRACK_PROCFS=y
+++ CONFIG_NLS_MAC_INUIT=y
+++ CONFIG_PPP_MPPE=y
+++ CONFIG_MTK_CCU=y
+++ CONFIG_RFKILL=y
+++ CONFIG_MTK_AMMS=y
+++ CONFIG_NETDEVICES=y
+++ CONFIG_NET_KEY=y
+++ CONFIG_HAVE_CONTEXT_TRACKING=y
+++ CONFIG_IP6_NF_TARGET_HL=y
+++ CONFIG_IOSCHED_DEADLINE=y
+++ CONFIG_NETFILTER_CONNCOUNT=y
+++ CONFIG_ARCH_HAS_KCOV=y
+++ CONFIG_CGROUP_FREEZER=y
+++ CONFIG_MTK_ICE_DEBUG=y
+++ CONFIG_EVENTFD=y
+++ CONFIG_FS_POSIX_ACL=y
+++ CONFIG_IPV6_SIT=y
+++ CONFIG_XFRM=y
+++ CONFIG_CORESIGHT_STM=y
+++ CONFIG_SERIAL_8250_CONSOLE=y
+++ CONFIG_IPV6_MULTIPLE_TABLES=y
+++ CONFIG_OVERLAY_FS=y
+++ CONFIG_IP_NF_TARGET_MASQUERADE=y
+++ CONFIG_HAVE_EBPF_JIT=y
+++ CONFIG_NF_CONNTRACK_BROADCAST=y
+++ CONFIG_CRYPTO_LZ4=y
+++ CONFIG_PROC_PAGE_MONITOR=y
+++ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+++ CONFIG_ARM64_CRYPTO=y
+++ CONFIG_PINCTRL_MT6397=y
+++ CONFIG_BPF=y
+++ CONFIG_NF_NAT_PROTO_DCCP=y
+++ CONFIG_SPI_MT65XX=y
+++ CONFIG_KSU=y
+++ CONFIG_KPROBE_EVENTS=y
+++ CONFIG_NF_CONNTRACK_SECMARK=y
+++ CONFIG_TRUSTY_INTERRUPT_FIQ_ONLY=y
+++ CONFIG_ARM64_RAS_EXTN=y
+++ CONFIG_MTK_MD3_SUPPORT=0
+++ CONFIG_CRYPTO_SHA512=y
+++ CONFIG_CRYPTO_NULL=y
+++ CONFIG_NF_DEFRAG_IPV4=y
+++ CONFIG_GT1151_CONFIG=
+++ CONFIG_SELECT_MEMORY_MODEL=y
+++ CONFIG_INET_XFRM_MODE_BEET=y
+++ CONFIG_VIRTIO_CONSOLE=y
+++ CONFIG_HAVE_ARCH_PFN_VALID=y
+++ CONFIG_ARCH_HAS_RELR=y
+++ CONFIG_FS_ENCRYPTION=y
+++ CONFIG_IPV6_ROUTE_INFO=y
+++ CONFIG_NETFILTER_ADVANCED=y
+++ CONFIG_CRYPTO_DEFLATE=y
+++ CONFIG_ARM64_TAGGED_ADDR_ABI=y
+++ CONFIG_GENERIC_STRNLEN_USER=y
+++ CONFIG_MTK_FLASHLIGHT_PT_STRICT=y
+++ CONFIG_NETFILTER_XT_MATCH_TCPMSS=y
+++ CONFIG_PGTABLE_MAPPING=y
+++ CONFIG_IPV6_ROUTER_PREF=y
+++ CONFIG_CRYPTO_JITTERENTROPY=y
+++ CONFIG_TYPEC=y
+++ CONFIG_NETFILTER_XT_MATCH_L2TP=y
+++ CONFIG_CRYPTO_GCM=y
+++ CONFIG_MTK_DRAM_LOG_STORE_ADDR=0x0010E700
+++ CONFIG_NETFILTER_NETLINK_LOG=y
+++ CONFIG_HAVE_DYNAMIC_FTRACE=y
+++ CONFIG_NLS_ISO8859_14=y
+++ CONFIG_MAGIC_SYSRQ=y
+++ CONFIG_QCOM_FALKOR_ERRATUM_1009=y
+++ CONFIG_USB_CONFIGFS_F_FS=y
+++ CONFIG_IPV6_SIT_6RD=y
+++ CONFIG_ARM64_ERRATUM_845719=y
+++ CONFIG_LIGHTNESS_MAPPING_VALUE=255
+++ CONFIG_CRYPTO_KPP=y
+++ CONFIG_PGTABLE_LEVELS=3
+++ CONFIG_CPUSETS=y
+++ CONFIG_NETFILTER_XT_MATCH_MARK=y
+++ CONFIG_GENERIC_COMPAT_VDSO=y
+++ CONFIG_SPARSE_IRQ=y
+++ CONFIG_IP_NF_MANGLE=y
+++ CONFIG_DT_IDLE_STATES=y
+++ CONFIG_MTK_DRAM_LOG_STORE=y
+++ CONFIG_MTK_SCHED_TRACERS=y
+++ CONFIG_SECURITY_PERF_EVENTS_RESTRICT=y
+++ CONFIG_DEFAULT_CFQ=y
+++ CONFIG_RCU_STALL_COMMON=y
+++ CONFIG_INET6_XFRM_MODE_TUNNEL=y
+++ CONFIG_MEDIA_SUPPORT=y
+++ CONFIG_IP_NF_FILTER=y
+++ CONFIG_NETFILTER_XT_MATCH_LENGTH=y
+++ CONFIG_MODULES_TREE_LOOKUP=y
+++ CONFIG_FAT_FS=y
+++ CONFIG_MAY_USE_DEVLINK=y
+++ CONFIG_TEXTSEARCH_FSM=y
+++ CONFIG_ARM64_ERRATUM_832075=y
+++ CONFIG_IP6_NF_RAW=y
+++ CONFIG_NVMEM=y
+++ CONFIG_INET_TUNNEL=y
+++ CONFIG_MTK_LEGACY_THERMAL_PLATFORM=mt6765
+++ CONFIG_PINCONF=y
+++ CONFIG_MTK_DEVAPC=y
+++ CONFIG_GENERIC_CLOCKEVENTS=y
+++ CONFIG_IOSCHED_CFQ=y
+++ CONFIG_OID_REGISTRY=y
+++ CONFIG_RWSEM_XCHGADD_ALGORITHM=y
+++ CONFIG_MFD_CORE=y
+++ CONFIG_SCTP_DEFAULT_COOKIE_HMAC_MD5=y
+++ CONFIG_SERIAL_AMBA_PL011=y
+++ CONFIG_RFKILL_LEDS=y
+++ CONFIG_ARCH_SUPPORTS_ATOMIC_RMW=y
+++ CONFIG_USB_F_UVC=y
+++ CONFIG_MTK_BATTERY_PERCENTAGE_POWER_THROTTLING=y
+++ CONFIG_CRYPTO_AES_ARM64_CE=y
+++ CONFIG_SERIAL_EARLYCON=y
+++ CONFIG_DEBUG_DEVRES=y
+++ CONFIG_ARCH_MEDIATEK=y
+++ CONFIG_CC_HAS_KASAN_SW_TAGS=y
+++ CONFIG_CRYPTO_AKCIPHER=y
+++ CONFIG_CPU_FREQ_TIMES=y
+++ CONFIG_CPU_FREQ=y
+++ CONFIG_CRYPTO_BLOWFISH=y
+++ CONFIG_SERIAL_AMBA_PL011_CONSOLE=y
+++ CONFIG_GKI_HIDDEN_USB_CONFIGS=y
+++ CONFIG_NLS_ASCII=y
+++ CONFIG_TIPC_DIAG=y
+++ CONFIG_NF_REJECT_IPV4=y
+++ CONFIG_ARCH_MMAP_RND_BITS_MAX=24
+++ CONFIG_BPF_EVENTS=y
+++ CONFIG_CRYPTO_NHPOLY1305=y
+++ CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE=y
+++ CONFIG_ANDROID_BINDER_USER_TRACKING=y
+++ CONFIG_TRACE_IRQFLAGS_SUPPORT=y
+++ CONFIG_MFD_SYSCON=y
+++ CONFIG_MTK_GZ_LOG=y
+++ CONFIG_MACH_MT6765=y
+++ CONFIG_CRYPTO_CCM=y
+++ CONFIG_TCP_CONG_ADVANCED=y
+++ CONFIG_MTK_SENSOR_ARCHITECTURE=1.0
+++ CONFIG_FONT_AUTOSELECT=y
+++ CONFIG_QFMT_V2=y
+++ CONFIG_ARM64_ERRATUM_824069=y
+++ CONFIG_NETFILTER_XT_MATCH_CONNMARK=y
+++ CONFIG_BLK_CGROUP=y
+++ CONFIG_LEDS_TRIGGERS=y
+++ CONFIG_CRYPTO_RNG=y
+++ CONFIG_MEMCG_SWAP_ENABLED=y
+++ CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MIN=11
+++ CONFIG_SND_USB=y
+++ CONFIG_VIDEOBUF2_MEMOPS=y
+++ CONFIG_RD_GZIP=y
+++ CONFIG_HAVE_REGS_AND_STACK_ACCESS_API=y
+++ CONFIG_KEYBOARD_MTK=y
+++ CONFIG_MTK_CAM_GENIEZONE_SUPPORT=y
+++ CONFIG_MDIO_BUS=y
+++ CONFIG_PWM_SYSFS=y
+++ CONFIG_SWIOTLB=y
+++ CONFIG_USB_STORAGE_CYPRESS_ATACB=y
+++ CONFIG_EXT4_FS_SECURITY=y
+++ CONFIG_GRO_CELLS=y
+++ CONFIG_HAVE_VIRT_CPU_ACCOUNTING_GEN=y
+++ CONFIG_INET_XFRM_MODE_TRANSPORT=y
+++ CONFIG_CRYPTO_MD5=y
+++ CONFIG_MTK_SCHED_INTEROP=y
+++ CONFIG_MTK_CPU_CTRL_CFP=y
+++ CONFIG_MTK_TINYSYS_SSPM_VERSION=
+++ CONFIG_MTK_GPU_SUPPORT=y
+++ CONFIG_ELFCORE=y
+++ CONFIG_INIT_STACK_NONE=y
+++ CONFIG_BINFMT_ELF=y
+++ CONFIG_AUDIT_GENERIC=y
+++ CONFIG_MTK_PBM=y
+++ CONFIG_HAVE_PERF_REGS=y
+++ CONFIG_IP_PIMSM_V1=y
+++ CONFIG_INET6_AH=y
+++ CONFIG_KEYS=y
+++ CONFIG_INET_XFRM_TUNNEL=y
+++ CONFIG_NETFILTER_XT_MARK=y
+++ CONFIG_SND_VMASTER=y
+++ CONFIG_NETFILTER_XTABLES=y
+++ CONFIG_DRM_PANEL_ORIENTATION_QUIRKS=y
+++ CONFIG_ARMV8_DEPRECATED=y
+++ CONFIG_CRYPTO_ECHAINIV=y
+++ CONFIG_HAVE_ARCH_AUDITSYSCALL=y
+++ CONFIG_POWER_AVS=y
+++ CONFIG_MTK_SSMR=y
+++ CONFIG_ARM64_PA_BITS_48=y
+++ CONFIG_USB_STORAGE_DATAFAB=y
+++ CONFIG_MTK_M4U=y
+++ CONFIG_PM_SLEEP_SMP=y
+++ CONFIG_CRYPTO_HW=y
+++ CONFIG_ION=y
+++ CONFIG_USB_STORAGE_KARMA=y
+++ CONFIG_MTK_FLASHLIGHT_DLPT=y
+++ CONFIG_HWSPINLOCK=y
+++ CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE=0x1
+++ CONFIG_HARDIRQS_SW_RESEND=y
+++ CONFIG_SPI_MASTER=y
+++ CONFIG_UNMAP_KERNEL_AT_EL0=y
+++ CONFIG_PHY_MTK_TPHY=y
+++ CONFIG_XZ_DEC_X86=y
+++ CONFIG_SERIAL_OF_PLATFORM=m
+++ CONFIG_NETFILTER_XT_TARGET_TPROXY=y
+++ CONFIG_ARM_SCPI_PROTOCOL=y
+++ CONFIG_THERMAL_EMERGENCY_POWEROFF_DELAY_MS=0
+++ CONFIG_CONSOLE_LOGLEVEL_QUIET=4
+++ CONFIG_INCREMENTAL_FS=y
+++ CONFIG_CRC16=y
+++ CONFIG_USB_NET_AX8817X=y
+++ CONFIG_GENERIC_CALIBRATE_DELAY=y
+++ CONFIG_CRYPTO_GF128MUL=y
+++ CONFIG_UPROBE_EVENTS=y
+++ CONFIG_NLS_ISO8859_6=y
+++ CONFIG_NET_CLS=y
+++ CONFIG_PSTORE_DEFLATE_COMPRESS=y
+++ CONFIG_TMPFS=y
+++ CONFIG_USB_F_ACC=y
+++ CONFIG_DM_VERITY_FEC=y
+++ CONFIG_ARM64_CONT_SHIFT=4
+++ CONFIG_NLS_CODEPAGE_936=y
+++ CONFIG_GKI_HIDDEN_SND_CONFIGS=y
+++ CONFIG_FUTEX=y
+++ CONFIG_IP_PNP_DHCP=y
+++ CONFIG_UNIX_SCM=y
+++ CONFIG_CONSOLE_LOGLEVEL_DEFAULT=7
+++ CONFIG_MTK_EMMC_CQ_SUPPORT=y
+++ CONFIG_REGMAP_I2C=y
+++ CONFIG_GENERIC_SCHED_CLOCK=y
+++ CONFIG_ARCH_HAS_FAST_MULTIPLIER=y
+++ CONFIG_ARCH_HAVE_NMI_SAFE_CMPXCHG=y
+++ CONFIG_NETFILTER_XT_TARGET_HL=y
+++ CONFIG_MTK_QOS_FRAMEWORK=y
+++ CONFIG_RTC_HCTOSYS=y
+++ CONFIG_HAVE_ARCH_BITREVERSE=y
+++ CONFIG_SECURITY_NETWORK=y
+++ CONFIG_SERIAL_CORE_CONSOLE=y
+++ CONFIG_MTK_LCM=y
+++ CONFIG_MTK_DRAMC_LEGACY=y
+++ CONFIG_REGMAP_IRQ=y
+++ CONFIG_USB_HID=y
+++ CONFIG_MTK_HDR_COLOR_GAIN_RGB=0
+++ CONFIG_VSOCKETS_DIAG=y
+++ CONFIG_ANDROID=y
+++ CONFIG_MTK_USB_TYPEC=y
+++ CONFIG_USB_F_RNDIS=y
+++ CONFIG_NET_SCH_INGRESS=y
+++ CONFIG_DMADEVICES=y
+++ CONFIG_NF_CONNTRACK_EVENTS=y
+++ CONFIG_PINCTRL=y
+++ CONFIG_IPV6_NDISC_NODETYPE=y
+++ CONFIG_MTK_LENS_BU6424AF_SUPPORT=y
+++ CONFIG_NLS_CODEPAGE_1251=y
+++ CONFIG_USB_F_MIDI=y
+++ CONFIG_MTK_COMBO_CHIP=CONSYS_6765
+++ CONFIG_MTK_MUSB_DRV_36BIT=y
+++ CONFIG_COMMON_CLK_MT6765=y
+++ CONFIG_EINT_MTK=y
+++ CONFIG_CGROUP_SCHED=y
+++ CONFIG_QUEUED_RWLOCKS=y
+++ CONFIG_MTK_FB_SUPPORT_ASSERTION_LAYER=y
+++ CONFIG_ARCH_HAS_GIGANTIC_PAGE=y
+++ CONFIG_HAVE_DEBUG_KMEMLEAK=y
+++ CONFIG_ARM_GIC_V3_ITS=y
+++ CONFIG_NLS_CODEPAGE_863=y
+++ CONFIG_PRINTK_SAFE_LOG_BUF_SHIFT=13
+++ CONFIG_NF_CONNTRACK_FTP=y
+++ CONFIG_MODULES=y
+++ CONFIG_IP_NF_MATCH_ECN=y
+++ CONFIG_USB_GADGET=y
+++ CONFIG_MQ_IOSCHED_DEADLINE=y
+++ CONFIG_USB_HIDDEV=y
+++ CONFIG_IOMMU_IOVA=y
+++ CONFIG_XXHASH=y
+++ CONFIG_SOUND=y
+++ CONFIG_PRINTK_PREFIX_ENHANCE=y
+++ CONFIG_ARCH_SUPPORTS_MEMORY_FAILURE=y
+++ CONFIG_CPU_IDLE_MULTIPLE_DRIVERS=y
+++ CONFIG_AUDIT_WATCH=y
+++ CONFIG_ARCH_HIBERNATION_POSSIBLE=y
+++ CONFIG_HAVE_PATA_PLATFORM=y
+++ CONFIG_UNIX=y
+++ CONFIG_USB_NET_DRIVERS=y
+++ CONFIG_NO_HZ_COMMON=y
+++ CONFIG_DRM_MIPI_DSI=y
+++ CONFIG_HAVE_CLK=y
+++ CONFIG_CRYPTO_HASH2=y
+++ CONFIG_DEFAULT_HOSTNAME='(none)'
+++ CONFIG_SRCU=y
+++ CONFIG_NLS_KOI8_R=y
+++ CONFIG_GKI_HIDDEN_SOC_BUS_CONFIGS=y
+++ CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS=2
+++ CONFIG_MTK_MMC_DEBUG=y
+++ CONFIG_USB_STORAGE_ISD200=y
+++ CONFIG_CPU_FREQ_GOV_POWERSAVE=y
+++ CONFIG_MEMBARRIER=y
+++ CONFIG_XPS=y
+++ CONFIG_INET_ESP=y
+++ CONFIG_SGL_ALLOC=y
+++ CONFIG_LZ4_DECOMPRESS=y
+++ CONFIG_PINCTRL_MTK_PARIS=y
+++ CONFIG_NF_TPROXY_IPV6=y
+++ CONFIG_FONT_SUPPORT=y
+++ CONFIG_ADVISE_SYSCALLS=y
+++ CONFIG_MD=y
+++ CONFIG_CRYPTO_ALGAPI=y
+++ CONFIG_GENERIC_IRQ_SHOW_LEVEL=y
+++ CONFIG_CP15_BARRIER_EMULATION=y
+++ CONFIG_ARM64_ERRATUM_1463225=y
+++ CONFIG_BRIDGE=y
+++ CONFIG_MTK_GPU_COMMON_DVFS_SUPPORT=y
+++ CONFIG_ARM64_HW_AFDBM=y
+++ CONFIG_INPUT_UINPUT=y
+++ CONFIG_PM_OPP=y
+++ CONFIG_LCM_HEIGHT=854
+++ CONFIG_CRYPTO_SHA2_ARM64_CE=y
+++ CONFIG_KEYBOARD_ATKBD=y
+++ CONFIG_NET_IP_TUNNEL=y
+++ CONFIG_NF_NAT=y
+++ CONFIG_CPU_IDLE=y
+++ CONFIG_IP6_NF_MATCH_RPFILTER=y
+++ CONFIG_REGULATOR=y
+++ CONFIG_FAIR_GROUP_SCHED=y
+++ CONFIG_CRYPTO_HASH=y
+++ CONFIG_EFI_PARTITION=y
+++ CONFIG_PROBE_EVENTS=y
+++ CONFIG_TRACE_CLOCK=y
+++ CONFIG_LOG_BUF_SHIFT=19
+++ CONFIG_SYSCON_REBOOT_MODE=y
+++ CONFIG_NLS_CODEPAGE_857=y
+++ CONFIG_EXTRA_FIRMWARE=
+++ CONFIG_MTK_LPM_MODULE_NAME=mt6765
+++ CONFIG_IPV6_MROUTE=y
+++ CONFIG_VFAT_FS=y
+++ CONFIG_SECURITY_SELINUX_CHECKREQPROT_VALUE=0
+++ CONFIG_PID_NS=y
+++ CONFIG_PSI=y
+++ CONFIG_CRC32_SLICEBY8=y
+++ CONFIG_USB_LIBCOMPOSITE=y
+++ CONFIG_CPU_RMAP=y
+++ CONFIG_SND_HWDEP=y
+++ CONFIG_BLK_DEV_LOOP=y
+++ CONFIG_ARM64_ERRATUM_843419=y
+++ CONFIG_A25_LCM_POWER=y
+++ CONFIG_NF_NAT_IRC=y
+++ CONFIG_INPUT_MISC=y
+++ CONFIG_SND_COMPRESS_OFFLOAD=y
+++ CONFIG_MULTIUSER=y
+++ CONFIG_DMA_OF=y
+++ CONFIG_SUSPEND=y
+++ CONFIG_CROSS_MEMORY_ATTACH=y
+++ CONFIG_CRYPTO_CBC=y
+++ CONFIG_MTK_GIC_V3_EXT=y
+++ CONFIG_MEDIA_CONTROLLER=y
+++ CONFIG_SERIAL_8250_RUNTIME_UARTS=2
+++ CONFIG_MTK_FINGERPRINT_SELECT=GF318M
+++ CONFIG_CLANG_VERSION=230105
+++ CONFIG_KPROBES=y
+++ CONFIG_FS_MBCACHE=y
+++ CONFIG_SND_SOC_MT6359_ACCDET=m
+++ CONFIG_RTC_CLASS=y
+++ CONFIG_CRYPTO_RNG_DEFAULT=y
+++ CONFIG_TMPFS_XATTR=y
+++ CONFIG_EXT4_USE_FOR_EXT2=y
+++ CONFIG_USB_CONFIGFS_UEVENT=y
+++ CONFIG_NETFILTER_FAMILY_ARP=y
+++ CONFIG_ARM64_MODULE_PLTS=y
+++ CONFIG_ARM_AMBA=y
+++ CONFIG_CPU_PM=y
+++ CONFIG_QCOM_FALKOR_ERRATUM_1003=y
+++ CONFIG_GENERIC_TRACER=y
+++ CONFIG_CFG80211_USE_KERNEL_REGDB_KEYS=y
+++ CONFIG_TIMER_OF=y
+++ CONFIG_NLS_ISO8859_5=y
+++ CONFIG_HAVE_FUNCTION_TRACER=y
+++ CONFIG_GENERIC_PHY=y
+++ CONFIG_CPU_ISOLATION=y
+++ CONFIG_NF_NAT_TFTP=y
+++ CONFIG_NETFILTER_XT_MATCH_MULTIPORT=y
+++ CONFIG_ARCH_SELECT_MEMORY_MODEL=y
+++ CONFIG_TOUCHSCREEN_PROPERTIES=y
+++ CONFIG_NETFILTER_XT_TARGET_REDIRECT=y
+++ CONFIG_SERIAL_8250_DEPRECATED_OPTIONS=y
+++ CONFIG_CRYPTO_MANAGER2=y
+++ CONFIG_USB_GADGET_VBUS_DRAW=2
+++ CONFIG_ARCH_HAS_PTE_SPECIAL=y
+++ CONFIG_PM_GENERIC_DOMAINS_OF=y
+++ CONFIG_CLZ_TAB=y
+++ CONFIG_GENERIC_PCI_IOMAP=y
+++ CONFIG_SLUB=y
+++ CONFIG_CONFIGFS_FS=y
+++ CONFIG_XZ_DEC_BCJ=y
+++ CONFIG_PM_SLEEP=y
+++ CONFIG_I2C=y
+++ CONFIG_PINCTRL_MTK_V2=y
+++ CONFIG_BINFMT_SCRIPT=y
+++ CONFIG_MTK_WIFI_MCC_SUPPORT=y
+++ CONFIG_MEDIATEK_WATCHDOG=y
+++ CONFIG_DEVAPC_LEGACY=y
+++ CONFIG_FRAME_POINTER=y
+++ CONFIG_TICK_CPU_ACCOUNTING=y
+++ CONFIG_VM_EVENT_COUNTERS=y
+++ CONFIG_CRYPTO_ECB=y
+++ CONFIG_SND_DYNAMIC_MINORS=y
+++ CONFIG_MTK_SYS_CIRQ=y
+++ CONFIG_NF_CONNTRACK_AMANDA=y
+++ CONFIG_HAVE_KERNEL_LZ4=y
+++ CONFIG_TRACING_EVENTS_GPIO=y
+++ CONFIG_DRM_TTM=y
+++ CONFIG_BASE_FULL=y
+++ CONFIG_FB_CFB_IMAGEBLIT=y
+++ CONFIG_ZLIB_DEFLATE=y
+++ CONFIG_DEFAULT_BIC=y
+++ CONFIG_GKI_LEGACY_WEXT_ALLCONFIG=y
+++ CONFIG_USB_DUMMY_HCD=m
+++ CONFIG_XFRM_INTERFACE=y
+++ CONFIG_SWP_EMULATION=y
+++ CONFIG_NLS_CODEPAGE_864=y
+++ CONFIG_FW_LOADER=y
+++ CONFIG_MTPROF=y
+++ CONFIG_KALLSYMS=y
+++ CONFIG_COMMON_CLK=y
+++ CONFIG_MTK_PLAT_SRAM_FLAG=y
+++ CONFIG_STACKPROTECTOR_STRONG=y
+++ CONFIG_RTC_HCTOSYS_DEVICE=rtc0
+++ CONFIG_CRYPTO_XTS=y
+++ CONFIG_PWM=y
+++ CONFIG_NETFILTER_XT_MATCH_RECENT=y
+++ CONFIG_SERIAL_DEV_CTRL_TTYPORT=y
+++ CONFIG_NETFILTER_XT_MATCH_PKTTYPE=y
+++ CONFIG_MII=y
+++ CONFIG_SIGNALFD=y
+++ CONFIG_NET_CORE=y
+++ CONFIG_UID_SYS_STATS=y
+++ CONFIG_EXT4_FS=y
+++ CONFIG_MTK_ENABLE_GENIEZONE=y
+++ CONFIG_UNINLINE_SPIN_UNLOCK=y
+++ CONFIG_HAVE_HW_BREAKPOINT=y
+++ CONFIG_KRETPROBES=y
+++ CONFIG_SND_JACK_INPUT_DEV=y
+++ CONFIG_CRYPTO_SHA1=y
+++ CONFIG_MFD_MT6397=y
+++ CONFIG_COMMON_CLK_XGENE=y
+++ CONFIG_NLS_KOI8_U=y
+++ CONFIG_CRC8=y
+++ CONFIG_KSU_SUSFS_SPOOF_UNAME=y
+++ CONFIG_XZ_DEC=y
+++ CONFIG_DUMMY=y
+++ CONFIG_MTK_COMBO=y
+++ CONFIG_WATCHDOG=y
+++ CONFIG_CC_HAVE_SHADOW_CALL_STACK=y
+++ CONFIG_HAS_IOMEM=y
+++ CONFIG_SND_RAWMIDI=y
+++ CONFIG_CRYPTO_RSA=y
+++ CONFIG_MTK_CPU_FREQ=y
+++ CONFIG_MTK_CAMERA_ISP_CAMERA_SUPPORT=y
+++ CONFIG_GENERIC_IRQ_PROBE=y
+++ CONFIG_USB_STORAGE_SDDR09=y
+++ CONFIG_IP_NF_MATCH_TTL=y
+++ CONFIG_NET_CLS_IND=y
+++ CONFIG_ARM_SCMI_CPUFREQ=y
+++ CONFIG_VIDEOMODE_HELPERS=y
+++ CONFIG_CRYPTO_ACOMP2=y
+++ CONFIG_KEYBOARD_MTK_PMIC=y
+++ CONFIG_MTK_AAL_SUPPORT=y
+++ CONFIG_NETFILTER_XT_TARGET_TRACE=y
+++ CONFIG_ARCH_SUPPORTS_THINLTO=y
+++ CONFIG_IP6_NF_MATCH_FRAG=y
+++ CONFIG_ANDROID_BINDER_DEVICES=binder,hwbinder,vndbinder
+++ CONFIG_SCHED_HRTICK=y
+++ CONFIG_MTK_CAMERA_ISP=y
+++ CONFIG_EPOLL=y
+++ CONFIG_CRYPTO_LZO=y
+++ CONFIG_GENERIC_IRQ_MULTI_HANDLER=y
+++ CONFIG_SND_PCM=y
+++ CONFIG_MTK_HWMON=y
+++ CONFIG_FAILOVER=y
+++ CONFIG_USB_U_ETHER=y
+++ CONFIG_MTK_CONN_LTE_IDC_SUPPORT=y
+++ CONFIG_HAVE_NET_DSA=y
+++ CONFIG_USB_MTK_OTG=y
+++ CONFIG_NLS_CODEPAGE_852=y
+++ CONFIG_NETFILTER_XT_MATCH_COMMENT=y
+++ CONFIG_NET=y
+++ CONFIG_INPUT_EVDEV=y
+++ CONFIG_FS_ENCRYPTION_ALGS=y
+++ CONFIG_SND_JACK=y
+++ CONFIG_COMMON_CLK_SCPI=y
+++ CONFIG_CC_HAS_AUTO_VAR_INIT_PATTERN=y
+++ CONFIG_NETFILTER_XT_TARGET_TCPMSS=y
+++ CONFIG_MTK_DISP_PLATFORM=
+++ CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+++ CONFIG_BLOCK_COMPAT=y
+++ CONFIG_ARM_ARCH_TIMER_EVTSTREAM=y
+++ CONFIG_CORESIGHT=y
+++ CONFIG_PINMUX=y
+++ CONFIG_QUOTA_TREE=y
+++ CONFIG_LD_IS_LLD=y
+++ CONFIG_IRQ_DOMAIN_HIERARCHY=y
+++ CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT=y
+++ CONFIG_MPILIB=y
+++ CONFIG_PACKET=y
+++ CONFIG_XFRM_ALGO=y
+++ CONFIG_MTK_EMI_LEGACY=y
+++ CONFIG_HAVE_CLK_PREPARE=y
+++ CONFIG_CRYPTO_AKCIPHER2=y
+++ CONFIG_NETFILTER_XT_MATCH_IPRANGE=y
+++ CONFIG_ASYMMETRIC_PUBLIC_KEY_SUBTYPE=y
+++ CONFIG_USB_CONFIGFS_MTK_FASTMETA=y
+++ CONFIG_NF_CONNTRACK_TFTP=y
+++ CONFIG_MTK_EMI=y
+++ CONFIG_NLS_CODEPAGE_949=y
+++ CONFIG_NOP_TRACER=y
+++ CONFIG_INET=y
+++ CONFIG_MTK_AEE_AED=y
+++ CONFIG_XZ_DEC_POWERPC=y
+++ CONFIG_IP_PNP_BOOTP=y
+++ CONFIG_VIRTIO_NET=y
+++ CONFIG_PREVENT_FIRMWARE_BUILD=y
+++ CONFIG_FREEZER=y
+++ CONFIG_BT=y
+++ CONFIG_REBOOT_MODE=y
+++ CONFIG_ARM64_4K_PAGES=y
+++ CONFIG_MTK_AEE_IPANIC=y
+++ CONFIG_HW_RANDOM_MTK=y
+++ CONFIG_NET_CLS_ACT=y
+++ CONFIG_REED_SOLOMON=y
+++ CONFIG_LEDS_MT6357=y
+++ CONFIG_HAVE_ARCH_VMAP_STACK=y
+++ CONFIG_TIPC_MEDIA_UDP=y
+++ CONFIG_NET_CLS_BPF=y
+++ CONFIG_KSU_SUSFS_ENABLE_LOG=y
+++ CONFIG_USB_F_ACM=y
+++ CONFIG_RTC_LIB=y
+++ CONFIG_DEVFREQ_GOV_POWERSAVE=y
+++ CONFIG_NETFILTER_XT_MATCH_POLICY=y
+++ CONFIG_ARM64_ERRATUM_826319=y
+++ CONFIG_HAVE_KPROBES=y
+++ CONFIG_IP_ROUTE_CLASSID=y
+++ CONFIG_CRYPTO_AES=y
+++ CONFIG_HAVE_GENERIC_VDSO=y
+++ CONFIG_GPIOLIB=y
+++ CONFIG_FUTEX_PI=y
+++ CONFIG_ARCH_SUPPORTS_SPECULATIVE_PAGE_FAULT=y
+++ CONFIG_GENERIC_CPU_VULNERABILITIES=y
+++ CONFIG_KEYS_COMPAT=y
+++ CONFIG_KSU_SUSFS_SUS_PATH=y
+++ CONFIG_NETFILTER_XT_NAT=y
+++ CONFIG_COMMON_CLK_MTK_FREQ_HOPPING_SUBSYS=y
+++ CONFIG_USB_CONFIGFS_F_MIDI=y
+++ CONFIG_CLKSRC_MMIO=y
+++ CONFIG_SND_PCM_ELD=y
+++ CONFIG_MTK_FPSGO_V3=y
+++ CONFIG_UIO=y
+++ CONFIG_HAVE_HARDENED_USERCOPY_ALLOCATOR=y
+++ CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND=y
+++ CONFIG_NF_CONNTRACK_MARK=y
+++ CONFIG_NETFILTER=y
+++ CONFIG_HVC_DRIVER=y
+++ CONFIG_NETFILTER_XT_MATCH_HASHLIMIT=y
+++ CONFIG_HAVE_ARCH_KASAN=y
+++ CONFIG_CAVIUM_ERRATUM_23154=y
+++ CONFIG_GENERIC_ARCH_TOPOLOGY=y
+++ CONFIG_SCHED_TUNE=y
+++ CONFIG_TOOLS_SUPPORT_RELR=y
+++ CONFIG_SERIO_SERPORT=y
+++ CONFIG_NLS_CODEPAGE_950=y
+++ CONFIG_CLONE_BACKWARDS=y
+++ CONFIG_HAVE_NMI=y
+++ CONFIG_BLK_DEV_RAM_COUNT=16
+++ CONFIG_IP_MROUTE=y
+++ CONFIG_INET_XFRM_MODE_TUNNEL=y
+++ CONFIG_PREEMPT_RCU=y
+++ CONFIG_NF_NAT_NEEDED=y
+++ CONFIG_CRYPTO_ECDH=y
+++ CONFIG_GKI_HIDDEN_REGMAP_CONFIGS=y
+++ CONFIG_PRINTK_NMI=y
+++ CONFIG_NLS_MAC_GREEK=y
+++ CONFIG_NET_FLOW_LIMIT=y
+++ CONFIG_LOCKDEP_SUPPORT=y
+++ CONFIG_NLS_CODEPAGE_869=y
+++ CONFIG_MTK_CLKBUF_BBLPM=y
+++ CONFIG_ARCH_WANT_COMPAT_IPC_PARSE_VERSION=y
+++ CONFIG_NO_HZ=y
+++ CONFIG_RELR=y
+++ CONFIG_ARCH_WANT_HUGE_PMD_SHARE=y
+++ CONFIG_NETFILTER_INGRESS=y
+++ CONFIG_MTK_BASE_POWER=y
+++ CONFIG_CAVIUM_ERRATUM_27456=y
+++ CONFIG_PSTORE_RAM=y
+++ CONFIG_GENERIC_STRNCPY_FROM_USER=y
+++ CONFIG_HARDEN_EL2_VECTORS=y
+++ CONFIG_HAVE_RSEQ=y
+++ CONFIG_NETFILTER_XT_TARGET_NETMAP=y
+++ CONFIG_ARM64_ERRATUM_858921=y
+++ CONFIG_OF_KOBJ=y
+++ CONFIG_MTK_MIR3DA_A25_STOCK_PIPELINE=y
+++ CONFIG_MTK_FMRADIO=y
+++ CONFIG_SPMI=y
+++ CONFIG_NETFILTER_XT_MATCH_SCTP=y
+++ CONFIG_NLS_ISO8859_15=y
+++ CONFIG_INET6_ESP=y
+++ CONFIG_MTK_CM_MGR=y
+++ CONFIG_ILLEGAL_POINTER_VALUE=0xdead000000000000
+++ CONFIG_GENERIC_GETTIMEOFDAY=y
+++ CONFIG_NLS_MAC_CROATIAN=y
+++ CONFIG_GKI_HIDDEN_SND_SOC_CONFIGS=y
+++ CONFIG_MTK_SCHED_EXTENSION=y
+++ CONFIG_TASKSTATS=y
+++ CONFIG_NLS_CODEPAGE_932=y
+++ CONFIG_MTK_LEDS=y
+++ CONFIG_NLS_MAC_ICELAND=y
+++ CONFIG_MEDIA_SUBDRV_AUTOSELECT=y
+++ CONFIG_IP6_NF_FILTER=y
+++ CONFIG_SYSTEM_DATA_VERIFICATION=y
+++ CONFIG_KSU_SUSFS_SUS_KSTAT=y
+++ CONFIG_NEED_DMA_MAP_STATE=y
+++ CONFIG_IIO=y
+++ CONFIG_SND_HDA_PREALLOC_SIZE=64
+++ CONFIG_SERIO_LIBPS2=y
+++ CONFIG_HAVE_ARCH_KASAN_SW_TAGS=y
+++ CONFIG_NETFILTER_XT_MATCH_CONNBYTES=y
+++ CONFIG_MTK_LOAD_TRACKER=y
+++ CONFIG_MTK_CMDQ_V3=y
+++ CONFIG_RELOCATABLE=y
+++ CONFIG_CRYPTO_POLY1305=y
+++ CONFIG_QUEUED_SPINLOCKS=y
+++ CONFIG_PANIC_TIMEOUT=1
+++ CONFIG_INPUT_JOYSTICK=y
+++ CONFIG_TRUSTY_INTERRUPT_MAP=y
+++ CONFIG_PM_GENERIC_DOMAINS_SLEEP=y
+++ CONFIG_DM_VERITY=y
+++ CONFIG_NETFILTER_XT_MATCH_ECN=y
+++ CONFIG_MTK_ION_FOLDER_NAME_UNDER_STAGING=
+++ CONFIG_USB_STORAGE_SDDR55=y
+++ CONFIG_CC_HAS_STACKPROTECTOR_NONE=y
+++ CONFIG_NF_NAT_MASQUERADE_IPV4=y
+++ CONFIG_BUILD_BIN2C=y
+++ CONFIG_DECOMPRESS_LZ4=y
+++ CONFIG_MTK_UNIFY_POWER=y
+++ CONFIG_SPARSEMEM_MANUAL=y
+++ CONFIG_MTK_SYNC=y
+++ CONFIG_BPF_SYSCALL=y
+++ CONFIG_SMP=y
+++ CONFIG_TTY=y
+++ CONFIG_NETFILTER_XT_MATCH_TIME=y
+++ CONFIG_ARM64_UAO=y
+++ CONFIG_CHARGER_PSC5425E=y
+++ CONFIG_MTK_FB=y
+++ CONFIG_HAVE_KERNEL_GZIP=y
+++ CONFIG_ZSMALLOC=y
+++ CONFIG_DM_UEVENT=y
+++ CONFIG_NETFILTER_XT_MATCH_MAC=y
+++ CONFIG_MTK_CAMERA_ISP_DPE_SUPPORT=y
+++ CONFIG_IOMMU_DMA=y
+++ CONFIG_ARM_MTK_CPUIDLE=y
+++ CONFIG_CHARGER_TYPE_MT6357=y
+++ CONFIG_CUSTOM_LCM_X=0
+++ CONFIG_NETFILTER_XT_TARGET_NFLOG=y
+++ CONFIG_GENERIC_ALLOCATOR=y
+++ CONFIG_L2TP=y
+++ CONFIG_TCP_CONG_WESTWOOD=m
+++ CONFIG_LIBCRC32C=y
+++ CONFIG_ARCH_NR_GPIO=256
+++ CONFIG_GENERIC_BUG=y
+++ CONFIG_CRYPTO_SHA256=y
+++ CONFIG_HAVE_FTRACE_MCOUNT_RECORD=y
+++ CONFIG_POSIX_TIMERS=y
+++ CONFIG_PSTORE_CONSOLE=y
+++ CONFIG_INET_TCP_DIAG=y
+++ CONFIG_HID_SONY=y
+++ CONFIG_NET_ACT_IPT=y
+++ CONFIG_MTK_DRAM_LOG_STORE_SIZE=0x100
+++ CONFIG_RAS=y
+++ CONFIG_MTK_SMI_EXT=y
+++ CONFIG_LCM_WIDTH=384
+++ CONFIG_COMMON_CLK_MT6765_IMGSYS=y
+++ CONFIG_ARM_PMU=y
+++ CONFIG_SND_SPI=y
+++ CONFIG_IOSCHED_NOOP=y
+++ CONFIG_HAVE_UID16=y
+++ CONFIG_COMPAT_OLD_SIGACTION=y
+++ CONFIG_RTC_NVMEM=y
+++ CONFIG_MMC_CRYPTO=y
+++ CONFIG_QUOTACTL=y
+++ CONFIG_V4L2_MEM2MEM_DEV=y
+++ CONFIG_PARAVIRT=y
+++ CONFIG_WQ_POWER_EFFICIENT_DEFAULT=y
+++ CONFIG_CRYPTO_CRYPTD=y
+++ CONFIG_NF_SOCKET_IPV4=y
+++ CONFIG_CC_HAS_KASAN_GENERIC=y
+++ CONFIG_MTK_VOW_PCMCALLBACK_SUPPORT=none
+++ CONFIG_HAVE_ARM_SMCCC=y
+++ CONFIG_DEBUG_KERNEL=y
+++ CONFIG_MTK_FLASHLIGHT_DUMMY_GPIO=y
+++ CONFIG_LOCALVERSION=-gravity-g53d31dab5
+++ CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK=y
+++ CONFIG_CRYPTO=y
+++ CONFIG_MTK_SCHED_LB_ENHANCEMENT=y
+++ CONFIG_FUNCTION_TRACER=y
+++ CONFIG_SCHED_DEBUG=y
+++ CONFIG_DEFAULT_MMAP_MIN_ADDR=4096
+++ CONFIG_SYSTEM_TRUSTED_KEYS=
+++ CONFIG_IP_NF_IPTABLES=y
+++ CONFIG_CMDLINE=
+++ CONFIG_MTK_PROT_MEM_SUPPORT=y
+++ CONFIG_VSOCKETS=y
+++ CONFIG_VIRTIO=y
+++ CONFIG_MTK_GZ_KREE=y
+++ CONFIG_IP_PIMSM_V2=y
+++ CONFIG_HW_PERF_EVENTS=y
+++ CONFIG_MTK_CMDQ=y
+++ CONFIG_XFRM_STATISTICS=y
+++ CONFIG_DMA_VIRTUAL_CHANNELS=y
+++ CONFIG_GENERIC_MSI_IRQ_DOMAIN=y
+++ CONFIG_USB_ARCH_HAS_HCD=y
+++ CONFIG_GENERIC_IRQ_SHOW=y
+++ CONFIG_MTK_COMBO_WIFI=y
+++ CONFIG_NVMEM_SYSFS=y
+++ CONFIG_IPV6_OPTIMISTIC_DAD=y
+++ CONFIG_ARCH_HAS_ELF_RANDOMIZE=y
+++ CONFIG_COMMON_CLK_MT6765_MMSYS=y
+++ CONFIG_PANIC_ON_OOPS_VALUE=0
+++ CONFIG_MTK_AEE_FEATURE=y
+++ CONFIG_MTK_IMGSENSOR=y
+++ CONFIG_SCSI_MOD=y
+++ CONFIG_MTK_PERFORMANCE_MODULE=y
+++ CONFIG_CUSTOM_KERNEL_IMGSENSOR='gc5025sub_mipi_raw imx278_mipi_raw'
+++ CONFIG_AUDIT_TREE=y
+++ CONFIG_MTK_TINYSYS_SCP_CM4_SUPPORT=y
+++ CONFIG_MTK_GZ_VIRTIO_IPC=y
+++ CONFIG_CRYPTO_CRC32C=y
+++ CONFIG_MTK_SCHED_BIG_TASK_MIGRATE=y
+++ CONFIG_SERIAL_CORE=y
+++ CONFIG_FUSE_FS=y
+++ CONFIG_BUILDTIME_EXTABLE_SORT=y
+++ CONFIG_HANDLE_DOMAIN_IRQ=y
+++ CONFIG_USB_CONFIGFS_SERIAL=y
+++ CONFIG_I2C_MTK=y
+++ CONFIG_UID16=y
+++ CONFIG_EMBEDDED=y
+++ CONFIG_HID_MICROSOFT=y
+++ CONFIG_HAVE_KRETPROBES=y
+++ CONFIG_ASSOCIATIVE_ARRAY=y
+++ CONFIG_USB_CONFIGFS_F_UVC=y
+++ CONFIG_NF_DEFRAG_IPV6=y
+++ CONFIG_RPMB=y
+++ CONFIG_MTK_DFD_INTERNAL_DUMP=y
+++ CONFIG_VIDEO_DEV=y
+++ CONFIG_MTK_SND_SOC_NEW_ARCH=y
+++ CONFIG_DYNAMIC_FTRACE=y
+++ CONFIG_MAILBOX=y
+++ CONFIG_INPUT_LEDS=y
+++ CONFIG_MTK_FM_CHIP=MT6631_FM
+++ CONFIG_RCU_NEED_SEGCBLIST=y
+++ CONFIG_HAS_DMA=y
+++ CONFIG_NF_CT_PROTO_SCTP=y
+++ CONFIG_EDAC=y
+++ CONFIG_DM_USER=y
+++ CONFIG_SCSI=y
+++ CONFIG_FB_CFB_FILLRECT=y
+++ CONFIG_VIRT_WIFI=y
+++ CONFIG_FUNCTION_GRAPH_TRACER=y
+++ CONFIG_NF_NAT_PPTP=y
+++ CONFIG_ARM64_ERRATUM_1542419=y
+++ CONFIG_NLS_MAC_ROMAN=y
+++ CONFIG_HAVE_ARCH_THREAD_STRUCT_WHITELIST=y
+++ CONFIG_HID=y
+++ CONFIG_RANDOMIZE_BASE=y
+++ CONFIG_ANDROID_BINDERFS=y
+++ CONFIG_NLS_ISO8859_9=y
+++ CONFIG_CLKDEV_LOOKUP=y
+++ CONFIG_FONT_8x16=y
+++ CONFIG_COMPAT_VDSO=y
+++ CONFIG_SERIAL_8250_FSL=y
+++ CONFIG_MTK_DBGTOP=y
+++ CONFIG_ARCH_HAS_CACHE_LINE_SIZE=y
+++ CONFIG_JBD2=y
+++ CONFIG_SPARSEMEM_VMEMMAP=y
+++ CONFIG_INET6_IPCOMP=y
+++ CONFIG_MEMCG_KMEM=y
+++ CONFIG_MTK_ANDROID_DEFAULT_SETTING=y
+++ CONFIG_PHYLIB=y
+++ CONFIG_MTK_JPEG=y
+++ CONFIG_IPV6_TUNNEL=y
+++ CONFIG_ARM64_SW_TTBR0_PAN=y
+++ CONFIG_HAVE_GENERIC_GUP=y
+++ CONFIG_CRYPTO_SHA256_ARM64=y
+++ CONFIG_ARCH_HAS_HOLES_MEMORYMODEL=y
+++ CONFIG_NLS_CODEPAGE_874=y
+++ CONFIG_FB_CMDLINE=y
+++ CONFIG_IRQ_DOMAIN=y
+++ CONFIG_LSM_MMAP_MIN_ADDR=32768
+++ CONFIG_TRACE_GPU_MEM=y
+++ CONFIG_MTK_DEVINFO=y
+++ CONFIG_PINCTRL_AMD=y
+++ CONFIG_INTEGRITY_AUDIT=y
+++ CONFIG_ARCH_HAS_DEBUG_VIRTUAL=y
+++ CONFIG_MTK_PLATFORM=mt6765
+++ CONFIG_DEVFREQ_GOV_PASSIVE=y
+++ CONFIG_CUSTOM_KERNEL_LCM=axs15260_dsi_6580_hd
+++ CONFIG_MISC_FILESYSTEMS=y
+++ CONFIG_ARCH_MMAP_RND_BITS_MIN=18
+++ CONFIG_FTRACE=y
+++ CONFIG_NETFILTER_XT_MATCH_CONNLIMIT=y
+++ CONFIG_IP_NF_SECURITY=y
+++ CONFIG_IP_NF_RAW=y
+++ CONFIG_ARCH_SUPPORTS_LTO_CLANG=y
+++ CONFIG_IP_NF_ARPFILTER=y
+++ CONFIG_NETFILTER_XT_MATCH_SOCKET=y
+++ CONFIG_PPPOL2TP=y
+++ CONFIG_ARCH_SUPPORTS_UPROBES=y
+++ CONFIG_NF_NAT_H323=y
+++ CONFIG_XZ_DEC_SPARC=y
+++ CONFIG_MTK_SOCINFO=y
+++ CONFIG_ARCH_SPARSEMEM_DEFAULT=y
+++ CONFIG_OF_GPIO=y
+++ CONFIG_NLS_CODEPAGE_860=y
+++ CONFIG_NETFILTER_XT_MATCH_ESP=y
+++ CONFIG_PRINT_QUOTA_WARNING=y
+++ CONFIG_IP_NF_TARGET_NETMAP=y
+++ CONFIG_DST_CACHE=y
+++ CONFIG_NF_REJECT_IPV6=y
+++ CONFIG_RCU_CPU_STALL_TIMEOUT=21
+++ CONFIG_MTK_UART_APDMA=y
+++ CONFIG_MTK_THERMAL_PA_VIA_ATCMD=y
+++ CONFIG_INPUT_FF_MEMLESS=y
+++ CONFIG_MTK_MMPROFILE_SUPPORT=y
+++ CONFIG_MTK_HANG_DETECT=y
+++ CONFIG_ARM64_ERRATUM_819472=y
+++ CONFIG_SECTION_MISMATCH_WARN_ONLY=y
+++ CONFIG_HOLES_IN_ZONE=y
+++ CONFIG_ARM64_ERRATUM_827319=y
+++ CONFIG_MDIO_DEVICE=y
+++ CONFIG_NEED_SG_DMA_LENGTH=y
+++ CONFIG_TIMER_PROBE=y
+++ CONFIG_POWER_RESET=y
+++ CONFIG_CRYPTO_XCBC=y
+++ CONFIG_NF_NAT_AMANDA=y
+++ CONFIG_IP6_NF_MATCH_IPV6HEADER=y
+++ CONFIG_KSU_SUSFS=y
+++ CONFIG_BPF_JIT=y
+++ CONFIG_TOUCHSCREEN_MTK_TOUCH=
+++ CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT=y
+++ CONFIG_PROFILING=y
+++ CONFIG_SPARSEMEM=y
+++ CONFIG_INET6_XFRM_MODE_TRANSPORT=y
+++ CONFIG_CRYPTO_ARC4=y
+++ CONFIG_MTK_EMMC_CACHE=y
+++ CONFIG_GKI_HIDDEN_GPU_CONFIGS=y
+++ CONFIG_SLHC=y
+++ CONFIG_CRYPTO_MANAGER=y
+++ CONFIG_NET_SCH_HTB=y
+++ CONFIG_GKI_HIDDEN_IRQ_CONFIGS=y
+++ CONFIG_PPP_BSDCOMP=y
+++ CONFIG_GKI_HIDDEN_CRYPTO_CONFIGS=y
+++ CONFIG_EDAC_SUPPORT=y
+++ CONFIG_RT_MUTEXES=y
+++ CONFIG_LOCK_SPIN_ON_OWNER=y
+++ CONFIG_ION_SYSTEM_HEAP=y
+++ CONFIG_COMMON_CLK_MEDIATEK=y
+++ CONFIG_NETFILTER_XT_TARGET_MARK=y
+++ CONFIG_FSL_ERRATUM_A008585=y
+++ CONFIG_DRM_GEM_CMA_HELPER=y
+++ CONFIG_MTK_ECCCI_C2K=y
+++ CONFIG_MEDIATEK_MT635X_AUXADC=y
+++ CONFIG_MTK_DYNAMIC_LOADING_POWER_THROTTLING=y
+++ CONFIG_KERNFS=y
+++ CONFIG_I2C_ALGOBIT=y
+++ CONFIG_IPV6_SUBTREES=y
+++ CONFIG_MMC_BLOCK=y
+++ CONFIG_NET_CLS_FW=y
+++ CONFIG_PAGE_COUNTER=y
+++ CONFIG_EXPERT=y
+++ CONFIG_WIRELESS=y
+++ CONFIG_WEXT_PROC=y
+++ CONFIG_CRYPTO_AES_ARM64_CE_BLK=y
+++ CONFIG_HZ_250=y
+++ CONFIG_ARCH_HAS_STRICT_KERNEL_RWX=y
+++ CONFIG_LOCK_DEBUGGING_SUPPORT=y
+++ CONFIG_FRAME_VECTOR=y
+++ CONFIG_PKCS7_MESSAGE_PARSER=y
+++ CONFIG_TASK_IO_ACCOUNTING=y
+++ CONFIG_FAT_DEFAULT_IOCHARSET=iso8859-1
+++ CONFIG_USB_CONFIGFS_MASS_STORAGE=y
+++ CONFIG_TIPC=y
+++ CONFIG_FRAME_WARN=2800
+++ CONFIG_HID_GENERIC=y
+++ CONFIG_ARCH_MMAP_RND_BITS=18
+++ CONFIG_QCOM_FALKOR_ERRATUM_E1041=y
+++ CONFIG_MTK_LCM_PHYSICAL_ROTATION=0
+++ CONFIG_MTK_KERNEL_POWER_OFF_CHARGING=y
+++ CONFIG_SERIAL_8250_MT6577=y
+++ CONFIG_GENERIC_HWEIGHT=y
+++ CONFIG_HAVE_MTK_GZ_LOG=y
+++ CONFIG_INITRAMFS_SOURCE=
+++ CONFIG_DM_VERITY_AVB=y
+++ CONFIG_CGROUPS=y
+++ CONFIG_MMC=y
+++ CONFIG_LZO_COMPRESS=y
+++ CONFIG_VIRTIO_INPUT=y
+++ CONFIG_HAVE_ARCH_MMAP_RND_COMPAT_BITS=y
+++ CONFIG_CRYPTO_SEQIV=y
+++ CONFIG_RTC_DRV_PL030=y
+++ CONFIG_HAVE_GCC_PLUGINS=y
+++ CONFIG_STATIC_USERMODEHELPER=y
+++ CONFIG_STACKTRACE=y
+++ CONFIG_EXTCON=y
+++ CONFIG_AUDIT_COMPAT_GENERIC=y
+++ CONFIG_NETFILTER_XT_TARGET_IDLETIMER=y
+++ CONFIG_CUSTOM_KERNEL_ACCELEROMETER=y
+++ CONFIG_MTK_ION=y
+++ CONFIG_ARCH_SUPPORTS_DEBUG_PAGEALLOC=y
+++ CONFIG_IPV6_VTI=y
+++ CONFIG_SND_MAX_CARDS=32
+++ CONFIG_CRYPTO_DRBG=y
+++ CONFIG_PPTP=y
+++ CONFIG_OF_EARLY_FLATTREE=y
+++ CONFIG_CGROUP_CPUACCT=y
+++ CONFIG_FS_VERITY=y
+++ CONFIG_MTK_GPS_EMI=y
+++ CONFIG_ARM64_PA_BITS=48
+++ CONFIG_HZ=250
+++ CONFIG_MTK_DCM_COMMON=y
+++ CONFIG_HW_RANDOM_MT67XX=y
+++ CONFIG_USB_RTL8152=y
+++ CONFIG_NETFILTER_XT_MATCH_U32=y
+++ CONFIG_HISILICON_ERRATUM_161010101=y
+++ CONFIG_MTK_VOW_DSP_VERSION=
+++ CONFIG_NLS_ISO8859_4=y
+++ CONFIG_SERIAL_8250_NR_UARTS=2
+++ CONFIG_ARCH_HAS_STRICT_MODULE_RWX=y
+++ CONFIG_NET_EGRESS=y
+++ CONFIG_MTK_CAM_SECURITY_SUPPORT=y
+++ CONFIG_CRYPTO_ENGINE=y
+++ CONFIG_INET_AH=y
+++ CONFIG_DEFAULT_IOSCHED=cfq
+++ CONFIG_SETEND_EMULATION=y
+++ CONFIG_MTK_FTRACER=y
+++ CONFIG_IPV6_MIP6=y
+++ CONFIG_GKI_HIDDEN_DRM_CONFIGS=y
+++ CONFIG_HAVE_PERF_USER_STACK_DUMP=y
+++ CONFIG_NLATTR=y
+++ CONFIG_BATTERY_MT6359=m
+++ CONFIG_TCP_CONG_CUBIC=y
+++ CONFIG_NR_CPUS=64
+++ CONFIG_MTK_MM_DEBUG=y
+++ CONFIG_SUSPEND_FREEZER=y
+++ CONFIG_MMC_SDHCI=m
+++ CONFIG_MTK_DCM_MT6765=y
+++ CONFIG_MTK_LENS=y
+++ CONFIG_NETFILTER_XT_CONNMARK=y
+++ CONFIG_SOCIONEXT_SYNQUACER_PREITS=y
+++ CONFIG_PROCESS_RECLAIM=y
+++ CONFIG_CRYPTO_CHACHA20=y
+++ CONFIG_IP_MROUTE_MULTIPLE_TABLES=y
+++ CONFIG_SYSFS=y
+++ CONFIG_COMMON_CLK_MT6765_AUDIOSYS=y
+++ CONFIG_EXT4_FS_ENCRYPTION=y
+++ CONFIG_USB_DEFAULT_PERSIST=y
+++ CONFIG_INPUT_TOUCHSCREEN=y
+++ CONFIG_EDAC_LEGACY_SYSFS=y
+++ CONFIG_DRM_PANEL_BRIDGE=y
+++ CONFIG_IP_NF_MATCH_AH=y
+++ CONFIG_ARM64_SVE=y
+++ CONFIG_KSU_SUSFS_SUS_MOUNT=y
+++ CONFIG_CAVIUM_ERRATUM_22375=y
+++ CONFIG_ASN1=y
+++ CONFIG_MTK_GZ_IRQ=y
+++ CONFIG_NETFILTER_XT_MATCH_LIMIT=y
+++ CONFIG_CRYPTO_DEV_VIRTIO=y
+++ CONFIG_XZ_DEC_ARM=y
+++ CONFIG_NLS_CODEPAGE_775=y
+++ CONFIG_CRYPTO_HASH_INFO=y
+++ CONFIG_BLK_SCSI_REQUEST=y
+++ CONFIG_HAVE_SYSCALL_TRACEPOINTS=y
+++ CONFIG_PM_DEVFREQ=y
+++ CONFIG_FB=y
+++ CONFIG_TRACING=y
+++ CONFIG_BLK_MQ_VIRTIO=y
+++ CONFIG_NLS_CODEPAGE_865=y
+++ CONFIG_INET_SCTP_DIAG=y
+++ CONFIG_SPARSEMEM_VMEMMAP_ENABLE=y
+++ CONFIG_MTK_COMBO_CHIP_CONSYS_6765=y
+++ CONFIG_ARM_GIC_V3=y
+++ CONFIG_FTRACE_MCOUNT_RECORD=y
+++ CONFIG_CC_HAS_ASM_GOTO=y
+++ CONFIG_MSDOS_PARTITION=y
+++ CONFIG_RTC_I2C_AND_SPI=y
+++ CONFIG_LEDS_REGULATOR_VIBRATOR=y
+++ CONFIG_BLK_INLINE_ENCRYPTION_FALLBACK=y
+++ CONFIG_HAVE_GENERIC_DMA_COHERENT=y
+++ CONFIG_CUSTOM_KERNEL_ALSPS=y
+++ CONFIG_ARM_PSCI_FW=y
+++ CONFIG_THERMAL=y
+++ CONFIG_SYNC_FILE=y
+++ CONFIG_VETH=y
+++ CONFIG_STACKPROTECTOR=y
+++ CONFIG_CMA_SIZE_MBYTES=16
+++ CONFIG_NET_ACT_MIRRED=y
+++ CONFIG_HAVE_ARCH_KGDB=y
+++ CONFIG_MTK_EMMC_SUPPORT_OTP=y
+++ CONFIG_DEBUG_KINFO=y
+++ CONFIG_ARCH_USE_QUEUED_SPINLOCKS=y
+++ CONFIG_NF_TPROXY_IPV4=y
+++ CONFIG_HAVE_MTK_MC=y
+++ CONFIG_VIDEOBUF2_V4L2=y
+++ CONFIG_CPU_FREQ_GOV_SCHEDUTIL=y
+++ CONFIG_RPS=y
+++ CONFIG_DEVFREQ_GOV_PERFORMANCE=y
+++ CONFIG_INET6_XFRM_TUNNEL=y
+++ CONFIG_PROC_PID_CPUSET=y
+++ CONFIG_MMC_BLOCK_IO_LOG=y
+++ CONFIG_USB_NET_AX88179_178A=y
+++ CONFIG_FAST_CIRQ_CLONE_FLUSH=y
+++ CONFIG_USB_MTK_HDRC=y
+++ CONFIG_PM_GENERIC_DOMAINS=y
+++ CONFIG_PM_WAKELOCKS_LIMIT=0
+++ CONFIG_GENERIC_CSUM=y
+++ CONFIG_MTK_LM_MODE=y
+++ CONFIG_GENERIC_IDLE_POLL_SETUP=y
+++ CONFIG_IP_MULTICAST=y
+++ CONFIG_MTK_CHARGER=y
+++ CONFIG_DEFAULT_SECURITY=selinux
+++ CONFIG_TICK_ONESHOT=y
+++ CONFIG_NF_NAT_PROTO_UDPLITE=y
+++ CONFIG_CRYPTO_CTR=y
+++ CONFIG_WIRELESS_EXT=y
+++ CONFIG_ARM64_SSBD=y
+++ CONFIG_REGULATOR_MT6357=y
+++ CONFIG_MODVERSIONS=y
+++ CONFIG_HW_RANDOM=y
+++ CONFIG_MUTEX_SPIN_ON_OWNER=y
+++ CONFIG_VIRTIO_VSOCKETS_COMMON=y
+++ CONFIG_STATIC_USERMODEHELPER_PATH=/system_ext/bin/aee_core_forwarder
+++ CONFIG_MEMCG_SWAP=y
+++ CONFIG_KSU_SUSFS_OPEN_REDIRECT=y
+++ CONFIG_NLS_CODEPAGE_737=y
+++ CONFIG_NF_NAT_IPV4=y
+++ CONFIG_HAVE_FUNCTION_GRAPH_TRACER=y
+++ CONFIG_CRYPTO_LIB_POLY1305_GENERIC=y
+++ CONFIG_OF_MDIO=y
+++ CONFIG_HAVE_CMPXCHG_LOCAL=y
+++ CONFIG_MTK_SCHED_CPU_PREFER=y
+++ CONFIG_VIDEOBUF2_CORE=y
+++ CONFIG_RANDOMIZE_MODULE_REGION_FULL=y
+++ CONFIG_MTK_SND_SOC_CODEC=mt6357
+++ CONFIG_TREE_SRCU=y
+++ CONFIG_CRYPTO_NULL2=y
+++ CONFIG_MTK_VIDEOCODEC_DRIVER=y
+++ CONFIG_IP_SCTP=y
+++ CONFIG_SERIAL_8250_DMA=y
+++ CONFIG_BASE_SMALL=0
+++ CONFIG_PM_WAKELOCKS=y
+++ CONFIG_CRYPTO_BLKCIPHER2=y
+++ CONFIG_SECURITY_SELINUX_AVC_STATS=y
+++ CONFIG_COMPACTION=y
+++ CONFIG_MTK_IDLE_BALANCE_ENHANCEMENT=y
+++ CONFIG_PROC_FS=y
+++ CONFIG_VIDEOBUF2_VMALLOC=y
+++ CONFIG_GENERIC_BUG_RELATIVE_POINTERS=y
+++ CONFIG_WEXT_PRIV=y
+++ CONFIG_VIRTIO_MMIO=y
+++ CONFIG_SCSI_LOWLEVEL=y
+++ CONFIG_MEMFD_CREATE=y
+++ CONFIG_DMA_DIRECT_OPS=y
+++ CONFIG_IRQ_FORCED_THREADING=y
+++ CONFIG_USB_F_HID=y
+++ CONFIG_NLS_ISO8859_3=y
+++ CONFIG_CRYPTO_CMAC=y
+++ CONFIG_MTK_PMQOS=y
+++ CONFIG_SND=y
+++ CONFIG_HARDEN_BRANCH_PREDICTOR=y
+++ CONFIG_MTK_MUSB_QMU_SUPPORT=y
+++ CONFIG_USB_F_MASS_STORAGE=y
+++ CONFIG_IKCONFIG=y
+++ CONFIG_MTK_SYSIRQ=y
+++ CONFIG_GENERIC_IRQ_MIGRATION=y
+++ CONFIG_DEBUG_LIST=y
+++ CONFIG_ARCH_HAS_FORTIFY_SOURCE=y
+++ CONFIG_GCC_VERSION=0
+++ CONFIG_CRYPTO_LIB_POLY1305_RSIZE=9
+++ CONFIG_SYSCTL=y
+++ CONFIG_ARCH_HAS_GCOV_PROFILE_ALL=y
+++ CONFIG_BRIDGE_IGMP_SNOOPING=y
+++ CONFIG_PHYS_ADDR_T_64BIT=y
+++ CONFIG_CORESIGHT_LINKS_AND_SINKS=y
+++ CONFIG_THREAD_INFO_IN_TASK=y
+++ CONFIG_HAVE_C_RECORDMCOUNT=y
+++ CONFIG_GENERIC_MSI_IRQ=y
+++ CONFIG_MTK_CONN_MD=y
+++ CONFIG_HAVE_ARCH_TRACEHOOK=y
+++ CONFIG_NO_IOPORT_MAP=y
+++ CONFIG_XFRM_USER=y
+++ CONFIG_TCP_CONG_BIC=y
+++ CONFIG_HAVE_MTK_ENABLE_GENIEZONE=y
+++ CONFIG_NET_NS=y
+++ CONFIG_MTK_SECURITY_SW_SUPPORT=y
+++ CONFIG_MMSTAT_TRACER=m
+++ CONFIG_MEMORY=y
+++ CONFIG_HAVE_PERF_EVENTS=y
+++ CONFIG_HID_NINTENDO=y
+++ CONFIG_HAVE_ALIGNED_STRUCT_PAGE=y
+++ CONFIG_NO_BOOTMEM=y
+++ CONFIG_NLS_CODEPAGE_866=y
+++ CONFIG_AUDIT=y
+++ CONFIG_GKI_HIDDEN_GPIO_CONFIGS=y
+++ CONFIG_KERNEL_MODE_NEON=y
+++ CONFIG_ARM_SCPI_CPUFREQ=y
+++ CONFIG_BPF_JIT_ALWAYS_ON=y
+++ CONFIG_CMA_AREAS=16
+++ CONFIG_LTO_NONE=y
+++ CONFIG_DM_BOW=y
+++ CONFIG_ARM_GIC_MAX_NR=1
+++ CONFIG_MTK_ECCCI_DRIVER=y
+++ CONFIG_HID_MULTITOUCH=y
+++ CONFIG_SECURITY=y
+++ CONFIG_NETFILTER_XT_MATCH_QUOTA2=y
+++ CONFIG_MTK_POWER_THROTTLING_COMMON=y
+++ CONFIG_USB_CONFIGFS_F_AUDIO_SRC=y
+++ CONFIG_PRINTK_MTK_UART_CONSOLE=y
+++ CONFIG_HID_ELECOM=y
+++ CONFIG_SND_TIMER=y
+++ CONFIG_FAT_DEFAULT_CODEPAGE=437
+++ CONFIG_BLK_DEV=y
+++ CONFIG_MAC80211_RC_DEFAULT=
+++ CONFIG_BRIDGE_NETFILTER=y
+++ CONFIG_OF_FLATTREE=y
+++ CONFIG_IOMMU_API=y
+++ CONFIG_TRACING_SUPPORT=y
+++ CONFIG_UNIX98_PTYS=y
+++ CONFIG_NETFILTER_XT_TARGET_CONNMARK=y
+++ CONFIG_THERMAL_DEFAULT_GOV_BACKWARD_COMPATIBLE=y
+++ CONFIG_NET_RX_BUSY_POLL=y
+++ CONFIG_THERMAL_GOV_BACKWARD_COMPATIBLE=y
+++ CONFIG_CRYPTO_ANSI_CPRNG=y
+++ CONFIG_SECURITY_SELINUX=y
+++ CONFIG_ZONE_DMA32=y
+++ CONFIG_NET_SCHED=y
+++ CONFIG_NETFILTER_XT_TARGET_CONNSECMARK=y
+++ CONFIG_MTK_SCPSYS=y
+++ CONFIG_DRM_PANEL=y
+++ CONFIG_PRINTK_TIME=y
+++ CONFIG_SECCOMP_FILTER=y
+++ CONFIG_IRQCHIP=y
+++ CONFIG_PPP=y
+++ CONFIG_NETFILTER_XT_MATCH_QUOTA=y
+++ CONFIG_INET_DIAG=y
+++ CONFIG_CRYPTO_GHASH=y
+++ CONFIG_PSTORE=y
+++ CONFIG_OVERLAY_FS_REDIRECT_ALWAYS_FOLLOW=y
+++ CONFIG_SECURITY_SELINUX_SIDTAB_HASH_BITS=9
+++ CONFIG_NF_NAT_FTP=y
+++ CONFIG_NF_CT_PROTO_UDPLITE=y
+++ CONFIG_IKCONFIG_PROC=y
+++ CONFIG_ELF_CORE=y
+++ CONFIG_MTK_PTPOD=y
+++ CONFIG_TEXTSEARCH=y
+++ CONFIG_USB_SUPPORT=y
+++ CONFIG_MTK_GZ_VIRTIO=y
+++ CONFIG_VIRTIO_MMIO_CMDLINE_DEVICES=y
+++ CONFIG_UCLAMP_TASK=y
+++ CONFIG_SOC_BUS=y
+++ CONFIG_STAGING=y
+++ CONFIG_DMA_CMA=y
+++ CONFIG_MMPROFILE=y
+++ CONFIG_MFD_ACT8945A=y
+++ CONFIG_HW_RANDOM_VIRTIO=y
+++ CONFIG_SCHED_INFO=y
+++ CONFIG_MQ_IOSCHED_KYBER=y
+++ CONFIG_CUSTOM_LCM_Y=0
+++ CONFIG_VIRTIO_VSOCKETS=y
+++ CONFIG_NETFILTER_XT_MATCH_PHYSDEV=y
+++ CONFIG_NOP_USB_XCEIV=y
+++ CONFIG_AUDIT_ARCH_COMPAT_GENERIC=y
+++ CONFIG_BLK_DEV_RAM=y
+++ CONFIG_ARCH_MMAP_RND_COMPAT_BITS=11
+++ CONFIG_NETFILTER_XT_MATCH_STATE=y
+++ CONFIG_KSU_SUSFS_HAS_MAGIC_MOUNT=y
+++ CONFIG_USB_STORAGE_FREECOM=y
+++ CONFIG_MTK_MIR3DA_A25_STOCK_DIRECTION=y
+++ CONFIG_DRM=y
+++ CONFIG_INET6_XFRM_MODE_BEET=y
+++ CONFIG_MTK_CCCI_DEVICES=y
+++ CONFIG_MTK_BATTERY_OC_POWER_THROTTLING=y
+++ CONFIG_ARM64=y
+++ CONFIG_PREEMPT=y
+++ CONFIG_DM_DEFAULT_KEY=y
+++ CONFIG_FB_CFB_COPYAREA=y
+++ CONFIG_MTK_TINYSYS_SSPM_SUPPORT=y
+++ CONFIG_SND_SOC_MTK_BTCVSD=y
+++ CONFIG_MANDATORY_FILE_LOCKING=y
+++ CONFIG_ARCH_HAS_TICK_BROADCAST=y
+++ CONFIG_BINARY_PRINTF=y
+++ CONFIG_USB_STORAGE_JUMPSHOT=y
+++ CONFIG_COMMON_CLK_MTK_FREQ_HOPPING_SSPM=y
+++ CONFIG_TRACER_MAX_TRACE=y
+++ CONFIG_ZSTD_DECOMPRESS=y
+++ CONFIG_HAVE_DEBUG_BUGVERBOSE=y
+++ CONFIG_VIDEO_V4L2=y
+++ CONFIG_SND_PCM_TIMER=y
+++ CONFIG_DMA_SHARED_BUFFER=y
+++ CONFIG_OF_ADDRESS=y
+++ CONFIG_DECOMPRESS_GZIP=y
+++ CONFIG_NLS_MAC_CELTIC=y
+++ CONFIG_VIRTIO_MENU=y
+++ CONFIG_XFRM_SUB_POLICY=y
+++ CONFIG_VIRTIO_BLK=y
+++ CONFIG_MTK_BTIF=y
+++ CONFIG_64BIT=y
+++ CONFIG_QUOTA=y
+++ CONFIG_PARTITION_PERCPU=y
+++ CONFIG_MMC_SDHCI_PLTFM=m
+++ CONFIG_LLC=y
+++ CONFIG_ARCH_USE_QUEUED_RWLOCKS=y
+++ CONFIG_COMMON_CLK_MTK_FREQ_HOPPING=y
+++ CONFIG_REGMAP_MMIO=y
+++ CONFIG_MEDIATEK_CACHE_API=y
+++ CONFIG_ENERGY_MODEL=y
+++ CONFIG_NETWORK_SECMARK=y
+++ CONFIG_GENERIC_CLOCKEVENTS_BROADCAST=y
+++ CONFIG_CRYPTO_SIMD=y
+++ CONFIG_XZ_DEC_ARMTHUMB=y
+++ CONFIG_ARCH_USE_CMPXCHG_LOCKREF=y
+++ CONFIG_ARCH_WANT_FRAME_POINTERS=y
+++ CONFIG_REGMAP=y
+++ CONFIG_NLS_UTF8=y
+++ CONFIG_JOYSTICK_XPAD=y
+++ CONFIG_GKI_HACKS_TO_FIX=y
+++ CONFIG_HARDENED_USERCOPY=y
+++ CONFIG_HAVE_MOD_ARCH_SPECIFIC=y
+++ CONFIG_FB_NOTIFY=y
+++ CONFIG_STRICT_MODULE_RWX=y
+++ CONFIG_USB_USBNET=y
+++ CONFIG_MEDIATEK_MT6577_AUXADC=y
+++ CONFIG_NET_ACT_POLICE=y
+++ CONFIG_SYSCTL_EXCEPTION_TRACE=y
+++ CONFIG_FS_VERITY_BUILTIN_SIGNATURES=y
+++ CONFIG_NEW_LEDS=y
+++ CONFIG_SWAP=y
+++ CONFIG_TOUCHSCREEN_MTK=y
+++ CONFIG_MTK_PMIC_WRAP=y
+++ CONFIG_MAC80211=y
+++ CONFIG_CRC_CCITT=y
+++ CONFIG_GPIOLIB_IRQCHIP=y
+++ CONFIG_BLK_DEV_SD=y
+++ CONFIG_HISILICON_ERRATUM_161600802=y
+++ CONFIG_MTK_GIC_TARGET_ALL=y
+++ CONFIG_NETFILTER_NETLINK=y
+++ CONFIG_MODULE_UNLOAD=y
+++ CONFIG_DEVFREQ_GOV_USERSPACE=y
+++ CONFIG_PREEMPT_COUNT=y
+++ CONFIG_MTK_DRAMC=y
+++ CONFIG_BT_LE=y
+++ CONFIG_CMA=y
+++ CONFIG_RWSEM_SPIN_ON_OWNER=y
+++ CONFIG_SCSI_MQ_DEFAULT=y
+++ CONFIG_TRACER_SNAPSHOT=y
+++ CONFIG_GENERIC_PINMUX_FUNCTIONS=y
+++ CONFIG_BITREVERSE=y
+++ CONFIG_X509_CERTIFICATE_PARSER=y
+++ CONFIG_BLK_DEV_RAM_SIZE=8192
+++ CONFIG_NLS_ISO8859_13=y
+++ CONFIG_CRYPTO_BLKCIPHER=y
+++ CONFIG_MTK_GZ_MAIN=y
+++ CONFIG_USB_STORAGE_ONETOUCH=y
+++ CONFIG_NLS_ISO8859_8=y
+++ CONFIG_NF_CONNTRACK=y
+++ CONFIG_ARCH_DMA_ADDR_T_64BIT=y
+++ CONFIG_FILE_LOCKING=y
+++ CONFIG_SND_SOC_I2C_AND_SPI=y
+++ CONFIG_CPU_IDLE_GOV_MTK_MENU=y
+++ CONFIG_AIO=y
+++ CONFIG_OF=y
+++ CONFIG_NET_EMATCH=y
+++ CONFIG_PERF_EVENTS=y
+++ CONFIG_GENERIC_TIME_VSYSCALL=y
+++ CONFIG_IP_NF_TARGET_REJECT=y
+++ CONFIG_LEDS_CLASS=y
+++ CONFIG_GKI_HIDDEN_VIDEOBUF2_CONFIGS=y
+++ CONFIG_MTK_MUSB_QMU_PURE_ZLP_SUPPORT=y
+++ CONFIG_RTC_INTF_DEV=y
+++ CONFIG_DCACHE_WORD_ACCESS=y
+++ CONFIG_PSTORE_COMPRESS=y
+++ CONFIG_MESSAGE_LOGLEVEL_DEFAULT=4
+++ CONFIG_MTK_HANG_DETECT_DB=y
+++ CONFIG_CMA_ALIGNMENT=8
+++ CONFIG_NLS_DEFAULT=iso8859-1
+++ CONFIG_UTS_NS=y
+++ CONFIG_NF_CT_PROTO_GRE=y
+++ CONFIG_NF_CT_NETLINK=y
+++ CONFIG_DMA_ENGINE=y
+++ CONFIG_ANDROID_INTF_ALARM_DEV=y
+++ CONFIG_DEFAULT_SECURITY_SELINUX=y
+++ CONFIG_DEBUG_INFO=y
+++ CONFIG_CRYPTO_AEAD2=y
+++ CONFIG_NET_IPIP=y
+++ CONFIG_NETFILTER_XT_MATCH_HL=y
+++ CONFIG_QCOM_QDF2400_ERRATUM_0065=y
+++ CONFIG_CRYPTO_ALGAPI2=y
+++ CONFIG_MTK_VOW_MAX_PDK_NUMBER=0
+++ CONFIG_WEXT_SPY=y
+++ CONFIG_MTK_SMI=y
+++ CONFIG_HAVE_MEMBLOCK=y
+++ CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS=y
+++ CONFIG_INPUT=y
+++ CONFIG_PROC_SYSCTL=y
+++ CONFIG_MTK_CONNSYS_DEDICATED_LOG_PATH=y
+++ CONFIG_NETFILTER_XT_TARGET_CT=y
+++ CONFIG_MMU=y
+++ CONFIG_MTK_MIR3DA=y
+++ CONFIG_ARM64_VA_BITS_39=y
+++ CONFIG_KUSER_HELPERS=y
++ info GEN .version
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' GEN .version
+  GEN     .version
++ '[' -r .version ']'
++++ cat .version
+++ expr 023 + 1
++ VERSION=24
++ echo 24
++ /usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=init
+/bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mkcompile_h include/generated/compile.h	\
+"aarch64" "y" "y"	\
+"/usr/bin/clang --target=aarch64-linux-gnu -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -Werror-implicit-function-declaration -Werror=return-type -Wno-format-security -std=gnu89 -Werror=unknown-warning-option -fno-PIE -mgeneral-regs-only -DCONFIG_AS_LSE=1   -fno-asynchronous-unwind-tables -Wno-psabi -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-int-in-bool-context -Wno-address-of-packed-member -Os -Wframe-larger-than=2800 -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu -Wno-tautological-compare  -mno-global-merge -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -g -pg  -Wdeclaration-after-statement -Wno-pointer-sign -Wno-array-bounds -fno-strict-overflow -fno-merge-all-constants -fno-stack-check -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types -fmacro-prefix-map=/home/builder/work/build/a25-wusb-kbuild-integration/kernel/= -Wno-initializer-overrides -Wno-unused-value -Wno-format -Wno-sign-compare -Wno-format-zero-length -Wno-uninitialized -Wno-pointer-to-enum-cast    -Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=declaration-after-statement -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=sign-compare -Wno-error=missing-prototypes -Wno-error=enum-conversion -Wno-error=constant-conversion -Wno-error=incompatible-pointer-types " "/usr/bin/ld.lld"
++ archive_builtin
++ info AR built-in.a
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' AR built-in.a
+  AR      built-in.a
++ rm -f built-in.a
++ /usr/bin/llvm-ar rcsTPD built-in.a arch/arm64/kernel/head.o init/built-in.a usr/built-in.a arch/arm64/kernel/built-in.a arch/arm64/mm/built-in.a arch/arm64/net/built-in.a arch/arm64/crypto/built-in.a kernel/built-in.a certs/built-in.a mm/built-in.a fs/built-in.a ipc/built-in.a security/built-in.a crypto/built-in.a block/built-in.a arch/arm64/lib/built-in.a lib/built-in.a drivers/built-in.a sound/built-in.a firmware/built-in.a net/built-in.a virt/built-in.a
++ '[' -n '' ']'
++ modpost_link vmlinux.o
++ local objects
++ objects='--whole-archive						built-in.a							--no-whole-archive						--start-group							 arch/arm64/lib/lib.a  lib/lib.a						--end-group'
++ '[' -n '' ']'
+++ lto_lds
+++ '[' -z '' ']'
+++ return
++ /usr/bin/ld.lld -EL -maarch64elf -r -o vmlinux.o --whole-archive built-in.a --no-whole-archive --start-group arch/arm64/lib/lib.a lib/lib.a --end-group
++ /usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.modpost vmlinux.o
+  scripts/mod/modpost -m  -o ./Module.symvers    -S   vmlinux.o
+WARNING: modpost: Found 12 section mismatch(es).
+To see full details build your kernel with:
+'make CONFIG_DEBUG_SECTION_MISMATCH=y'
++ '[' -n '' ']'
++ kallsymso=
++ kallsyms_vmlinux=
++ '[' -n y ']'
++ kallsymso=.tmp_kallsyms2.o
++ kallsyms_vmlinux=.tmp_vmlinux2
++ vmlinux_link '' .tmp_vmlinux1
++ local lds=./arch/arm64/kernel/vmlinux.lds
++ local objects
++ '[' arm64 '!=' um ']'
++ '[' -z '' ']'
++ objects='--whole-archive						built-in.a							--no-whole-archive						--start-group							 arch/arm64/lib/lib.a  lib/lib.a						--end-group							'
++ /usr/bin/ld.lld -EL -maarch64elf --no-undefined -X -z norelro -shared -Bsymbolic -z notext --no-apply-dynamic-relocs --fix-cortex-a53-843419 --build-id --pack-dyn-relocs=relr -o .tmp_vmlinux1 -T ./arch/arm64/kernel/vmlinux.lds --whole-archive built-in.a --no-whole-archive --start-group arch/arm64/lib/lib.a lib/lib.a --end-group
++ kallsyms .tmp_vmlinux1 .tmp_kallsyms1.o
++ info KSYM .tmp_kallsyms1.o
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' KSYM .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms1.o
++ local kallsymopt
++ '[' -n '' ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
++ local 'aflags=-D__ASSEMBLY__ -Werror=unknown-warning-option -fno-PIE -DCONFIG_AS_LSE=1   -DKASAN_SHADOW_SCALE_SHIFT=3                    		      -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments  '
+++ basename .tmp_kallsyms1.o .o
++ local afile=.tmp_kallsyms1.S
++ /usr/bin/llvm-nm -n .tmp_vmlinux1
++ scripts/kallsyms
++ /usr/bin/clang --target=aarch64-linux-gnu -D__ASSEMBLY__ -Werror=unknown-warning-option -fno-PIE -DCONFIG_AS_LSE=1 -DKASAN_SHADOW_SCALE_SHIFT=3 -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments -c -o .tmp_kallsyms1.o .tmp_kallsyms1.S
++ vmlinux_link .tmp_kallsyms1.o .tmp_vmlinux2
++ local lds=./arch/arm64/kernel/vmlinux.lds
++ local objects
++ '[' arm64 '!=' um ']'
++ '[' -z '' ']'
++ objects='--whole-archive						built-in.a							--no-whole-archive						--start-group							 arch/arm64/lib/lib.a  lib/lib.a						--end-group							.tmp_kallsyms1.o'
++ /usr/bin/ld.lld -EL -maarch64elf --no-undefined -X -z norelro -shared -Bsymbolic -z notext --no-apply-dynamic-relocs --fix-cortex-a53-843419 --build-id --pack-dyn-relocs=relr -o .tmp_vmlinux2 -T ./arch/arm64/kernel/vmlinux.lds --whole-archive built-in.a --no-whole-archive --start-group arch/arm64/lib/lib.a lib/lib.a --end-group .tmp_kallsyms1.o
++ kallsyms .tmp_vmlinux2 .tmp_kallsyms2.o
++ info KSYM .tmp_kallsyms2.o
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' KSYM .tmp_kallsyms2.o
+  KSYM    .tmp_kallsyms2.o
++ local kallsymopt
++ '[' -n '' ']'
++ '[' -n '' ']'
++ '[' -n '' ']'
++ local 'aflags=-D__ASSEMBLY__ -Werror=unknown-warning-option -fno-PIE -DCONFIG_AS_LSE=1   -DKASAN_SHADOW_SCALE_SHIFT=3                    		      -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated  -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments  '
+++ basename .tmp_kallsyms2.o .o
++ local afile=.tmp_kallsyms2.S
++ /usr/bin/llvm-nm -n .tmp_vmlinux2
++ scripts/kallsyms
++ /usr/bin/clang --target=aarch64-linux-gnu -D__ASSEMBLY__ -Werror=unknown-warning-option -fno-PIE -DCONFIG_AS_LSE=1 -DKASAN_SHADOW_SCALE_SHIFT=3 -nostdinc -isystem /usr/lib/llvm-23/lib/clang/23/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include -I./arch/arm64/include/generated -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/drivers/misc/mediatek/include -I./include -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi -I/home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/uapi -I./include/generated/uapi -include /home/builder/work/build/a25-wusb-kbuild-integration/kernel/include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3 -Qunused-arguments -c -o .tmp_kallsyms2.o .tmp_kallsyms2.S
+++ /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/file-size.sh .tmp_kallsyms1.o
++ size1=2722592
+++ /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/file-size.sh .tmp_kallsyms2.o
++ size2=2722592
++ '[' 2722592 -ne 2722592 ']'
++ '[' -n '' ']'
++ info LD vmlinux
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' LD vmlinux
+  LD      vmlinux
++ vmlinux_link .tmp_kallsyms2.o vmlinux
++ local lds=./arch/arm64/kernel/vmlinux.lds
++ local objects
++ '[' arm64 '!=' um ']'
++ '[' -z '' ']'
++ objects='--whole-archive						built-in.a							--no-whole-archive						--start-group							 arch/arm64/lib/lib.a  lib/lib.a						--end-group							.tmp_kallsyms2.o'
++ /usr/bin/ld.lld -EL -maarch64elf --no-undefined -X -z norelro -shared -Bsymbolic -z notext --no-apply-dynamic-relocs --fix-cortex-a53-843419 --build-id --pack-dyn-relocs=relr -o vmlinux -T ./arch/arm64/kernel/vmlinux.lds --whole-archive built-in.a --no-whole-archive --start-group arch/arm64/lib/lib.a lib/lib.a --end-group .tmp_kallsyms2.o
++ '[' -n y ']'
++ info SORTEX vmlinux
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' SORTEX vmlinux
+  SORTEX  vmlinux
++ sortextable vmlinux
++ ./scripts/sortextable vmlinux
++ info SYSMAP System.map
++ '[' '' '!=' silent_ ']'
++ printf '  %-7s %s\n' SYSMAP System.map
+  SYSMAP  System.map
++ mksysmap vmlinux System.map
++ /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mksysmap vmlinux System.map
++ '[' -n y ']'
++ mksysmap .tmp_vmlinux2 .tmp_System.map
++ /bin/bash /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/mksysmap .tmp_vmlinux2 .tmp_System.map
++ cmp -s System.map .tmp_System.map
++ on_exit
++ '[' 0 -ne 0 ']'
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/boot arch/arm64/boot/Image
+  /usr/bin/llvm-objcopy  -O binary -R .note -R .note.gnu.build-id -R .comment -S vmlinux arch/arm64/boot/Image
+/usr/bin/make -f /home/builder/work/build/a25-wusb-kbuild-integration/kernel/scripts/Makefile.build obj=arch/arm64/boot arch/arm64/boot/Image.gz
+  (cat arch/arm64/boot/Image | gzip -n -f -9 > arch/arm64/boot/Image.gz) || (rm -f arch/arm64/boot/Image.gz ; false)
+make[1]: Leaving directory '/home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild'
+BUILD_EXIT 0 ELAPSED 21.1
+RESULT {"size": 10931616, "sha256": "83da863bcd7846f5ba5b73a506465ebc8482f7352311556a912321cb0ee47f13"}

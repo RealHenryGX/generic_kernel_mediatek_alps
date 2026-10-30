@@ -1,0 +1,127 @@
+name: Build a25 kernel (4.19.191-gravity)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [4.19.191-gravity]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 12000
+          swap-size-mb: 2048
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+
+      - name: Install deps (no apt cache growth)
+        run: |
+          # / 分区小,apt 写源缓存会爆。改用已有工具 + 临时目录方案
+          sudo mkdir -p /tmp/aptlists /tmp/aptcache
+          sudo sed -i 's|Dir::Cache::archives.*|Dir::Cache::archives "/tmp/aptcache/";|' /etc/apt/apt.conf.d/* 2>/dev/null || true
+          sudo sh -c 'echo "Dir::Cache::archives \"/tmp/aptcache/\";" > /etc/apt/apt.conf.d/99cache'
+          sudo sh -c 'echo "Dir::State::lists \"/tmp/aptlists/\";" >> /etc/apt/apt.conf.d/99cache'
+          timeout 300 sudo apt-get update -qq -o Dir::Cache=/tmp/aptcache -o Dir::State::lists=/tmp/aptlists || true
+          sudo apt-get install -y -qq --no-install-recommends -o Dir::Cache=/tmp/aptcache -o Dir::State::lists=/tmp/aptlists \
+            bc bison flex libssl-dev libelf-dev cpio p7zip-full git kmod || true
+          sudo rm -rf /tmp/aptcache/* /tmp/aptlists/* || true
+          # 检查关键工具
+          for t in bc bison flex cpio 7z kmod; do command -v $t >/dev/null && echo "have $t" || echo "MISSING $t"; done
+          df -h / | tail -1
+
+      - uses: actions/checkout@v4
+        with:
+          ref: 4.19.191-gravity
+          fetch-depth: 1
+
+      - name: Setup toolchain (Mandi-Sa clang-22 static, includes binutils)
+        run: |
+          curl -sL -o clang.7z "https://github.com/Mandi-Sa/clang/releases/download/amd64-kernel-arm_static-22/llvm22.0.0-binutils2.45.1_amd64-kernel-arm_static-20260111.7z"
+          ls -l clang.7z
+          mkdir -p toolchain && 7z x -y clang.7z -otoolchain > /dev/null
+          ls toolchain/
+          ls toolchain/bin/ | head -20
+          echo "TOOLCHAIN=$PWD/toolchain" >> "$GITHUB_ENV"
+          toolchain/bin/clang --version | head -1
+          ls toolchain/bin | grep -E "aarch64|ld.lld" | head -10
+
+      - name: Integrate KernelSU v0.9.5
+        run: |
+          git clone --depth 1 --branch v0.9.5 https://github.com/tiann/KernelSU
+          ln -sf ../KernelSU/kernel drivers/kernelsu
+          echo 'obj-$(CONFIG_KSU) += kernelsu/' >> drivers/Makefile
+          sed -i '/endmenu/i\source "drivers/kernelsu/Kconfig"' drivers/Kconfig
+
+      - name: Integrate SUSFS (kernel-4.19)
+        run: |
+          # GitLab git clone often 403s from GH runners - use archive tarball instead
+          curl -sL -o susfs4ksu.tar.gz "https://gitlab.com/simonpunk/susfs4ksu/-/archive/kernel-4.19/susfs4ksu-kernel-4.19.tar.gz"
+          tar xzf susfs4ksu.tar.gz
+          mv susfs4ksu-kernel-4.19 susfs4ksu
+          cp susfs4ksu/kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch KernelSU/
+          (cd KernelSU && patch -p1 < 10_enable_susfs_for_ksu.patch || true)
+          # Hunk#7 (selinux.c susfs sid helpers) may fail on baseline drift - fix idempotently
+          python3 scripts/fix_susfs_10.py
+          cp susfs4ksu/kernel_patches/50_add_susfs_in_kernel-4.19.patch .
+          patch -p1 < 50_add_susfs_in_kernel-4.19.patch || true
+          cp -r susfs4ksu/kernel_patches/fs/* fs/ || true
+          cp -r susfs4ksu/kernel_patches/include/linux/* include/linux/ || true
+          # remaining 50_ hunks fail on 4.19.191 baseline drift - fix idempotently
+          python3 scripts/fix_susfs_50.py
+          echo "--- susfs patch done ---"
+
+      - name: Banner (gravity identity)
+        run: |
+          grep -n 'Linux version' init/version.c || true
+          sed -i 's|"Linux version %s (%s@%s) (%s (%s)) %s"|"Linux version %s (gravity@a25) (%s (%s)) %s"|' init/version.c || true
+          grep -n 'Linux version' init/version.c || true
+
+      - name: Configure
+        run: |
+          export ARCH=arm64
+          export PATH="$TOOLCHAIN/bin:$PATH"
+          # Mandi-Sa 静态包内含 aarch64 交叉 binutils;若缺少则用 clang 自带 ld.lld
+          ls "$TOOLCHAIN/bin" | head -30
+          make O=out ARCH=arm64 CC="$TOOLCHAIN/bin/clang" LD="$TOOLCHAIN/bin/ld.lld" \
+            CROSS_COMPILE="$TOOLCHAIN/bin/aarch64-linux-gnu-" a25_gravity_defconfig
+
+          echo "=== DEBUG: touchscreen config in generated .config ==="
+          grep -E "CONFIG_(INPUT_)?TOUCHSCREEN" out/.config | head -25 || true
+          echo "=== DEBUG: AXS symbol value ==="
+          grep -n "TOUCHSCREEN_MTK_AXS" out/.config || echo "(AXS symbol ABSENT from .config)"
+          echo "=== DEBUG: AXS dir + config files present ==="
+          ls -la drivers/input/touchscreen/mediatek/AXS/ 2>&1 | head
+          grep -n "TOUCHSCREEN_MTK_AXS" drivers/input/touchscreen/mediatek/Makefile || true
+
+      - name: Build
+        run: |
+          # vendor GPU driver (rgx/mtk_mfgsys) trips -Wint-conversion under clang: demote
+          find drivers/gpu -name 'Kbuild' -o -name 'Makefile' | xargs sed -i 's/-Werror\([[:space:]\|]\)/-Wno-error\1/g' 2>/dev/null || true
+          make O=out ARCH=arm64 CC="$TOOLCHAIN/bin/clang" LD="$TOOLCHAIN/bin/ld.lld" \
+            CROSS_COMPILE="$TOOLCHAIN/bin/aarch64-linux-gnu-" \
+            KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=declaration-after-statement -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=sign-compare -Wno-error=missing-prototypes -Wno-error=enum-conversion -Wno-error=constant-conversion" \
+            -j$(nproc) Image.gz
+          ls -l out/arch/arm64/boot/Image.gz
+
+      - name: Repack boot.img
+        run: |
+          python3 scripts/repack_boot.py stock/boot_a25.img out/arch/arm64/boot/Image.gz out/boot-a25-gravity.img
+          python3 scripts/repack_boot.py stock/recovery_a25.img out/arch/arm64/boot/Image.gz out/recovery-a25-gravity.img || true
+          ls -l out/*.img
+          sha256sum out/*.img
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-gravity-kernel
+          path: |
+            out/boot-a25-gravity.img
+            out/arch/arm64/boot/Image.gz
+            out/recovery-a25-gravity.img
+          if-no-files-found: error
