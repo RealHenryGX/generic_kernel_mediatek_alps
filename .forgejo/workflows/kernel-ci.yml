@@ -6,16 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       full_build:
-        description: Build full Image.gz
         required: false
         default: false
         type: boolean
-  workflow_call:
-    inputs:
-      full_build:
-        required: false
-        type: boolean
-        default: false
 jobs:
   kernel-check:
     runs-on: ubuntu-latest
@@ -25,28 +18,20 @@ jobs:
         with:
           clean: false
           fetch-depth: 1
-      - name: Diff and source checks
+      - name: Source checks
         run: |
           git diff --check
           test -f Makefile
-      - name: BPF netd touchpoint
+      - name: Incremental BPF netd build
         run: |
-          mkdir -p $OUT
-          export OUT=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
-          export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
-          export XTC=/home/builder/work/toolchain/toolchain
-          export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
-          if [ ! -f "$OUT/.config" ]           cp out/kbuild/.config $OUT/.config 2>/dev/null || true          cp out/kbuild/.config $OUT/.config 2>/dev/null || true [ -f /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild/.config ]; then cp /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild/.config "$OUT/.config"; fi
-          make $KTOOL O=$OUT ARCH=arm64 olddefconfig
-          make -j$(nproc) $KTOOL O=$OUT ARCH=arm64 security/selinux/hooks.o
-      - name: Full Image.gz build
+          mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
+          if [ ! -f /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config ]; then cp /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild/.config /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config; fi
+          make O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- olddefconfig
+          make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- security/selinux/hooks.o
+      - name: Full Image gz build
         if: inputs.full_build == true
         run: |
-          mkdir -p $FULL_OUT
-          export FULL_OUT=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full
-          export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
-          export XTC=/home/builder/work/toolchain/toolchain
-          export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
-          cp $OUT/.config $FULL_OUT/.config
-          make $KTOOL O=$FULL_OUT ARCH=arm64 olddefconfig
-          make -j$(nproc) $KTOOL O=$FULL_OUT ARCH=arm64 Image.gz
+          mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full
+          cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/.config
+          make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- olddefconfig
+          make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- Image.gz
