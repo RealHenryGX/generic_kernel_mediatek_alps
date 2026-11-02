@@ -32,13 +32,19 @@ jobs:
       - name: BPF netd touchpoint
         run: |
           mkdir -p out/ci-bpf
+          export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
+          export XTC=/home/builder/work/toolchain/toolchain
+          export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
           cp out/kbuild/.config out/ci-bpf/.config 2>/dev/null || true
-          make O=$PWD/out/ci-bpf ARCH=arm64 olddefconfig
-          make -j$(nproc) O=$PWD/out/ci-bpf ARCH=arm64 security/selinux/hooks.o
+          make $KTOOL O=$PWD/out/ci-bpf ARCH=arm64 olddefconfig
+          make -j$(nproc) $KTOOL O=$PWD/out/ci-bpf ARCH=arm64 security/selinux/hooks.o
       - name: Full Image.gz build
         if: inputs.full_build == true
         run: |
           mkdir -p out/ci-full
+          export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
+          export XTC=/home/builder/work/toolchain/toolchain
+          export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
           cp out/ci-bpf/.config out/ci-full/.config
-          make O=$PWD/out/ci-full ARCH=arm64 olddefconfig
-          make -j$(nproc) O=$PWD/out/ci-full ARCH=arm64 Image.gz
+          make $KTOOL O=$PWD/out/ci-full ARCH=arm64 olddefconfig
+          make -j$(nproc) $KTOOL O=$PWD/out/ci-full ARCH=arm64 Image.gz
