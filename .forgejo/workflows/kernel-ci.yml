@@ -1,0 +1,41 @@
+name: kernel-ci
+on:
+  push:
+    branches: [ main, 'codex/**' ]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      full_build:
+        description: Build full Image.gz
+        required: false
+        default: false
+        type: boolean
+  workflow_call:
+    inputs:
+      full_build:
+        required: false
+        type: boolean
+        default: false
+jobs:
+  kernel-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Diff and source checks
+        run: |
+          git diff --check
+          test -f Makefile
+      - name: BPF netd touchpoint
+        run: |
+          mkdir -p out/ci-bpf
+          cp out/kbuild/.config out/ci-bpf/.config 2>/dev/null || true
+          make O=$PWD/out/ci-bpf ARCH=arm64 olddefconfig
+          make -j$(nproc) O=$PWD/out/ci-bpf ARCH=arm64 security/selinux/hooks.o
+      - name: Full Image.gz build
+        if: inputs.full_build == true || github.event_name == 'push'
+        run: |
+          mkdir -p out/ci-full
+          cp out/ci-bpf/.config out/ci-full/.config
+          make O=$PWD/out/ci-full ARCH=arm64 olddefconfig
+          make -j$(nproc) O=$PWD/out/ci-full ARCH=arm64 Image.gz
