@@ -37,8 +37,8 @@ jobs:
           export XTC=/home/builder/work/toolchain/toolchain
           export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
           cp out/kbuild/.config $OUT/.config 2>/dev/null || true
-          make $KTOOL O=$PWD/$OUT ARCH=arm64 olddefconfig
-          make -j$(nproc) $KTOOL O=$PWD/$OUT ARCH=arm64 security/selinux/hooks.o
+          make $KTOOL O=$OUT ARCH=arm64 olddefconfig
+          make -j$(nproc) $KTOOL O=$OUT ARCH=arm64 security/selinux/hooks.o
       - name: Full Image.gz build
         if: inputs.full_build == true
         run: |
@@ -48,5 +48,5 @@ jobs:
           export XTC=/home/builder/work/toolchain/toolchain
           export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
           cp $OUT/.config $FULL_OUT/.config
-          make $KTOOL O=$PWD/$FULL_OUT ARCH=arm64 olddefconfig
-          make -j$(nproc) $KTOOL O=$PWD/$FULL_OUT ARCH=arm64 Image.gz
+          make $KTOOL O=$FULL_OUT ARCH=arm64 olddefconfig
+          make -j$(nproc) $KTOOL O=$FULL_OUT ARCH=arm64 Image.gz
