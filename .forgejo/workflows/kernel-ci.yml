@@ -32,18 +32,18 @@ jobs:
       - name: BPF netd touchpoint
         run: |
           mkdir -p $OUT
-          export OUT=/home/builder/work/build/a25-wusb-kbuild-integration/$OUT
+          export OUT=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
           export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
           export XTC=/home/builder/work/toolchain/toolchain
           export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
-          cp out/kbuild/.config $OUT/.config 2>/dev/null || true
+          if [ ! -f "$OUT/.config" ]           cp out/kbuild/.config $OUT/.config 2>/dev/null || true          cp out/kbuild/.config $OUT/.config 2>/dev/null || true [ -f /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild/.config ]; then cp /home/builder/work/build/a25-wusb-kbuild-integration/out/kbuild/.config "$OUT/.config"; fi
           make $KTOOL O=$OUT ARCH=arm64 olddefconfig
           make -j$(nproc) $KTOOL O=$OUT ARCH=arm64 security/selinux/hooks.o
       - name: Full Image.gz build
         if: inputs.full_build == true
         run: |
           mkdir -p $FULL_OUT
-          export FULL_OUT=/home/builder/work/build/a25-wusb-kbuild-integration/$FULL_OUT
+          export FULL_OUT=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full
           export TC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64
           export XTC=/home/builder/work/toolchain/toolchain
           export KTOOL="CC=$TC/bin/clang LD=$TC/bin/ld.lld AR=$TC/bin/llvm-ar NM=$TC/bin/llvm-nm OBJCOPY=$TC/bin/llvm-objcopy OBJDUMP=$TC/bin/llvm-objdump READELF=$TC/bin/llvm-readelf STRIP=$TC/bin/llvm-strip CROSS_COMPILE=$XTC/bin/aarch64-linux-gnu-"
