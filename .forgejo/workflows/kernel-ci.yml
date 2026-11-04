@@ -37,3 +37,12 @@ jobs:
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/.config
           make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- olddefconfig
           make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- Image.gz
+          ls -l /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
+          sha256sum /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
+      - name: Upload full kernel artifact
+        if: inputs.full_build == true || startsWith(github.ref, 'refs/heads/codex/cleanup-bpf-20261104')
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-bpf-cleanup-full-kernel
+          path: /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
+          if-no-files-found: error
