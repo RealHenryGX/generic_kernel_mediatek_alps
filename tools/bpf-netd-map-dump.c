@@ -4,12 +4,15 @@
 #define __NR_exit 93
 #define __NR_bpf 280
 #define BPF_MAP_LOOKUP_ELEM 1
+#define BPF_MAP_UPDATE_ELEM 2
+#define BPF_MAP_DELETE_ELEM 3
 #define BPF_OBJ_GET 7
 #define BPF_MAP_GET_NEXT_KEY 4
 
 struct bpf_obj_get_attr { uint64_t pathname; uint32_t bpf_fd; uint32_t file_flags; unsigned char reserved[0x98 - 0x18]; };
 struct bpf_next_key_attr { uint32_t map_fd; uint32_t reserved; uint64_t key; uint64_t next_key; uint64_t flags; };
 struct bpf_lookup_attr { uint32_t map_fd; uint32_t reserved; uint64_t key; uint64_t value; uint64_t flags; };
+struct bpf_update_attr { uint32_t map_fd; uint32_t reserved; uint64_t key; uint64_t value; uint64_t flags; };
 
 static long syscall3(long n, long a, long b, long c) {
     register long x0 asm("x0") = a;
@@ -41,6 +44,17 @@ static long next_key(long fd, void *key, void *next) {
     a.map_fd = (uint32_t)fd; a.key = (uint64_t)key; a.next_key = (uint64_t)next;
     return syscall3(__NR_bpf, BPF_MAP_GET_NEXT_KEY, (long)&a, sizeof(a));
 }
+static long update(long fd, void *key, void *value) {
+    struct bpf_update_attr a; zero_bytes(&a, sizeof(a));
+    a.map_fd = (uint32_t)fd; a.key = (uint64_t)key; a.value = (uint64_t)value;
+    a.flags = 0;
+    return syscall3(__NR_bpf, BPF_MAP_UPDATE_ELEM, (long)&a, sizeof(a));
+}
+static long delete_key(long fd, void *key) {
+    struct bpf_update_attr a; zero_bytes(&a, sizeof(a));
+    a.map_fd = (uint32_t)fd; a.key = (uint64_t)key;
+    return syscall3(__NR_bpf, BPF_MAP_DELETE_ELEM, (long)&a, sizeof(a));
+}
 static void dump_config(void) {
     static const char path[] = "/sys/fs/bpf/netd_shared/map_netd_configuration_map";
     uint32_t key, value; long fd = open_map(path);
@@ -65,4 +79,14 @@ static void dump_uid_owner(void) {
     }
     out("uid_owner count=", 16); dec(count); out(" next_result=", 13); dec(result); out("\n", 1);
 }
-void _start(void) { dump_config(); dump_uid_owner(); syscall3(__NR_exit, 0, 0, 0); }
+static void probe_uid_owner_update(void) {
+    static const char path[] = "/sys/fs/bpf/netd_shared/map_netd_uid_owner_map";
+    uint32_t key = 19999, value[2] = { 0, 4096 }, readback[2] = { 0, 0 };
+    long fd = open_map(path), result;
+    out("uid_owner_update fd=", 22); dec(fd); out(" update=", 8);
+    if (fd < 0) { dec(fd); out("\n", 1); return; }
+    result = update(fd, &key, value); dec(result); out(" lookup=", 8);
+    dec(lookup(fd, &key, readback)); out(" rule=", 6); dec(readback[1]); out(" delete=", 8);
+    dec(delete_key(fd, &key)); out("\n", 1);
+}
+void _start(void) { dump_config(); dump_uid_owner(); probe_uid_owner_update(); syscall3(__NR_exit, 0, 0, 0); }
