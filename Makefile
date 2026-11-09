@@ -1084,6 +1084,7 @@ PHONY += prepare0
 
 ifeq ($(KBUILD_EXTMOD),)
 core-y		+= kernel/ certs/ mm/ fs/ ipc/ security/ crypto/ block/
+drivers-$(CONFIG_A25_CONNECTIVITY_DONOR) += vendor/mediatek/kernel_modules/connectivity/
 
 vmlinux-dirs	:= $(patsubst %/,%,$(filter %/, $(init-y) $(init-m) \
 		     $(core-y) $(core-m) $(drivers-y) $(drivers-m) \

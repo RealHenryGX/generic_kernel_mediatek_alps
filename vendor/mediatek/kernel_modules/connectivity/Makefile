@@ -18,7 +18,7 @@
 #
 # Rissu changes on 23 October 2024
 #
-TOP := $(srctree)/drivers/misc/mediatek/connectivity
+TOP := $(srctree)/$(src)
 ifeq ($(TARGET_BUILD_VARIANT),)
 $(warning TARGET_BUILD_VARIANT is empty! Using default option.)
 TARGET_BUILD_VARIANT := user
@@ -45,21 +45,7 @@ subdir-ccflags-y += -I$(srctree)/drivers/clk/mediatek/
 subdir-ccflags-y += -I$(srctree)/drivers/pinctrl/mediatek/
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/power_throttling/
 
-# Do Nothing, move to standalone repo
-MODULE_NAME := connadp
-obj-$(CONFIG_MTK_COMBO) += $(MODULE_NAME).o
-
-$(MODULE_NAME)-objs += common/connectivity_build_in_adapter.o
-$(MODULE_NAME)-objs += common/wmt_build_in_adapter.o
-$(MODULE_NAME)-objs += power_throttling/adapter.o
-$(MODULE_NAME)-objs += power_throttling/core.o
-ifeq ($(CONFIG_CONN_PWR_DEBUG),y)
-$(MODULE_NAME)-objs += power_throttling/test.o
-endif
-
-ifeq ($(CONFIG_MTK_COMBO), y)
-ccflags-y += -D CFG_CONNADP_BUILD_IN
-endif
+# The A25 kernel builds connadp in drivers/misc/mediatek/connectivity.
 $(info $$CONFIG_MTK_COMBO_CHIP is [${CONFIG_MTK_COMBO_CHIP}])
 MTK_PLATFORM_ID := $(patsubst CONSYS_%,%,$(subst ",,$(CONFIG_MTK_COMBO_CHIP)))
 $(info MTK_PLATFORM_ID is [${MTK_PLATFORM_ID}])
