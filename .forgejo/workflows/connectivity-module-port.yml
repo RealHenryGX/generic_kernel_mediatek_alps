@@ -84,7 +84,7 @@ jobs:
             mapfile -t matches < <(find "$out" -type f -name "$module")
             test "${#matches[@]}" -eq 1
             test -s "${matches[0]}"
-            llvm-readelf -S "${matches[0]}" | grep -q '__versions'
+            llvm-readelf -S "${matches[0]}" | grep '__versions' >/dev/null
             cp "${matches[0]}" "$artifact/"
           done
           cp "$out/.config" "$artifact/kernel.config"
