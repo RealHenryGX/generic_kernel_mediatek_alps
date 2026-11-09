@@ -5,6 +5,7 @@
 #define __NR_bpf 280
 #define BPF_OBJ_GET 7
 #define BPF_OBJ_GET_INFO_BY_FD 15
+#define BPF_MAP_GET_NEXT_KEY 4
 
 struct bpf_obj_get_attr {
     uint64_t pathname;
@@ -18,6 +19,14 @@ struct bpf_info_attr {
     uint32_t info_len;
     uint64_t info;
     unsigned char reserved[0x98 - 0x10];
+};
+
+struct bpf_next_key_attr {
+    uint32_t map_fd;
+    uint32_t reserved;
+    uint64_t key;
+    uint64_t next_key;
+    uint64_t flags;
 };
 
 struct bpf_map_info {
@@ -71,6 +80,8 @@ void _start(void) {
     struct bpf_info_attr info_attr;
     unsigned char info_buffer[0x58];
     struct bpf_map_info *info = (struct bpf_map_info *)info_buffer;
+    unsigned char next_key[32];
+    struct bpf_next_key_attr next_attr;
     long fd;
     long result;
 
@@ -81,6 +92,8 @@ void _start(void) {
         zero_bytes(&get, sizeof(get));
         zero_bytes(&info_attr, sizeof(info_attr));
         zero_bytes(info_buffer, sizeof(info_buffer));
+        zero_bytes(next_key, sizeof(next_key));
+        zero_bytes(&next_attr, sizeof(next_attr));
         get.pathname = (uint64_t)paths[i];
         fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
         out(i == 0 ? "configuration get=" : "cookie get=",
@@ -100,6 +113,13 @@ void _start(void) {
             dec(info->key_size);
             out(" value=", 7);
             dec(info->value_size);
+            next_attr.map_fd = (uint32_t)fd;
+            next_attr.key = 0;
+            next_attr.next_key = (uint64_t)next_key;
+            result = syscall3(__NR_bpf, BPF_MAP_GET_NEXT_KEY,
+                              (long)&next_attr, sizeof(next_attr));
+            out(" next=", 6);
+            dec(result);
             out("\n", 1);
         }
     }
