@@ -92,6 +92,7 @@ jobs:
           # A25 MT6765 vendor module replacement order.
           # Preserve the vendor init trigger: vendor.connsys.driver.ready=yes.
           1. /vendor/lib/modules/wmt_drv.ko
+          # After vendor.connsys.driver.ready=yes, these are independent init actions:
           2. /vendor/lib/modules/bt_drv_connac1x.ko
           3. /vendor/lib/modules/wmt_chrdev_wifi.ko
           4. /vendor/lib/modules/wlan_drv_gen4m.ko
