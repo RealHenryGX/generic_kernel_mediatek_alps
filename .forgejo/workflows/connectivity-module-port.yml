@@ -88,7 +88,18 @@ jobs:
             cp "${matches[0]}" "$artifact/"
           done
           cp "$out/.config" "$artifact/kernel.config"
-          (cd "$artifact" && sha256sum *.ko kernel.config > SHA256SUMS)
+          cat > "$artifact/INSTALL_ORDER.txt" <<'EOF'
+          # A25 MT6765 vendor module replacement order.
+          # Preserve the vendor init trigger: vendor.connsys.driver.ready=yes.
+          1. /vendor/lib/modules/wmt_drv.ko
+          2. /vendor/lib/modules/bt_drv_connac1x.ko
+          3. /vendor/lib/modules/wmt_chrdev_wifi.ko
+          4. /vendor/lib/modules/wlan_drv_gen4m.ko
+          5. /vendor/lib/modules/fmradio_drv_mt6631.ko
+          6. /vendor/lib/modules/gps_drv.ko
+          # connfem.ko is intentionally not included; its source targets newer SoCs.
+          EOF
+          (cd "$artifact" && sha256sum *.ko kernel.config INSTALL_ORDER.txt > SHA256SUMS)
       - name: Upload vendor-loadable modules
         uses: actions/upload-artifact@v4
         with:
