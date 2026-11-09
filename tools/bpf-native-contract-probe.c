@@ -74,7 +74,9 @@ void _start(void) {
         "/sys/fs/bpf/netd_shared/map_netd_configuration_map";
     static const char cookie_path[] =
         "/sys/fs/bpf/netd_shared/map_netd_cookie_tag_map";
-    const char *paths[] = { configuration_path, cookie_path };
+    static const char uid_owner_path[] =
+        "/sys/fs/bpf/netd_shared/map_netd_uid_owner_map";
+    const char *paths[] = { configuration_path, cookie_path, uid_owner_path };
     unsigned long i;
     struct bpf_obj_get_attr get;
     struct bpf_info_attr info_attr;
@@ -96,8 +98,12 @@ void _start(void) {
         zero_bytes(&next_attr, sizeof(next_attr));
         get.pathname = (uint64_t)paths[i];
         fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
-        out(i == 0 ? "configuration get=" : "cookie get=",
-            i == 0 ? 18 : 11);
+        if (i == 0)
+            out("configuration get=", 18);
+        else if (i == 1)
+            out("cookie get=", 11);
+        else
+            out("uid_owner get=", 14);
         dec(fd);
         if (fd >= 0) {
             info_attr.bpf_fd = (uint32_t)fd;
