@@ -440,6 +440,17 @@ uint32_t wlanDownloadEMISection(IN struct ADAPTER
 	uint8_t __iomem *pucEmiBaseAddr = NULL;
 	uint32_t u4Offset = u4DestAddr & WIFI_EMI_ADDR_MASK;
 
+	/*
+	 * KSU/vendor module preload can enter initWlan before the WMT platform
+	 * probe has populated the shared CONSYS EMI address. Refresh the snapshot
+	 * at the first actual EMI download so firmware loading observes the
+	 * reserved-memory handoff completed by wmt_drv.
+	 */
+	if (!gConEmiPhyBaseFinal && gConEmiPhyBase) {
+		gConEmiPhyBaseFinal = gConEmiPhyBase;
+		gConEmiSizeFinal = gConEmiSize;
+	}
+
 	if (!gConEmiPhyBaseFinal) {
 		DBGLOG(INIT, ERROR,
 		       "Consys emi memory address gConEmiPhyBaseFinal invalid\n");
