@@ -100,7 +100,9 @@ jobs:
           4. /vendor/lib/modules/wlan_drv_gen4m.ko
           5. /vendor/lib/modules/fmradio_drv_mt6631.ko
           6. /vendor/lib/modules/gps_drv.ko
-          # connfem.ko is intentionally not included; its source targets newer SoCs.
+          # Keep the device's existing connfem.ko: Gen4m pre_cal calls its
+          # connfem_epaelna_* exports. This package intentionally replaces
+          # none of connfem because the available source targets newer SoCs.
           EOF
           (cd "$artifact" && sha256sum *.ko kernel.config INSTALL_ORDER.txt > SHA256SUMS)
       - name: Upload vendor-loadable modules
