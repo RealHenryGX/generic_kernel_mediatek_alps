@@ -58,7 +58,7 @@ else
 MODULE_NAME := bt_drv
 endif
 
-obj-y += $(MODULE_NAME).o
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += $(MODULE_NAME).o
 
 ccflags-y += -D CREATE_NODE_DYNAMIC=1
 

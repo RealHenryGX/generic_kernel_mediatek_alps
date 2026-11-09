@@ -1,0 +1,62 @@
+name: A25 connectivity module audit
+on:
+  workflow_dispatch:
+
+jobs:
+  modules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the vendor-loadable connectivity modules
+        id: build
+        shell: bash
+        run: |
+          set -euo pipefail
+          cache=/home/builder/work/build/a25-connectivity-module-port/llvm20.1.8-v1
+          out="$cache/out"
+          source="$cache/source"
+          mkdir -p "$out" "$source"
+          exec 9>"$cache/build.lock"
+          flock 9
+          git -C "$source" init -q
+          git -C "$source" fetch --no-tags --depth=1 "$GITHUB_WORKSPACE" HEAD
+          git -C "$source" checkout --detach FETCH_HEAD
+          cd "$source"
+          export SOURCE_DATE_EPOCH=1794182400
+          llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
+          cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
+          export PATH="$llvm:$PATH"
+          export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-unknown-warning-option"
+          kbuild=(make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
+          config_key=$(sha256sum arch/arm64/configs/a25_gravity_defconfig | cut -d ' ' -f 1)
+          if [ ! -s "$out/.config" ] || [ "$(cat "$out/a25-defconfig.sha" 2>/dev/null || true)" != "$config_key" ]; then
+            echo "Initializing A25 connectivity module config"
+            "${kbuild[@]}" a25_gravity_defconfig
+          else
+            echo "Reusing A25 connectivity module build directory"
+          fi
+          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --module A25_CONNECTIVITY_DONOR
+          "${kbuild[@]}" olddefconfig
+          grep -Fx 'CONFIG_A25_CONNECTIVITY_DONOR=m' "$out/.config"
+          grep -Fx 'CONFIG_MTK_COMBO_CHIP="CONSYS_6765"' "$out/.config"
+          printf '%s\n' "$config_key" > "$out/a25-defconfig.sha"
+          "${kbuild[@]}" -j"$(nproc)" modules
+          artifact=$(mktemp -d "${RUNNER_TEMP:?}/a25-connectivity-module-artifact.XXXXXX")
+          echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
+          modules=(wmt_drv.ko wmt_chrdev_wifi.ko wlan_drv_gen4m.ko gps_drv.ko fmradio_drv_mt6631.ko bt_drv_connac1x.ko)
+          for module in "${modules[@]}"; do
+            mapfile -t matches < <(find "$out" -type f -name "$module")
+            test "${#matches[@]}" -eq 1
+            test -s "${matches[0]}"
+            cp "${matches[0]}" "$artifact/"
+          done
+          test -s "$out/Module.symvers"
+          cp "$out/.config" "$artifact/kernel.config"
+          cp "$out/Module.symvers" "$artifact/"
+          (cd "$artifact" && sha256sum *.ko kernel.config Module.symvers > SHA256SUMS)
+      - name: Upload vendor-loadable modules
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-connectivity-modules
+          path: ${{ steps.build.outputs.artifact }}
+          if-no-files-found: error

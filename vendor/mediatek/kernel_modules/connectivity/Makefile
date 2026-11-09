@@ -83,10 +83,10 @@ $(info WIFI_IP_SET is 1)
 export WIFI_IP_SET=1
 endif
 
-obj-y += common/
-obj-y += wlan/adaptor/
-obj-y += wlan/core/gen4m/
-obj-y += gps/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += common/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += wlan/adaptor/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += wlan/core/gen4m/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += gps/
 
 # For FM built-in mode
 # for fmradio options
@@ -139,5 +139,5 @@ $(info CFG_FM_CHIP_ID is [${CFG_FM_CHIP_ID}])
 $(info CFG_FM_CHIP is [${CFG_FM_CHIP}])
 $(info CFG_BUILD_CONNAC2 is [${CFG_BUILD_CONNAC2}])
 
-obj-y += fmradio/
-obj-y += bt/mt66xx/wmt/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += fmradio/
+obj-$(CONFIG_A25_CONNECTIVITY_DONOR) += bt/mt66xx/wmt/
