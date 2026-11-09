@@ -75,11 +75,13 @@ jobs:
           test -s "$adaptor_symvers"
           build_module "$wlan_dir" "$common_symvers" "$adaptor_symvers"
           build_module "$gps_dir" "$common_symvers"
+          # Keep FM as a compile audit only; its module ABI is not suitable
+          # for replacement on the A25 4.19 vendor image.
           build_module "$fm_dir" "$common_symvers"
           build_module "$bt_dir" "$common_symvers"
           artifact=$(mktemp -d "${RUNNER_TEMP:?}/a25-connectivity-module-artifact.XXXXXX")
           echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
-          modules=(wmt_drv.ko wmt_chrdev_wifi.ko wlan_drv_gen4m.ko gps_drv.ko fmradio_drv_mt6631.ko bt_drv_connac1x.ko)
+          modules=(wmt_drv.ko wmt_chrdev_wifi.ko wlan_drv_gen4m.ko gps_drv.ko bt_drv_connac1x.ko)
           for module in "${modules[@]}"; do
             mapfile -t matches < <(find "$out" -type f -name "$module")
             test "${#matches[@]}" -eq 1
@@ -93,16 +95,15 @@ jobs:
           # wmt_drv.ko creates /dev/wmtdetect; companion modules provide the
           # callbacks consumed by COMBO_IOCTL_DO_MODULE_INIT.
           1. /vendor/lib/modules/wmt_drv.ko
-          # Keep the existing vendor.connsys.driver.ready=yes trigger and let
-          # the vendor path issue COMBO_IOCTL_DO_MODULE_INIT after these load:
+          # After wmt_drv.ko is present, preload all replacement companions
+          # before wmt_loader issues COMBO_IOCTL_DO_MODULE_INIT:
           2. /vendor/lib/modules/bt_drv_connac1x.ko
           3. /vendor/lib/modules/wmt_chrdev_wifi.ko
           4. /vendor/lib/modules/wlan_drv_gen4m.ko
-          5. /vendor/lib/modules/fmradio_drv_mt6631.ko
-          6. /vendor/lib/modules/gps_drv.ko
-          # Keep the device's existing connfem.ko: Gen4m pre_cal calls its
-          # connfem_epaelna_* exports. This package intentionally replaces
-          # none of connfem because the available source targets newer SoCs.
+          5. /vendor/lib/modules/gps_drv.ko
+          # Keep the device's existing fmradio_drv_mt6631.ko and connfem.ko.
+          # The available replacement FM build is not ABI-compatible with
+          # this 4.19 vendor kernel, while Gen4m pre_cal uses connfem exports.
           EOF
           (cd "$artifact" && sha256sum *.ko kernel.config INSTALL_ORDER.txt > SHA256SUMS)
       - name: Upload vendor-loadable modules
