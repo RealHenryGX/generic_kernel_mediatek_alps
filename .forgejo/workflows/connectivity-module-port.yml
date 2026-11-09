@@ -35,13 +35,47 @@ jobs:
           else
             echo "Reusing A25 connectivity module build directory"
           fi
-          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --module A25_CONNECTIVITY_DONOR
+          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --disable A25_CONNECTIVITY_DONOR
           "${kbuild[@]}" olddefconfig
-          grep -Fx 'CONFIG_A25_CONNECTIVITY_DONOR=m' "$out/.config"
           grep -Fx 'CONFIG_MTK_COMBO_CHIP="CONSYS_6765"' "$out/.config"
           printf '%s\n' "$config_key" > "$out/a25-defconfig.sha"
           "${kbuild[@]}" -j"$(nproc)" modules_prepare
-          "${kbuild[@]}" -j"$(nproc)" M=vendor/mediatek/kernel_modules/connectivity modules
+          "${kbuild[@]}" -j"$(nproc)" Image.gz
+          test -s "$out/Module.symvers"
+          base_symvers="$out/a25-base-Module.symvers"
+          cp "$out/Module.symvers" "$base_symvers"
+          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --module A25_CONNECTIVITY_DONOR
+          "${kbuild[@]}" olddefconfig
+          grep -Fx 'CONFIG_A25_CONNECTIVITY_DONOR=m' "$out/.config"
+          build_module() {
+            local module_dir="$1"
+            shift
+            local extras="$base_symvers"
+            local symvers
+            for symvers in "$@"; do
+              extras="$extras $symvers"
+            done
+            "${kbuild[@]}" -j"$(nproc)" KBUILD_EXTRA_SYMBOLS="$extras" M="$module_dir" modules
+          }
+          symvers_for() {
+            find "$out/$1" -maxdepth 1 -type f -name Module.symvers -print -quit
+          }
+          common_dir=vendor/mediatek/kernel_modules/connectivity/common
+          adaptor_dir=vendor/mediatek/kernel_modules/connectivity/wlan/adaptor
+          wlan_dir=vendor/mediatek/kernel_modules/connectivity/wlan/core/gen4m
+          gps_dir=vendor/mediatek/kernel_modules/connectivity/gps
+          fm_dir=vendor/mediatek/kernel_modules/connectivity/fmradio
+          bt_dir=vendor/mediatek/kernel_modules/connectivity/bt/mt66xx/wmt
+          build_module "$common_dir"
+          common_symvers=$(symvers_for "$common_dir")
+          test -s "$common_symvers"
+          build_module "$adaptor_dir" "$common_symvers"
+          adaptor_symvers=$(symvers_for "$adaptor_dir")
+          test -s "$adaptor_symvers"
+          build_module "$wlan_dir" "$common_symvers" "$adaptor_symvers"
+          build_module "$gps_dir" "$common_symvers"
+          build_module "$fm_dir" "$common_symvers"
+          build_module "$bt_dir" "$common_symvers"
           artifact=$(mktemp -d "${RUNNER_TEMP:?}/a25-connectivity-module-artifact.XXXXXX")
           echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
           modules=(wmt_drv.ko wmt_chrdev_wifi.ko wlan_drv_gen4m.ko gps_drv.ko fmradio_drv_mt6631.ko bt_drv_connac1x.ko)
@@ -49,6 +83,7 @@ jobs:
             mapfile -t matches < <(find "$out" -type f -name "$module")
             test "${#matches[@]}" -eq 1
             test -s "${matches[0]}"
+            llvm-readelf -S "${matches[0]}" | grep -q '__versions'
             cp "${matches[0]}" "$artifact/"
           done
           cp "$out/.config" "$artifact/kernel.config"
