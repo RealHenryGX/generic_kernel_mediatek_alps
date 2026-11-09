@@ -61,8 +61,12 @@ static void dec(long value) {
 }
 
 void _start(void) {
-    static const char path[] =
+    static const char configuration_path[] =
         "/sys/fs/bpf/netd_shared/map_netd_configuration_map";
+    static const char cookie_path[] =
+        "/sys/fs/bpf/netd_shared/map_netd_cookie_tag_map";
+    const char *paths[] = { configuration_path, cookie_path };
+    unsigned long i;
     struct bpf_obj_get_attr get;
     struct bpf_info_attr info_attr;
     unsigned char info_buffer[0x58];
@@ -73,25 +77,31 @@ void _start(void) {
     zero_bytes(&get, sizeof(get));
     zero_bytes(&info_attr, sizeof(info_attr));
     zero_bytes(info_buffer, sizeof(info_buffer));
-    get.pathname = (uint64_t)path;
-    fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
-    out("get=", 4);
-    dec(fd);
-    if (fd >= 0) {
-        info_attr.bpf_fd = (uint32_t)fd;
-        info_attr.info_len = 0x58;
-        info_attr.info = (uint64_t)info_buffer;
-        result = syscall3(__NR_bpf, BPF_OBJ_GET_INFO_BY_FD,
-                          (long)&info_attr, sizeof(info_attr));
-        out(" info=", 6);
-        dec(result);
-        out(" type=", 6);
-        dec(info->type);
-        out(" key=", 5);
-        dec(info->key_size);
-        out(" value=", 7);
-        dec(info->value_size);
-        out("\n", 1);
+    for (i = 0; i < sizeof(paths) / sizeof(paths[0]); ++i) {
+        zero_bytes(&get, sizeof(get));
+        zero_bytes(&info_attr, sizeof(info_attr));
+        zero_bytes(info_buffer, sizeof(info_buffer));
+        get.pathname = (uint64_t)paths[i];
+        fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
+        out(i == 0 ? "configuration get=" : "cookie get=",
+            i == 0 ? 18 : 11);
+        dec(fd);
+        if (fd >= 0) {
+            info_attr.bpf_fd = (uint32_t)fd;
+            info_attr.info_len = 0x58;
+            info_attr.info = (uint64_t)info_buffer;
+            result = syscall3(__NR_bpf, BPF_OBJ_GET_INFO_BY_FD,
+                              (long)&info_attr, sizeof(info_attr));
+            out(" info=", 6);
+            dec(result);
+            out(" type=", 6);
+            dec(info->type);
+            out(" key=", 5);
+            dec(info->key_size);
+            out(" value=", 7);
+            dec(info->value_size);
+            out("\n", 1);
+        }
     }
     syscall3(__NR_exit, 0, 0, 0);
 }
