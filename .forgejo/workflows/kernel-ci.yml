@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
           /home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang \
-            --target=aarch64-linux-gnu -nostdlib -static \
+            --target=aarch64-linux-gnu -nostdlib -static -fno-builtin \
             -fuse-ld=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld \
             -Wl,-e,_start -Wl,--build-id=none \
             tools/bpf-map-inventory.c \

@@ -49,6 +49,11 @@ static void out(const char *s, size_t n) {
     syscall3(__NR_write, 1, (long)s, n);
 }
 
+static void zero_bytes(void *ptr, size_t n) {
+    unsigned char *bytes = (unsigned char *)ptr;
+    while (n--) *bytes++ = 0;
+}
+
 static size_t str_len(const char *s) {
     size_t n = 0;
     while (s[n]) ++n;
@@ -72,9 +77,12 @@ static void dec(long value) {
 
 static void probe(const struct map_entry *entry) {
     struct bpf_attr_obj_get get = { (uint64_t)entry->path, 0, 0 };
-    struct bpf_map_info map = { 0 };
+    struct bpf_map_info map;
     struct bpf_attr_info info;
     long fd = bpf(BPF_OBJ_GET, &get, sizeof(get));
+
+    zero_bytes(&map, sizeof(map));
+    zero_bytes(&info, sizeof(info));
 
     out(entry->name, str_len(entry->name));
     out(" ", 1);
