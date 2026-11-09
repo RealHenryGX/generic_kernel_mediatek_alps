@@ -49,6 +49,12 @@ jobs:
             -Wl,-e,_start -Wl,--build-id=none \
             tools/bpf-netd-map-dump.c \
             -o /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-netd-map-dump
+          /home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang \
+            --target=aarch64-linux-gnu -nostdlib -static -fno-builtin \
+            -fuse-ld=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld \
+            -Wl,-e,_start -Wl,--build-id=none \
+            tools/bpf-fcntl-probe.c \
+            -o /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-fcntl-probe
       - name: Upload read-only BPF map inventory
         uses: actions/upload-artifact@v4
         with:
@@ -58,6 +64,7 @@ jobs:
             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-flock-probe
             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-native-contract-probe
             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-netd-map-dump
+            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-fcntl-probe
           if-no-files-found: error
       - name: Incremental BPF netd build
         run: |
