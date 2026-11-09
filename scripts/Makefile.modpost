@@ -49,6 +49,10 @@ KBUILD_CFLAGS :=
 include include/config/auto.conf
 include scripts/Kbuild.include
 
+ifeq ($(CONFIG_ARM64),y)
+KBUILD_CFLAGS := --target=aarch64-linux-gnu
+endif
+
 # When building external modules load the Kbuild file to retrieve EXTRA_SYMBOLS info
 ifneq ($(KBUILD_EXTMOD),)
 
