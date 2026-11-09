@@ -44,6 +44,7 @@ _modpost: __modpost
 # standalone modpost makefile appends to it through Makefile.lib. Do not
 # import the exported recursive value into the modpost sub-build.
 unexport KBUILD_CFLAGS
+KBUILD_CFLAGS :=
 
 include include/config/auto.conf
 include scripts/Kbuild.include
