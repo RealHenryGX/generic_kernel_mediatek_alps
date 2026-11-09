@@ -41,7 +41,11 @@ ifeq ($(KBUILD_MODPOST_FAIL_ON_WARNINGS),)
     KBUILD_MODPOST_FAIL_ON_WARNINGS=y
 endif
 
-DRIVER_BUILD_DATE=$(shell date +%Y%m%d%H%M%S)
+ifdef SOURCE_DATE_EPOCH
+DRIVER_BUILD_DATE := $(shell date -u -d "@$(SOURCE_DATE_EPOCH)" +%Y%m%d%H%M%S)
+else
+DRIVER_BUILD_DATE := $(shell date +%Y%m%d%H%M%S)
+endif
 ccflags-y += -DDRIVER_BUILD_DATE='"$(DRIVER_BUILD_DATE)"'
 # ---------------------------------------------------
 # Compile Options

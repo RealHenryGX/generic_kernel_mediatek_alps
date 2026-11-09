@@ -25,6 +25,8 @@ jobs:
           git -C "$source" fetch --no-tags --depth=1 "$GITHUB_WORKSPACE" HEAD
           git -C "$source" checkout --detach FETCH_HEAD
           cd "$source"
+          # Keep the WLAN compiler command stable across incremental runs.
+          export SOURCE_DATE_EPOCH=1794182400
           llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
