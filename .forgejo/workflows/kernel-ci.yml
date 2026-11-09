@@ -22,6 +22,21 @@ jobs:
         run: |
           git diff --check
           test -f Makefile
+      - name: Build read-only BPF map inventory
+        run: |
+          mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
+          /home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang \
+            --target=aarch64-linux-gnu -nostdlib -static \
+            -fuse-ld=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld \
+            -Wl,-e,_start -Wl,--build-id=none \
+            tools/bpf-map-inventory.c \
+            -o /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-map-inventory
+      - name: Upload read-only BPF map inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-bpf-map-inventory
+          path: /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-map-inventory
+          if-no-files-found: error
       - name: Incremental BPF netd build
         run: |
           mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf
