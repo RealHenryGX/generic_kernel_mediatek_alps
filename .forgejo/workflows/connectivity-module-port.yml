@@ -37,6 +37,12 @@ jobs:
             echo "Reusing A25 connectivity module build directory"
           fi
           scripts/config --file "$out/.config" --enable MTK_COMBO_BT --disable A25_CONNECTIVITY_DONOR
+          # The modules are loaded into the A25 4.19.236 kernel. Keep their
+          # release string identical to the kernel image instead of allowing
+          # Kbuild to append the connectivity-port commit hash. KSU can force
+          # a mismatched module into memory, but that bypasses the vermagic
+          # guard and leaves WLAN structure/ABI drift at runtime.
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity-g53d31dab5"
           "${kbuild[@]}" olddefconfig
           grep -Fx 'CONFIG_MTK_COMBO_CHIP="CONSYS_6765"' "$out/.config"
           printf '%s\n' "$config_key" > "$out/a25-defconfig.sha"
