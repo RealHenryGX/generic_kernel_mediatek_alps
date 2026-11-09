@@ -1,0 +1,32 @@
+name: A25 connectivity compile audit
+on:
+  push:
+    branches: [a25/connectivity-port]
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and link the experimental connectivity stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          out=$(mktemp -d "${RUNNER_TEMP:?}/a25-connectivity.XXXXXX")
+          trap 'rm -r -- "$out"' EXIT
+          llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
+          cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
+          export PATH="$llvm:$PATH"
+          export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=int-conversion -Wno-error=unused-variable -Wno-unknown-warning-option"
+          kbuild=(make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
+          "${kbuild[@]}" a25_gravity_defconfig
+          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --enable A25_CONNECTIVITY_DONOR
+          "${kbuild[@]}" olddefconfig
+          grep -Fx 'CONFIG_A25_CONNECTIVITY_DONOR=y' "$out/.config"
+          grep -Fx 'CONFIG_MTK_COMBO_CHIP="CONSYS_6765"' "$out/.config"
+          "${kbuild[@]}" -j"$(nproc)" Image.gz
+          for driver in common wlan/adaptor wlan/core/gen4m bt/mt66xx/wmt gps fmradio; do
+            archive="$out/vendor/mediatek/kernel_modules/connectivity/$driver/built-in.a"
+            test -n "$(llvm-ar t "$archive")"
+          done
