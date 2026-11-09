@@ -3,6 +3,7 @@
 #define __NR_write 64
 #define __NR_exit 93
 #define __NR_bpf 280
+#define BPF_MAP_LOOKUP_ELEM 1
 #define BPF_OBJ_GET 7
 #define BPF_OBJ_GET_INFO_BY_FD 15
 #define BPF_MAP_GET_NEXT_KEY 4
@@ -26,6 +27,14 @@ struct bpf_next_key_attr {
     uint32_t reserved;
     uint64_t key;
     uint64_t next_key;
+    uint64_t flags;
+};
+
+struct bpf_lookup_attr {
+    uint32_t map_fd;
+    uint32_t reserved;
+    uint64_t key;
+    uint64_t value;
     uint64_t flags;
 };
 
@@ -83,7 +92,10 @@ void _start(void) {
     unsigned char info_buffer[0x58];
     struct bpf_map_info *info = (struct bpf_map_info *)info_buffer;
     unsigned char next_key[32];
+    unsigned char lookup_key[4];
+    unsigned char lookup_value[8];
     struct bpf_next_key_attr next_attr;
+    struct bpf_lookup_attr lookup_attr;
     long fd;
     long result;
 
@@ -96,6 +108,9 @@ void _start(void) {
         zero_bytes(info_buffer, sizeof(info_buffer));
         zero_bytes(next_key, sizeof(next_key));
         zero_bytes(&next_attr, sizeof(next_attr));
+        zero_bytes(lookup_key, sizeof(lookup_key));
+        zero_bytes(lookup_value, sizeof(lookup_value));
+        zero_bytes(&lookup_attr, sizeof(lookup_attr));
         get.pathname = (uint64_t)paths[i];
         fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
         if (i == 0)
@@ -126,6 +141,19 @@ void _start(void) {
                               (long)&next_attr, sizeof(next_attr));
             out(" next=", 6);
             dec(result);
+            if (i == 0 || i == 2) {
+                lookup_key[0] = (i == 0) ? 0 : 0x4A;
+                lookup_key[1] = (i == 0) ? 0 : 0x29;
+                lookup_key[2] = (i == 0) ? 0 : 0;
+                lookup_key[3] = (i == 0) ? 0 : 0;
+                lookup_attr.map_fd = (uint32_t)fd;
+                lookup_attr.key = (uint64_t)lookup_key;
+                lookup_attr.value = (uint64_t)lookup_value;
+                result = syscall3(__NR_bpf, BPF_MAP_LOOKUP_ELEM,
+                                  (long)&lookup_attr, sizeof(lookup_attr));
+                out(" lookup=", 8);
+                dec(result);
+            }
             out("\n", 1);
         }
     }
