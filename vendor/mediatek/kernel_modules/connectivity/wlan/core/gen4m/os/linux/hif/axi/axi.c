@@ -255,7 +255,12 @@ static void axiDumpRx(struct GL_HIF_INFO *prHifInfo,
 
 struct mt66xx_hif_driver_data *get_platform_driver_data(void)
 {
-	return (struct mt66xx_hif_driver_data *)mtk_axi_ids[0].driver_data;
+	ASSERT(g_prPlatDev);
+	if (!g_prPlatDev)
+		return NULL;
+
+	return (struct mt66xx_hif_driver_data *)platform_get_drvdata(
+			g_prPlatDev);
 }
 
 static int hifAxiProbe(void)
