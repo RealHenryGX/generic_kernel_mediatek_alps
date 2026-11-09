@@ -55,7 +55,7 @@ jobs:
             for symvers in "$@"; do
               extras="$extras $symvers"
             done
-            "${kbuild[@]}" -j"$(nproc)" KBUILD_EXTRA_SYMBOLS="$extras" M="$module_dir" modules
+            "${kbuild[@]}" -j"$(nproc)" CONFIG_A25_CONNECTIVITY_DONOR=m KBUILD_EXTRA_SYMBOLS="$extras" M="$module_dir" modules
           }
           symvers_for() {
             find "$out/$1" -maxdepth 1 -type f -name Module.symvers -print -quit
