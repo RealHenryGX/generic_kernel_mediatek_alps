@@ -40,6 +40,11 @@
 PHONY := _modpost
 _modpost: __modpost
 
+# KBUILD_CFLAGS is exported by the legacy top-level Makefile, but this
+# standalone modpost makefile appends to it through Makefile.lib. Do not
+# import the exported recursive value into the modpost sub-build.
+unexport KBUILD_CFLAGS
+
 include include/config/auto.conf
 include scripts/Kbuild.include
 
