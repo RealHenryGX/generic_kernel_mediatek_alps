@@ -26,6 +26,8 @@ endif
 WMT_SRC_FOLDER := $(TOP)/common
 
 export TOP WMT_SRC_FOLDER TARGET_BUILD_VARIANT
+# Retain diagnostics for legacy code shared by multiple combo chip variants.
+subdir-ccflags-y += $(call cc-option,-Wno-error=unused-but-set-variable)
 subdir-ccflags-y += -I$(srctree)/
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/clkbuf/src
