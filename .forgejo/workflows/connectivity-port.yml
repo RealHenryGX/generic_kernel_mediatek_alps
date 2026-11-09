@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build and link the experimental connectivity stack
+        id: build
         shell: bash
         run: |
           set -euo pipefail
@@ -30,3 +31,14 @@ jobs:
             archive="$out/vendor/mediatek/kernel_modules/connectivity/$driver/built-in.a"
             test -n "$(llvm-ar t "$archive")"
           done
+          artifact=$(mktemp -d "${RUNNER_TEMP:?}/a25-connectivity-artifact.XXXXXX")
+          echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
+          cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
+          cp "$out/.config" "$artifact/kernel.config"
+          (cd "$artifact" && sha256sum Image.gz kernel.config > SHA256SUMS)
+      - name: Upload experimental kernel
+        uses: actions/upload-artifact@v4
+        with:
+          name: a25-connectivity-experimental
+          path: ${{ steps.build.outputs.artifact }}
+          if-no-files-found: error
