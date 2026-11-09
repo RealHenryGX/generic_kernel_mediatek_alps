@@ -453,8 +453,15 @@ extern void mt_irq_dump_status(int irq);
 extern struct CONSYS_BASE_ADDRESS conn_reg;
 extern UINT32 gCoClockFlag;
 
-extern UINT64 gConEmiSize;
-extern phys_addr_t gConEmiPhyBase;
+/* Keep the donor EMI handoff isolated from any legacy in-kernel export. */
+#ifndef gConEmiSize
+#define gConEmiSize a25_gConEmiSize
+#endif
+#ifndef gConEmiPhyBase
+#define gConEmiPhyBase a25_gConEmiPhyBase
+#endif
+extern UINT64 a25_gConEmiSize;
+extern phys_addr_t a25_gConEmiPhyBase;
 
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 15, 0))
 extern struct regmap *g_regmap;

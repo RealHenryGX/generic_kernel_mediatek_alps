@@ -66,7 +66,10 @@ extern int gps_stp_get_reserved_memory_lk(struct device *dev);
 
 extern void GPS_reference_count(enum gps_reference_count_cmd cmd, bool flag, enum gps_data_link_id_enum user);
 
-extern phys_addr_t gConEmiPhyBase;
+#ifndef gConEmiPhyBase
+#define gConEmiPhyBase a25_gConEmiPhyBase
+#endif
+extern phys_addr_t a25_gConEmiPhyBase;
 
 extern int mtk_wcn_stpgps_drv_init(void);
 extern void mtk_wcn_stpgps_drv_exit(void);

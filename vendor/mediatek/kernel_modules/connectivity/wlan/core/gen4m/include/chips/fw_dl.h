@@ -111,8 +111,14 @@ extern unsigned long long gConEmiSizeFinal;
 #endif
 
 #if (!defined(UT_TEST_MODE) || !defined(CFG_BUILD_X86_PLATFORM))
-extern phys_addr_t gConEmiPhyBase;
-extern unsigned long long gConEmiSize;
+#ifndef gConEmiPhyBase
+#define gConEmiPhyBase a25_gConEmiPhyBase
+#endif
+#ifndef gConEmiSize
+#define gConEmiSize a25_gConEmiSize
+#endif
+extern phys_addr_t a25_gConEmiPhyBase;
+extern unsigned long long a25_gConEmiSize;
 #endif
 
 /*
