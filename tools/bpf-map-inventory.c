@@ -75,8 +75,8 @@ static void dec(long value) {
     while (i) out(&buf[--i], 1);
 }
 
-static void probe(const struct map_entry *entry) {
-    struct bpf_attr_obj_get get = { (uint64_t)entry->path, 0, 0 };
+static void probe(const struct map_entry *entry, uint32_t file_flags) {
+    struct bpf_attr_obj_get get = { (uint64_t)entry->path, 0, file_flags };
     struct bpf_map_info map;
     struct bpf_attr_info info;
     long fd = bpf(BPF_OBJ_GET, &get, sizeof(get));
@@ -85,6 +85,8 @@ static void probe(const struct map_entry *entry) {
     zero_bytes(&info, sizeof(info));
 
     out(entry->name, str_len(entry->name));
+    out(" open_flags=", 12);
+    dec(file_flags);
     out(" ", 1);
     out("fd=", 3);
     dec(fd);
@@ -125,6 +127,7 @@ void _start(void) {
     };
     size_t i;
 
-    for (i = 0; i < sizeof(maps) / sizeof(maps[0]); ++i) probe(&maps[i]);
+    for (i = 0; i < sizeof(maps) / sizeof(maps[0]); ++i) probe(&maps[i], 0);
+    probe(&maps[0], 0x18);
     syscall3(__NR_exit, 0, 0, 0);
 }
