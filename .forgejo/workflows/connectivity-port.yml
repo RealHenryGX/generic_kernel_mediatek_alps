@@ -35,7 +35,9 @@ jobs:
           echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
           cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
           cp "$out/.config" "$artifact/kernel.config"
-          (cd "$artifact" && sha256sum Image.gz kernel.config > SHA256SUMS)
+          test -s "$out/Module.symvers"
+          cp "$out/Module.symvers" "$artifact/"
+          (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers > SHA256SUMS)
       - name: Upload experimental kernel
         uses: actions/upload-artifact@v4
         with:
