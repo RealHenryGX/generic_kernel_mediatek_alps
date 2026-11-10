@@ -54,16 +54,21 @@ static void dec(long value) {
 
 static void probe(const char *name, unsigned long name_len, const char *path) {
     struct bpf_attr_obj_get get = { (uint64_t)path, 0, 0 };
-    struct flock64_aarch64 lock = { F_WRLCK, 0, 0, 0, 0, 0 };
+    struct flock64_aarch64 lock = { F_WRLCK, 0, 0, 1, 0, 0 };
     long fd1 = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
     long fd2 = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
     long first = -999;
     long second = -999;
 
-    if (fd1 >= 0)
+    /* The device JNI uses the local BPF fd as l_start and locks one byte. */
+    if (fd1 >= 0) {
+        lock.l_start = fd1;
         first = syscall3(__NR_fcntl, fd1, F_OFD_SETLK, (long)&lock);
-    if (fd2 >= 0)
+    }
+    if (fd2 >= 0) {
+        lock.l_start = fd2;
         second = syscall3(__NR_fcntl, fd2, F_OFD_SETLK, (long)&lock);
+    }
 
     out(name, name_len);
     out(" fd1=", 5); dec(fd1);
