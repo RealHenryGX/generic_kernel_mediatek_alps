@@ -80,8 +80,24 @@ static void probe(const char *name, unsigned long name_len, const char *path) {
     if (fd2 >= 0) syscall3(__NR_close, fd2, 0, 0);
 }
 
+static void probe_fixed_range(const char *name, const char *path) {
+    struct bpf_attr_obj_get get = { (uint64_t)path, 0, 0 };
+    struct flock64_aarch64 lock = { F_WRLCK, 0, 8, 1, 0, 0 };
+    long fd = syscall3(__NR_bpf, BPF_OBJ_GET, (long)&get, sizeof(get));
+    long result = fd >= 0 ? syscall3(__NR_fcntl, fd, F_OFD_SETLK, (long)&lock) : -999;
+
+    out("fixed8 ", 7);
+    out(name, name[0] == 'u' ? 9 : 13);
+    out(" fd=", 4); dec(fd);
+    out(" result=", 8); dec(result);
+    out("\n", 1);
+    if (fd >= 0) syscall3(__NR_close, fd, 0, 0);
+}
+
 void _start(void) {
     probe("configuration", 13, "/sys/fs/bpf/netd_shared/map_netd_configuration_map");
     probe("uid_owner", 9, "/sys/fs/bpf/netd_shared/map_netd_uid_owner_map");
+    probe_fixed_range("configuration", "/sys/fs/bpf/netd_shared/map_netd_configuration_map");
+    probe_fixed_range("uid_owner", "/sys/fs/bpf/netd_shared/map_netd_uid_owner_map");
     syscall3(__NR_exit, 0, 0, 0);
 }
