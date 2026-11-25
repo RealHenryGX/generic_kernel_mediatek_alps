@@ -1,0 +1,86 @@
+name: A25 local runner build
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_build:
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone from the local Forgejo instance
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_dir="$(mktemp -d)"
+          git -C "$source_dir" init -q
+          git -C "$source_dir" remote add origin "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git"
+          git -C "$source_dir" -c http.extraHeader="Authorization: token $GITHUB_TOKEN" \
+            fetch --no-tags --depth=1 origin "$GITHUB_SHA"
+          git -C "$source_dir" checkout --detach FETCH_HEAD
+          echo "A25_SOURCE_DIR=$source_dir" >> "$GITHUB_ENV"
+
+      - name: Build connectivity stack
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$A25_SOURCE_DIR"
+          cache=/home/builder/work/build/a25-connectivity-port/llvm20.1.8-v1
+          out="$cache/out"
+          source="$cache/source"
+          mkdir -p "$out" "$source"
+          exec 9>"$cache/build.lock"
+          flock 9
+          rm -rf "$source"
+          mkdir -p "$source"
+          cp -a "$A25_SOURCE_DIR/." "$source/"
+          cd "$source"
+          export SOURCE_DATE_EPOCH=1794182400
+          llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
+          cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
+          export PATH="$llvm:$PATH"
+          export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-unknown-warning-option"
+          kbuild=(make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
+          config_key=$(sha256sum arch/arm64/configs/a25_gravity_defconfig | cut -d ' ' -f 1)
+          if [ ! -s "$out/.config" ] || [ "$(cat "$out/a25-defconfig.sha" 2>/dev/null || true)" != "$config_key" ]; then
+            "${kbuild[@]}" a25_gravity_defconfig
+          fi
+          scripts/config --file "$out/.config" --enable MTK_COMBO_BT --enable A25_CONNECTIVITY_DONOR
+          "${kbuild[@]}" olddefconfig
+          printf '%s\n' "$config_key" > "$out/a25-defconfig.sha"
+          "${kbuild[@]}" -j"$(nproc)" Image.gz
+          for driver in common wlan/adaptor wlan/core/gen4m bt/mt66xx/wmt gps fmradio; do
+            archive="$out/vendor/mediatek/kernel_modules/connectivity/$driver/built-in.a"
+            test -n "$(llvm-ar t "$archive")"
+          done
+          artifact="/home/builder/work/build/a25-connectivity-port/artifacts/$GITHUB_SHA"
+          mkdir -p "$artifact"
+          cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
+          cp "$out/.config" "$artifact/kernel.config"
+          cp "$out/Module.symvers" "$artifact/"
+          (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers > SHA256SUMS)
+
+      - name: Build full kernel image
+        if: inputs.full_build == true
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$A25_SOURCE_DIR"
+          cache=/home/builder/work/build/a25-wusb-kbuild-integration
+          out="$cache/out/ci-full"
+          mkdir -p "$out"
+          export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-unknown-warning-option"
+          llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
+          cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
+          export PATH="$llvm:$PATH"
+          cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
+          make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
+          make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
+          artifact="/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/$GITHUB_SHA"
+          mkdir -p "$artifact"
+          cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
+          sha256sum "$artifact/Image.gz" > "$artifact/SHA256SUMS"
