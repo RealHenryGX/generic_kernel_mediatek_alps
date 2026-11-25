@@ -496,8 +496,6 @@ static bool axiCsrIoremap(struct platform_device *pdev)
 		of_node_put(node);
 		return false;
 	}
-	of_node_put(node);
-
 	g_u8CsrOffset = (u64)res.start;
 	g_u4CsrSize = resource_size(&res);
 #else
@@ -518,6 +516,7 @@ static bool axiCsrIoremap(struct platform_device *pdev)
 	/* map physical address to virtual address for accessing register */
 #ifdef CONFIG_OF
 	CSRBaseAddress = of_iomap(node, 0);
+	of_node_put(node);
 #else
 	CSRBaseAddress = ioremap(g_u8CsrOffset, g_u4CsrSize);
 #endif
@@ -741,7 +740,6 @@ static int _init_resv_mem(struct platform_device *pdev)
 	node = pdev->dev.of_node;
 	if (!node) {
 		DBGLOG(INIT, ERROR, "WIFI-OF: get wifi device node fail\n");
-		of_node_put(node);
 		return false;
 	}
 
@@ -757,8 +755,6 @@ static int _init_resv_mem(struct platform_device *pdev)
 				gWifiRsvMemSize);
 		}
 	}
-
-	of_node_put(node);
 
 	return ret;
 #else
