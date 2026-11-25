@@ -365,6 +365,7 @@ u_int8_t kalDevPortRead(IN struct GLUE_INFO *prGlueInfo,
 
 	pRxCell = &prRxRing->Cell[u4CpuIdx];
 	pRxD = (struct RXD_STRUCT *)pRxCell->AllocVa;
+	HIF_CACHE_INVALIDATE(pRxD, sizeof(*pRxD));
 
 	if (halWpdmaGetRxDmaDoneCnt(prGlueInfo, u2Port) == 0)
 		return FALSE;
@@ -422,6 +423,7 @@ u_int8_t kalDevPortRead(IN struct GLUE_INFO *prGlueInfo,
 skip:
 	pRxD->SDLen0 = prRxRing->u4BufSize;
 	pRxD->DMADONE = 0;
+	HIF_CACHE_CLEAN(pRxD, sizeof(*pRxD));
 
 	prRxRing->RxCpuIdx = u4CpuIdx;
 	kalDevRegWrite(prGlueInfo, prRxRing->hw_cidx_addr, prRxRing->RxCpuIdx);
@@ -933,6 +935,7 @@ bool kalDevReadData(struct GLUE_INFO *prGlueInfo, uint16_t u2Port,
 
 	pRxCell = &prRxRing->Cell[u4CpuIdx];
 	pRxD = (struct RXD_STRUCT *)pRxCell->AllocVa;
+	HIF_CACHE_INVALIDATE(pRxD, sizeof(*pRxD));
 
 	if (!kalWaitRxDmaDone(prGlueInfo, prRxRing, pRxD, u2Port)) {
 		if (!prRxRing->fgIsDumpLog) {
@@ -987,6 +990,7 @@ bool kalDevReadData(struct GLUE_INFO *prGlueInfo, uint16_t u2Port,
 skip:
 	pRxD->SDLen0 = prRxRing->u4BufSize;
 	pRxD->DMADONE = 0;
+	HIF_CACHE_CLEAN(pRxD, sizeof(*pRxD));
 
 	prRxRing->RxCpuIdx = u4CpuIdx;
 	prRxRing->fgIsDumpLog = false;

@@ -58,6 +58,37 @@
 #define __HIF_PDMA_H__
 
 #include <linux/list_sort.h>
+#include <asm/cache.h>
+
+#define HIF_CACHE_LINE_SIZE 64
+
+static inline void hif_cache_clean(const void *addr, size_t size)
+{
+	unsigned long start = (unsigned long)addr &
+		~(HIF_CACHE_LINE_SIZE - 1);
+	unsigned long end = ((unsigned long)addr + size +
+		HIF_CACHE_LINE_SIZE - 1) & ~(HIF_CACHE_LINE_SIZE - 1);
+
+	for (; start < end; start += HIF_CACHE_LINE_SIZE)
+		asm volatile("dc cvac, %0" : : "r"(start) : "memory");
+	asm volatile("dsb sy" : : : "memory");
+}
+
+static inline void hif_cache_invalidate(const void *addr, size_t size)
+{
+	unsigned long start = (unsigned long)addr &
+		~(HIF_CACHE_LINE_SIZE - 1);
+	unsigned long end = ((unsigned long)addr + size +
+		HIF_CACHE_LINE_SIZE - 1) & ~(HIF_CACHE_LINE_SIZE - 1);
+
+	for (; start < end; start += HIF_CACHE_LINE_SIZE)
+		asm volatile("dc ivac, %0" : : "r"(start) : "memory");
+	asm volatile("dsb sy" : : : "memory");
+}
+
+#define HIF_CACHE_CLEAN(addr, size) hif_cache_clean((addr), (size))
+#define HIF_CACHE_INVALIDATE(addr, size) hif_cache_invalidate((addr), (size))
+
 #include "mt66xx_reg.h"
 
 /*******************************************************************************

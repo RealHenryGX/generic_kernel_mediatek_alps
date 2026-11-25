@@ -1830,6 +1830,7 @@ bool halWpdmaAllocRxRing(struct GLUE_INFO *prGlueInfo, uint32_t u4Num,
 #endif
 		pRxD->SDLen0 = u4BufSize;
 		pRxD->DMADONE = 0;
+		HIF_CACHE_CLEAN(pRxD, sizeof(*pRxD));
 	}
 
 	DBGLOG(HAL, TRACE, "Rx[%d] Ring: total %d entry allocated\n",
@@ -2423,6 +2424,7 @@ enum ENUM_CMD_TX_RESULT halWpdmaWriteCmd(IN struct GLUE_INFO *prGlueInfo,
 	pTxD->LastSec1 = 0;
 	pTxD->Burst = 0;
 	pTxD->DMADONE = 0;
+	HIF_CACHE_CLEAN(pTxD, sizeof(*pTxD));
 
 	NIC_DUMP_TXDMAD_HEADER(prAdapter, "Dump CMD TXDMAD:\n");
 	NIC_DUMP_TXDMAD(prAdapter, (uint8_t *)pTxD, sizeof(struct TXD_STRUCT));
@@ -2520,6 +2522,7 @@ static bool halWpdmaFillTxRing(struct GLUE_INFO *prGlueInfo,
 	pTxD->LastSec1 = 0;
 	pTxD->Burst = 0;
 	pTxD->DMADONE = 0;
+	HIF_CACHE_CLEAN(pTxD, sizeof(*pTxD));
 
 	NIC_DUMP_TXDMAD_HEADER(prAdapter, "Dump TXDMAD:\n");
 	NIC_DUMP_TXDMAD(prAdapter, (uint8_t *)pTxD, sizeof(struct TXD_STRUCT));
