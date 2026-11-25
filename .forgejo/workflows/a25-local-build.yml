@@ -69,6 +69,7 @@ jobs:
 
           module_out="$cache/out/modules"
           module_install="$module_out/install"
+          conn_top="$source/vendor/mediatek/kernel_modules/connectivity"
           rm -rf "$module_out"
           mkdir -p "$module_out"
           cp "$out/.config" "$module_out/.config"
@@ -77,7 +78,7 @@ jobs:
             OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
             CROSS_COMPILE="$cross" olddefconfig
           module_make=(env -i HOME="$HOME" PATH="$PATH" SOURCE_DATE_EPOCH="$SOURCE_DATE_EPOCH" \
-            KCFLAGS="$KCFLAGS" make)
+            KCFLAGS="$KCFLAGS -I$source/vendor/mediatek/kernel_modules/connectivity/common/common_main/include" make)
           module_targets=(
             vendor/mediatek/kernel_modules/connectivity/common/wmt_drv.ko
             vendor/mediatek/kernel_modules/connectivity/wlan/adaptor/wmt_chrdev_wifi.ko
@@ -87,7 +88,7 @@ jobs:
             vendor/mediatek/kernel_modules/connectivity/fmradio/fmradio_drv_mt6631.ko
           )
           for target in "${module_targets[@]}"; do
-            "${module_make[@]}" -j"$(nproc)" O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
+            "${module_make[@]}" TOP="$conn_top" WMT_SRC_FOLDER="$conn_top/common" -j"$(nproc)" O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
               OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
               CROSS_COMPILE="$cross" "$target"
           done
