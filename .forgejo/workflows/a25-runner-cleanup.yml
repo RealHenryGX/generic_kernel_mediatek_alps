@@ -1,0 +1,16 @@
+name: A25 runner cache cleanup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove generated module build caches
+        shell: bash
+        run: |
+          set -euo pipefail
+          cache=/home/builder/work/build/a25-connectivity-port/llvm20.1.8-v1/out
+          find "$cache" -maxdepth 1 -type d -name 'modules-*' -prune -exec rm -rf {} +
+          df -h /home/builder/work

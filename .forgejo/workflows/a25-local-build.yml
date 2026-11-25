@@ -67,8 +67,9 @@ jobs:
           cp "$out/.config" "$artifact/kernel.config"
           cp "$out/Module.symvers" "$artifact/"
 
-          module_out="$cache/out/modules-$GITHUB_SHA"
+          module_out="$cache/out/modules"
           module_install="$module_out/install"
+          rm -rf "$module_out"
           mkdir -p "$module_out"
           cp "$out/.config" "$module_out/.config"
           scripts/config --file "$module_out/.config" --module A25_CONNECTIVITY_DONOR
