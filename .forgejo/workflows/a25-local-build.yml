@@ -66,7 +66,26 @@ jobs:
           cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
           cp "$out/.config" "$artifact/kernel.config"
           cp "$out/Module.symvers" "$artifact/"
-          (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers > SHA256SUMS)
+
+          module_out="$cache/out/modules-$GITHUB_SHA"
+          module_install="$module_out/install"
+          mkdir -p "$module_out"
+          cp "$out/.config" "$module_out/.config"
+          scripts/config --file "$module_out/.config" --module A25_CONNECTIVITY_DONOR
+          make O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
+            OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
+            CROSS_COMPILE="$cross" olddefconfig
+          make -j"$(nproc)" O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
+            OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
+            CROSS_COMPILE="$cross" modules
+          make O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
+            OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
+            CROSS_COMPILE="$cross" modules_install INSTALL_MOD_PATH="$module_install"
+          find "$module_install" -type f -name '*.ko' -exec cp {} "$artifact"/ \;
+          for module in wlan_drv_gen4m.ko wmt_chrdev_wifi.ko bt_drv_connac1x.ko gps_drv.ko fmradio_drv_mt6631.ko; do
+            test -s "$artifact/$module"
+          done
+          (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers *.ko > SHA256SUMS)
 
       - name: Publish connectivity artifacts to Forgejo
         shell: bash
