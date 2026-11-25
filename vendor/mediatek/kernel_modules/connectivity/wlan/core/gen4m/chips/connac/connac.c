@@ -249,7 +249,8 @@ struct BUS_INFO connac_bus_info = {
 	.fw_own_clear_bit = WPDMA_FW_CLR_OWN_INT,
 	.max_static_map_addr = 0x00040000,
 	.fgCheckDriverOwnInt = FALSE,
-	.u4DmaMask = 36,
+	/* MT6765 CONNAC uses the 32-bit AXI address window. */
+	.u4DmaMask = 32,
 
 	.pdmaSetup = asicPdmaConfig,
 	.updateTxRingMaxQuota = NULL,
