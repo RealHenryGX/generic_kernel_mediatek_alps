@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ github.token }}
+      PACKAGE_USERNAME: ${{ secrets.PACKAGE_USERNAME }}
+      PACKAGE_PASSWORD: ${{ secrets.PACKAGE_PASSWORD }}
     steps:
       - name: Clone from the local Forgejo instance
         shell: bash
@@ -73,7 +75,7 @@ jobs:
           artifact="/home/builder/work/build/a25-connectivity-port/artifacts/$GITHUB_SHA"
           for file in "$artifact"/*; do
             name="$(basename "$file")"
-            curl --fail-with-body --retry 3 --user "$GITHUB_ACTOR:$GITHUB_TOKEN" \
+            curl --fail-with-body --retry 3 --user "$PACKAGE_USERNAME:$PACKAGE_PASSWORD" \
               --upload-file "$file" \
               "$GITHUB_SERVER_URL/api/packages/$GITHUB_REPOSITORY_OWNER/generic/a25-connectivity-port/$GITHUB_SHA/$name"
           done
@@ -107,7 +109,7 @@ jobs:
           artifact="/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/$GITHUB_SHA"
           for file in "$artifact"/*; do
             name="$(basename "$file")"
-            curl --fail-with-body --retry 3 --user "$GITHUB_ACTOR:$GITHUB_TOKEN" \
+            curl --fail-with-body --retry 3 --user "$PACKAGE_USERNAME:$PACKAGE_PASSWORD" \
               --upload-file "$file" \
               "$GITHUB_SERVER_URL/api/packages/$GITHUB_REPOSITORY_OWNER/generic/a25-kernel-full/$GITHUB_SHA/$name"
           done
