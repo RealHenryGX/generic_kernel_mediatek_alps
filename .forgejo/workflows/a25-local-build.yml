@@ -75,6 +75,7 @@ jobs:
           make O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
             OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
             CROSS_COMPILE="$cross" olddefconfig
+          unset KBUILD_CFLAGS KBUILD_AFLAGS KBUILD_CPPFLAGS KBUILD_LDFLAGS
           make -j"$(nproc)" O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
             OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
             CROSS_COMPILE="$cross" modules
