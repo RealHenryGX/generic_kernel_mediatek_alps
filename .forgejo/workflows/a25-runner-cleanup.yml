@@ -13,6 +13,5 @@ jobs:
           set -euo pipefail
           cache=/home/builder/work/build/a25-connectivity-port/llvm20.1.8-v1/out
           find "$cache" -maxdepth 1 -type d -name 'modules-*' -prune -exec rm -rf {} +
-          rm -rf /root/.cache/act/*
           rm -rf /home/builder/work/_temp/* /home/builder/work/_actions/*
           df -h /home/builder/work
