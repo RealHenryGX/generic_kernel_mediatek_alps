@@ -1420,6 +1420,7 @@ static bool axiCopyCmd(struct GL_HIF_INFO *prHifInfo,
 	memcpy(prDmaBuf->AllocVa, pucSrc1, u4SrcLen1);
 	if (pucSrc2 != NULL && u4SrcLen2 > 0)
 		memcpy(prDmaBuf->AllocVa + u4SrcLen1, pucSrc2, u4SrcLen2);
+	HIF_CACHE_CLEAN(prDmaBuf->AllocVa, u4SrcLen1 + u4SrcLen2);
 	prTxCell->PacketPa = prDmaBuf->AllocPa;
 
 	return true;
