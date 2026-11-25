@@ -86,6 +86,7 @@
 #endif
 #include <linux/of_device.h>
 #include <linux/of_reserved_mem.h>
+#include <linux/memremap.h>
 
 #include "mt66xx_reg.h"
 
@@ -171,7 +172,9 @@ static u_int8_t g_fgDriverProbed = FALSE;
 
 #if AXI_CFG_PREALLOC_MEMORY_BUFFER
 struct HIF_PREALLOC_MEM grMem;
+phys_addr_t gWifiRsvMemPhyBase;
 unsigned long long gWifiRsvMemSize;
+static bool gWifiRsvMemMapped;
 
 struct wifi_rsrv_mem {
 	phys_addr_t phy_base;
@@ -451,9 +454,10 @@ static int axiDmaSetup(struct platform_device *pdev,
 		goto exit;
 	ret = of_reserved_mem_device_init(&pdev->dev);
 	if (ret) {
-		DBGLOG(INIT, ERROR, "of_reserved_mem_device_init failed(%d).\n",
+		DBGLOG(INIT, WARN,
+			"of_reserved_mem_device_init unavailable(%d); using direct reserved memory.\n",
 				ret);
-		goto exit;
+		ret = 0;
 	}
 #else
 	ret = of_dma_configure(&pdev->dev, pdev->dev.of_node, true);
@@ -557,6 +561,7 @@ static bool axiGetRsvMemSizeRsvedByKernel(struct platform_device *pdev)
 #ifdef CONFIG_OF
 	int ret = 0;
 	struct device_node *np;
+	struct reserved_mem *rmem;
 
 	np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
 	if (!np) {
@@ -564,17 +569,24 @@ static bool axiGetRsvMemSizeRsvedByKernel(struct platform_device *pdev)
 		return false;
 	}
 
-	ret = of_property_read_u64_array(np, "size", &gWifiRsvMemSize, 1);
-	if (ret != 0)
-		DBGLOG(INIT, ERROR, "get rsrv mem size failed(%d).\n", ret);
-	else
-		DBGLOG(INIT, INFO, "gWifiRsvMemSize: 0x%x\n", gWifiRsvMemSize);
+	rmem = of_reserved_mem_lookup(np);
+	if (rmem) {
+		gWifiRsvMemPhyBase = rmem->base;
+		gWifiRsvMemSize = rmem->size;
+		DBGLOG(INIT, INFO,
+			"reserved memory base=%pa size=0x%llx\n",
+			&gWifiRsvMemPhyBase, gWifiRsvMemSize);
+	} else {
+		ret = of_property_read_u64_array(np, "size", &gWifiRsvMemSize, 1);
+		if (ret != 0)
+			DBGLOG(INIT, ERROR, "get rsrv mem size failed(%d).\n", ret);
+	}
 
 	of_node_put(np);
-	if (ret != 0)
+	if (ret != 0 || !gWifiRsvMemSize)
 		return false;
-	else
-		return true;
+
+	return true;
 #else
 	return false;
 #endif
@@ -605,26 +617,40 @@ static int axiAllocHifMem(struct platform_device *pdev,
 
 	prChipInfo = prDriverData->chip_info;
 
-	/* Allocation size should be a power of two */
-	while (i > 0) {
-		i--;
-		if (!(gWifiRsvMemSize & BIT(i)))
-			continue;
-
-		wifi_rsrv_mems[i].size = BIT(i);
-		wifi_rsrv_mems[i].vir_base = KAL_DMA_ALLOC_COHERENT(&pdev->dev,
-				wifi_rsrv_mems[i].size,
-				&wifi_rsrv_mems[i].phy_base);
-		if (!wifi_rsrv_mems[i].vir_base) {
+	if (gWifiRsvMemPhyBase && gWifiRsvMemSize) {
+		grMem.pucRsvMemBase = gWifiRsvMemPhyBase;
+		grMem.u4RsvMemSize = (uint64_t)gWifiRsvMemSize;
+		grMem.pucRsvMemVirBase = memremap(gWifiRsvMemPhyBase,
+						gWifiRsvMemSize, MEMREMAP_WB);
+		if (!grMem.pucRsvMemVirBase) {
 			DBGLOG(INIT, ERROR,
-				"[%d] DMA_ALLOC_COHERENT failed, size: 0x%x\n",
-				i, wifi_rsrv_mems[i].size);
-			return -1;
+				"memremap reserved memory failed: base=%pa size=0x%llx\n",
+				&gWifiRsvMemPhyBase, gWifiRsvMemSize);
+			return -ENOMEM;
 		}
-		if (!grMem.pucRsvMemBase) {
-			grMem.pucRsvMemBase = wifi_rsrv_mems[i].phy_base;
-			grMem.pucRsvMemVirBase = wifi_rsrv_mems[i].vir_base;
-			grMem.u4RsvMemSize = (uint64_t) gWifiRsvMemSize;
+		gWifiRsvMemMapped = true;
+	} else {
+		/* Allocation size should be a power of two. */
+		while (i > 0) {
+			i--;
+			if (!(gWifiRsvMemSize & BIT(i)))
+				continue;
+
+			wifi_rsrv_mems[i].size = BIT(i);
+			wifi_rsrv_mems[i].vir_base = KAL_DMA_ALLOC_COHERENT(
+				&pdev->dev, wifi_rsrv_mems[i].size,
+				&wifi_rsrv_mems[i].phy_base);
+			if (!wifi_rsrv_mems[i].vir_base) {
+				DBGLOG(INIT, ERROR,
+					"[%d] DMA_ALLOC_COHERENT failed, size: 0x%x\n",
+					i, wifi_rsrv_mems[i].size);
+				return -1;
+			}
+			if (!grMem.pucRsvMemBase) {
+				grMem.pucRsvMemBase = wifi_rsrv_mems[i].phy_base;
+				grMem.pucRsvMemVirBase = wifi_rsrv_mems[i].vir_base;
+				grMem.u4RsvMemSize = (uint64_t)gWifiRsvMemSize;
+			}
 		}
 	}
 	if (!grMem.pucRsvMemBase)
@@ -719,6 +745,14 @@ static void axiFreeHifMem(struct platform_device *pdev)
 {
 	uint32_t i = 0;
 	uint32_t count = sizeof(wifi_rsrv_mems) / sizeof(struct wifi_rsrv_mem);
+
+	if (gWifiRsvMemMapped) {
+		memunmap(grMem.pucRsvMemVirBase);
+		grMem.pucRsvMemVirBase = NULL;
+		grMem.pucRsvMemBase = 0;
+		gWifiRsvMemMapped = false;
+		return;
+	}
 
 	for (i = 0; i < count; i++) {
 		if (!wifi_rsrv_mems[i].vir_base)
