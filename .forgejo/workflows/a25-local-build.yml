@@ -166,7 +166,12 @@ jobs:
           end = text.index('\necho "$res"', start)
           p.write_text(text[:start] + '# A25 CI uses a deterministic release; SCM suffixes are disabled.\n' + text[end:], encoding='utf-8')
           PY
-          cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
+          bpf_config=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config
+          if [ ! -s "$bpf_config" ]; then
+            mkdir -p "$(dirname "$bpf_config")"
+            cp /home/builder/work/build/a25-connectivity-port/llvm20.1.8-v1/out/.config "$bpf_config"
+          fi
+          cp "$bpf_config" "$out/.config"
           rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           env LOCALVERSION=-gravity make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
