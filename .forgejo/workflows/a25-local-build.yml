@@ -49,7 +49,7 @@ jobs:
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
           export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-unknown-warning-option"
-          kbuild=(make LOCALVERSION= O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
+          kbuild=(env LOCALVERSION= make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
           config_key=$(sha256sum arch/arm64/configs/a25_gravity_defconfig | cut -d ' ' -f 1)
           if [ ! -s "$out/.config" ] || [ "$(cat "$out/a25-defconfig.sha" 2>/dev/null || true)" != "$config_key" ]; then
             "${kbuild[@]}" a25_gravity_defconfig
@@ -144,14 +144,14 @@ jobs:
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
           rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
-          make LOCALVERSION= -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
+          env LOCALVERSION= make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
-          release=$(make LOCALVERSION= -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
+          release=$(env LOCALVERSION= make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
           printf 'A25_FULL_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
-          make LOCALVERSION= -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
+          env LOCALVERSION= make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
           artifact="/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/$GITHUB_SHA"
           mkdir -p "$artifact"
           cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
