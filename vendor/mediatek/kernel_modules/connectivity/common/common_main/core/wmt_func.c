@@ -776,6 +776,12 @@ INT32 wmt_func_wifi_ctrl(ENUM_FUNC_STATE funcState)
 	ULONG ctrlPa1 = WMT_SDIO_FUNC_WIFI;
 	ULONG ctrlPa2 = (funcState == FUNC_ON) ? 1 : 0;	/* turn on Wi-Fi driver */
 
+	/* MT6765 keeps WMT on BTIF while WLAN uses the AXI data path. */
+	if (wmt_lib_get_hif()->hifType == WMT_HIF_BTIF) {
+		WMT_DBG_FUNC("BTIF common transport: skip SDIO WIFI function control\n");
+		return 0;
+	}
+
 	iRet = wmt_core_ctrl(WMT_CTRL_SDIO_FUNC, &ctrlPa1, &ctrlPa2);
 	if (iRet) {
 		WMT_ERR_FUNC("WMT-FUNC: turn on WIFI function fail (%d)", iRet);
