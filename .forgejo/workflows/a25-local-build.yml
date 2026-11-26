@@ -54,7 +54,12 @@ jobs:
             "${kbuild[@]}" a25_gravity_defconfig
           fi
           scripts/config --file "$out/.config" --enable MTK_COMBO_BT --enable A25_CONNECTIVITY_DONOR
+          # The full Image.gz job consumes the cached ci-bpf configuration.
+          # Pin both builds to the device kernel release so modules cannot
+          # silently acquire the connectivity commit hash as vermagic.
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity-g53d31dab5"
           "${kbuild[@]}" olddefconfig
+          test "$("${kbuild[@]}" -s kernelrelease)" = "4.19.236-gravity-g53d31dab5"
           printf '%s\n' "$config_key" > "$out/a25-defconfig.sha"
           "${kbuild[@]}" -j"$(nproc)" Image.gz
           for driver in common wlan/adaptor wlan/core/gen4m bt/mt66xx/wmt gps fmradio; do
@@ -98,7 +103,9 @@ jobs:
           find "$module_out" -type f -name '*.ko' -exec cp {} "$artifact"/ \;
           for module in wlan_drv_gen4m.ko wmt_chrdev_wifi.ko bt_drv_connac1x.ko gps_drv.ko fmradio_drv_mt6631.ko; do
             test -s "$artifact/$module"
+            llvm-readelf --string-dump=.modinfo "$artifact/$module" | grep -F '4.19.236-gravity-g53d31dab5'
           done
+          llvm-readelf --string-dump=.modinfo "$artifact/wmt_drv.ko" | grep -F '4.19.236-gravity-g53d31dab5'
           (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers *.ko > SHA256SUMS)
 
       - name: Publish connectivity artifacts to Forgejo
@@ -127,7 +134,9 @@ jobs:
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity-g53d31dab5"
           make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
+          test "$(make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)" = "4.19.236-gravity-g53d31dab5"
           make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
           artifact="/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/$GITHUB_SHA"
           mkdir -p "$artifact"
