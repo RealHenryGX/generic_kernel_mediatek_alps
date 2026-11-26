@@ -488,6 +488,17 @@ int bpf_obj_get_user(const char __user *pathname, int flags)
 	int f_flags;
 	void *raw;
 
+	/*
+	 * Older Connectivity JNI passes both access-intent bits when reopening
+	 * a pinned map.  They describe a read/write map handle, not a map
+	 * creation flag combination.  Keep the compatibility at BPF_OBJ_GET's
+	 * reopen boundary; map creation and all other BPF commands retain the
+	 * strict mutual-exclusion check.
+	 */
+	if ((flags & (BPF_F_RDONLY | BPF_F_WRONLY)) ==
+	    (BPF_F_RDONLY | BPF_F_WRONLY))
+		flags &= ~(BPF_F_RDONLY | BPF_F_WRONLY);
+
 	f_flags = bpf_get_file_flag(flags);
 	if (f_flags < 0)
 		return f_flags;
