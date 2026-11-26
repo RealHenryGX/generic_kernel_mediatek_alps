@@ -169,9 +169,13 @@ jobs:
           bpf_config=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config
           if [ ! -s "$bpf_config" ]; then
             mkdir -p "$(dirname "$bpf_config")"
-            cp /home/builder/work/build/a25-connectivity-port/llvm20.1.8-v1/out/.config "$bpf_config"
+            make O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf \
+              ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy \
+              OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
+              CROSS_COMPILE="$cross" a25_gravity_defconfig
           fi
           cp "$bpf_config" "$out/.config"
+          scripts/config --file "$out/.config" --disable A25_CONNECTIVITY_DONOR
           rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           env LOCALVERSION=-gravity make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
@@ -189,6 +193,7 @@ jobs:
           fi
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
+          grep -Fx '# CONFIG_A25_CONNECTIVITY_DONOR is not set' "$out/.config"
           release=$(make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
           printf 'A25_FULL_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
