@@ -53,12 +53,16 @@ jobs:
           if [ ! -s "$out/.config" ] || [ "$(cat "$out/a25-defconfig.sha" 2>/dev/null || true)" != "$config_key" ]; then
             "${kbuild[@]}" a25_gravity_defconfig
           fi
+          rm -f "$source/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --enable MTK_COMBO_BT --enable A25_CONNECTIVITY_DONOR
           # The full Image.gz job consumes the cached ci-bpf configuration.
           # Pin both builds to the device kernel release so modules cannot
           # silently acquire the connectivity commit hash as vermagic.
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           "${kbuild[@]}" olddefconfig
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          grep -Fx 'CONFIG_LOCALVERSION_AUTO=n' "$out/.config"
+          grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$("${kbuild[@]}" -s kernelrelease)
           printf 'A25_CONNECTIVITY_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
@@ -136,8 +140,12 @@ jobs:
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
+          rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          grep -Fx 'CONFIG_LOCALVERSION_AUTO=n' "$out/.config"
+          grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$(make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
           printf 'A25_FULL_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
