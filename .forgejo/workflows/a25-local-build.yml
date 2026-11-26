@@ -126,12 +126,39 @@ jobs:
               CROSS_COMPILE="$cross" "$target"
           done
           find "$module_out" -type f -name '*.ko' -exec cp {} "$artifact"/ \;
-          for module in wlan_drv_gen4m.ko wmt_chrdev_wifi.ko bt_drv_connac1x.ko gps_drv.ko fmradio_drv_mt6631.ko; do
+          vendor_modules=(wmt_drv.ko wmt_chrdev_wifi.ko wlan_drv_gen4m.ko bt_drv_connac1x.ko gps_drv.ko fmradio_drv_mt6631.ko)
+          for module in "${vendor_modules[@]}"; do
             test -s "$artifact/$module"
+            # Vendor images carry modules without debug sections. Keep the
+            # relocation, __ksymtab and modversion sections required by the
+            # 4.19.236-gravity loader.
+            llvm-strip --strip-debug "$artifact/$module"
             llvm-readelf --string-dump=.modinfo "$artifact/$module" | grep -F '4.19.236-gravity'
           done
+          cat > "$artifact/VENDOR_INSTALL.txt" <<'EOF'
+          A25 native vendor module installation
+
+          Destination: /vendor/lib/modules/
+          File mode: 0644
+          File type: vendor_file
+          SELinux path rule: /vendor/lib/modules(/.*)? u:object_r:vendor_file:s0
+
+          Load order:
+            wmt_drv.ko
+            bt_drv_connac1x.ko
+            wmt_chrdev_wifi.ko
+            wlan_drv_gen4m.ko
+            gps_drv.ko
+            fmradio_drv_mt6631.ko
+
+          Keep init.wmt_drv.rc, init.bt_drv.rc, init.wlan_drv.rc,
+          init.gps_drv.rc and init.fmradio_drv.rc on their native vendor
+          paths. Do not grant vendor_init read access to system_file.
+          Remove the KSU overlay for these six names before boot testing.
+          EOF
           llvm-readelf --string-dump=.modinfo "$artifact/wmt_drv.ko" | grep -F '4.19.236-gravity'
           (cd "$artifact" && sha256sum Image.gz kernel.config Module.symvers *.ko > SHA256SUMS)
+          (cd "$artifact" && sha256sum VENDOR_INSTALL.txt >> SHA256SUMS)
 
       - name: Publish connectivity artifacts to Forgejo
         shell: bash
