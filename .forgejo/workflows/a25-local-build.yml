@@ -70,15 +70,6 @@ jobs:
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           "${kbuild[@]}" olddefconfig
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
-          python3 - "$out/scripts/setlocalversion" <<'PY'
-          import sys
-          from pathlib import Path
-          p = Path(sys.argv[1])
-          text = p.read_text(encoding='utf-8')
-          start = text.index('# scm version string if not at a tagged commit')
-          end = text.index('\necho "$res"', start)
-          p.write_text(text[:start] + '# A25 CI uses a deterministic release; SCM suffixes are disabled.\n' + text[end:], encoding='utf-8')
-          PY
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$("${kbuild[@]}" -s kernelrelease)
@@ -170,6 +161,7 @@ jobs:
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           env LOCALVERSION=-gravity make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          if [ -f "$out/scripts/setlocalversion" ]; then
           python3 - "$out/scripts/setlocalversion" <<'PY'
           import sys
           from pathlib import Path
@@ -179,6 +171,7 @@ jobs:
           end = text.index('\necho "$res"', start)
           p.write_text(text[:start] + '# A25 CI uses a deterministic release; SCM suffixes are disabled.\n' + text[end:], encoding='utf-8')
           PY
+          fi
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$(make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
