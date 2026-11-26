@@ -44,6 +44,7 @@ jobs:
           cp -a "$A25_SOURCE_DIR/." "$source/"
           cd "$source"
           export SOURCE_DATE_EPOCH=1794182400
+          export LOCALVERSION=
           llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
@@ -88,7 +89,7 @@ jobs:
           make O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
             OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
             CROSS_COMPILE="$cross" olddefconfig
-          module_make=(env -i HOME="$HOME" PATH="$PATH" SOURCE_DATE_EPOCH="$SOURCE_DATE_EPOCH" \
+          module_make=(env -i HOME="$HOME" PATH="$PATH" SOURCE_DATE_EPOCH="$SOURCE_DATE_EPOCH" LOCALVERSION= \
             KCFLAGS="$KCFLAGS -I$source/vendor/mediatek/kernel_modules/connectivity/common/common_main/include" make)
           module_targets=(
             vendor/mediatek/kernel_modules/connectivity/common/wmt_drv.ko
@@ -139,6 +140,7 @@ jobs:
           llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
+          export LOCALVERSION=
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
           rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
