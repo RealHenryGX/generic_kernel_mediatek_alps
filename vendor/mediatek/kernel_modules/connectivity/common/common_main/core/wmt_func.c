@@ -795,7 +795,8 @@ INT32 wmt_func_wifi_on(P_WMT_IC_OPS pOps, P_WMT_GEN_CONF pConf)
 {
 	INT32 iRet = 0;
 
-	if (wmt_detect_get_chip_type() == WMT_CHIP_TYPE_COMBO)
+	if (wmt_detect_get_chip_type() == WMT_CHIP_TYPE_COMBO &&
+		wmt_lib_get_hif()->hifType != WMT_HIF_BTIF)
 		return wmt_func_wifi_ctrl(FUNC_ON);
 
 	if (mtk_wcn_wlan_probe != NULL) {
@@ -821,7 +822,8 @@ INT32 wmt_func_wifi_off(P_WMT_IC_OPS pOps, P_WMT_GEN_CONF pConf)
 {
 	INT32 iRet = 0;
 
-	if (wmt_detect_get_chip_type() == WMT_CHIP_TYPE_COMBO)
+	if (wmt_detect_get_chip_type() == WMT_CHIP_TYPE_COMBO &&
+		wmt_lib_get_hif()->hifType != WMT_HIF_BTIF)
 		return wmt_func_wifi_ctrl(FUNC_OFF);
 
 	if (mtk_wcn_wlan_remove != NULL) {
