@@ -44,12 +44,12 @@ jobs:
           cp -a "$A25_SOURCE_DIR/." "$source/"
           cd "$source"
           export SOURCE_DATE_EPOCH=1794182400
-          export LOCALVERSION=
+          export LOCALVERSION=-gravity
           llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
           export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-unknown-warning-option"
-          kbuild=(env LOCALVERSION= make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
+          kbuild=(env LOCALVERSION=-gravity make O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross")
           config_key=$(sha256sum arch/arm64/configs/a25_gravity_defconfig | cut -d ' ' -f 1)
           if [ ! -s "$out/.config" ] || [ "$(cat "$out/a25-defconfig.sha" 2>/dev/null || true)" != "$config_key" ]; then
             "${kbuild[@]}" a25_gravity_defconfig
@@ -59,11 +59,11 @@ jobs:
           # The full Image.gz job consumes the cached ci-bpf configuration.
           # Pin both builds to the device kernel release so modules cannot
           # silently acquire the connectivity commit hash as vermagic.
-          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION ""
           "${kbuild[@]}" olddefconfig
-          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION ""
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
-          grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
+          grep -Fx 'CONFIG_LOCALVERSION=""' "$out/.config"
           release=$("${kbuild[@]}" -s kernelrelease)
           printf 'A25_CONNECTIVITY_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
@@ -89,7 +89,7 @@ jobs:
           make O="$module_out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm \
             OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip \
             CROSS_COMPILE="$cross" olddefconfig
-          module_make=(env -i HOME="$HOME" PATH="$PATH" SOURCE_DATE_EPOCH="$SOURCE_DATE_EPOCH" LOCALVERSION= \
+          module_make=(env -i HOME="$HOME" PATH="$PATH" SOURCE_DATE_EPOCH="$SOURCE_DATE_EPOCH" LOCALVERSION=-gravity \
             KCFLAGS="$KCFLAGS -I$source/vendor/mediatek/kernel_modules/connectivity/common/common_main/include" make)
           module_targets=(
             vendor/mediatek/kernel_modules/connectivity/common/wmt_drv.ko
@@ -140,18 +140,18 @@ jobs:
           llvm=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin
           cross=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu-
           export PATH="$llvm:$PATH"
-          export LOCALVERSION=
+          export LOCALVERSION=-gravity
           cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/.config "$out/.config"
           rm -f "$A25_SOURCE_DIR/.scmversion" "$out/.scmversion"
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
-          env LOCALVERSION= make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
-          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
+          env LOCALVERSION=-gravity make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
+          scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION ""
           grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
-          grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
-          release=$(env LOCALVERSION= make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
+          grep -Fx 'CONFIG_LOCALVERSION=""' "$out/.config"
+          release=$(env LOCALVERSION=-gravity make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
           printf 'A25_FULL_KERNELRELEASE=%s\n' "$release"
           test "$release" = "4.19.236-gravity"
-          env LOCALVERSION= make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
+          env LOCALVERSION=-gravity make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" Image.gz
           artifact="/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/$GITHUB_SHA"
           mkdir -p "$artifact"
           cp "$out/arch/arm64/boot/Image.gz" "$artifact/"
