@@ -61,7 +61,7 @@ jobs:
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           "${kbuild[@]}" olddefconfig
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
-          grep -Fx 'CONFIG_LOCALVERSION_AUTO=n' "$out/.config"
+          grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$("${kbuild[@]}" -s kernelrelease)
           printf 'A25_CONNECTIVITY_KERNELRELEASE=%s\n' "$release"
@@ -144,7 +144,7 @@ jobs:
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
           make -j"$(nproc)" O="$out" ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump READELF=llvm-readelf STRIP=llvm-strip CROSS_COMPILE="$cross" olddefconfig
           scripts/config --file "$out/.config" --disable LOCALVERSION_AUTO --set-str LOCALVERSION "-gravity"
-          grep -Fx 'CONFIG_LOCALVERSION_AUTO=n' "$out/.config"
+          grep -Fx '# CONFIG_LOCALVERSION_AUTO is not set' "$out/.config"
           grep -Fx 'CONFIG_LOCALVERSION="-gravity"' "$out/.config"
           release=$(make -s O="$out" ARCH=arm64 CROSS_COMPILE="$cross" kernelrelease)
           printf 'A25_FULL_KERNELRELEASE=%s\n' "$release"
