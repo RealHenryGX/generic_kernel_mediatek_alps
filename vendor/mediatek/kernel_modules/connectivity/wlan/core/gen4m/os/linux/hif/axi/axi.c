@@ -598,8 +598,15 @@ static bool axiAllocRsvMem(uint32_t u4Size, struct HIF_MEM *prMem)
 	if (u4Size & 7)
 		u4Size += 8 - (u4Size & 7);
 
-	if ((grMem.u4Offset + u4Size) >= gWifiRsvMemSize)
+	if (!prMem || !grMem.pucRsvMemBase || !grMem.pucRsvMemVirBase ||
+	    !gWifiRsvMemSize || grMem.u4Offset > gWifiRsvMemSize ||
+	    u4Size > gWifiRsvMemSize - grMem.u4Offset) {
+		if (prMem) {
+			prMem->pa = 0;
+			prMem->va = NULL;
+		}
 		return false;
+	}
 
 	prMem->pa = grMem.pucRsvMemBase + grMem.u4Offset;
 	prMem->va = grMem.pucRsvMemVirBase + grMem.u4Offset;
@@ -653,8 +660,9 @@ static int axiAllocHifMem(struct platform_device *pdev,
 			}
 		}
 	}
-	if (!grMem.pucRsvMemBase)
-		return -1;
+	if (!grMem.pucRsvMemBase || !grMem.pucRsvMemVirBase ||
+	    !grMem.u4RsvMemSize)
+		return -ENOMEM;
 	DBGLOG(INIT, INFO, "pucRsvMemBase[%pa], pucRsvMemVirBase[%pa]\n",
 	       &grMem.pucRsvMemBase,
 	       &grMem.pucRsvMemVirBase);
@@ -671,8 +679,10 @@ static int axiAllocHifMem(struct platform_device *pdev,
 				!prChipInfo->bus_info->tx_ring2_data_idx)
 			continue;
 		if (!axiAllocRsvMem(TX_RING_SIZE * TXD_SIZE,
-				    &grMem.rTxDesc[u4Idx]))
+				    &grMem.rTxDesc[u4Idx])) {
 			DBGLOG(INIT, ERROR, "TxDesc[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 
 	for (u4Idx = 0; u4Idx < NUM_OF_RX_RING; u4Idx++) {
@@ -680,28 +690,36 @@ static int axiAllocHifMem(struct platform_device *pdev,
 			u4Size = RX_RING0_SIZE;
 		else
 			u4Size = RX_RING1_SIZE;
-		if (!axiAllocRsvMem(u4Size * RXD_SIZE, &grMem.rRxDesc[u4Idx]))
+		if (!axiAllocRsvMem(u4Size * RXD_SIZE, &grMem.rRxDesc[u4Idx])) {
 			DBGLOG(INIT, ERROR, "RxDesc[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 
 	for (u4Idx = 0; u4Idx < TX_RING_SIZE; u4Idx++) {
 		if (!axiAllocRsvMem(AXI_TX_CMD_BUFF_SIZE,
-				    &grMem.rTxCmdBuf[u4Idx]))
+				    &grMem.rTxCmdBuf[u4Idx])) {
 			DBGLOG(INIT, ERROR, "TxCmdBuf[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 
 	for (u4Idx = 0; u4Idx < RX_RING0_SIZE; u4Idx++) {
 		if (!axiAllocRsvMem(CFG_RX_MAX_PKT_SIZE,
-				    &grMem.rRxDataBuf[u4Idx]))
+				    &grMem.rRxDataBuf[u4Idx])) {
 			DBGLOG(INIT, ERROR,
 			       "RxDataBuf[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 
 	for (u4Idx = 0; u4Idx < RX_RING1_SIZE; u4Idx++) {
 		if (!axiAllocRsvMem(RX_BUFFER_AGGRESIZE,
-				    &grMem.rRxEventBuf[u4Idx]))
+				    &grMem.rRxEventBuf[u4Idx])) {
 			DBGLOG(INIT, ERROR,
 			       "RxEventBuf[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 
 #if (CFG_SUPPORT_CONNAC2X == 1)
@@ -731,8 +749,10 @@ static int axiAllocHifMem(struct platform_device *pdev,
 	for (u4Idx = 0; u4Idx < HIF_TX_MSDU_TOKEN_NUM; u4Idx++) {
 		if (!axiAllocRsvMem(AXI_TX_MAX_SIZE_PER_FRAME +
 				    prChipInfo->txd_append_size,
-				    &grMem.rMsduBuf[u4Idx]))
+				    &grMem.rMsduBuf[u4Idx])) {
 			DBGLOG(INIT, ERROR, "MsduBuf[%u] alloc fail\n", u4Idx);
+			return -ENOMEM;
+		}
 	}
 #endif
 
@@ -952,6 +972,12 @@ static int mtk_axi_probe(IN struct platform_device *pdev)
 #endif
 
 exit:
+	if (ret) {
+#if AXI_CFG_PREALLOC_MEMORY_BUFFER
+		axiFreeHifMem(pdev);
+#endif
+		axiCsrIounmap(pdev);
+	}
 	DBGLOG(INIT, INFO, "mtk_axi_probe() done, ret: %d\n", ret);
 	return ret;
 }
