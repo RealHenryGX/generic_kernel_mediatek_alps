@@ -3436,6 +3436,13 @@ static INT32 opfunc_wlan_probe(P_WMT_OP pWmtOp)
 			wmt_lib_wlan_lock_release();
 			goto done;
 		}
+	} else if (gMtkWmtCtx.wmtHifConf.hifType == WMT_HIF_BTIF) {
+		/*
+		 * MT6765 uses BTIF for the WMT common transport while the
+		 * Gen4M WLAN data path is AXI.  There is no SDIO function to
+		 * power on in this mode; let the WLAN HIF perform its own probe.
+		 */
+		WMT_DBG_FUNC("BTIF common transport: skip SDIO slot control for WLAN\n");
 	} else {
 		WMT_ERR_FUNC("not implemented yet hifType: 0x%x, unspecified wifi_hif\n",
 				gMtkWmtCtx.wmtHifConf.hifType);
