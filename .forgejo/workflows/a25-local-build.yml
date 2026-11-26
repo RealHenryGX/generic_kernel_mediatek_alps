@@ -16,6 +16,16 @@ jobs:
       PACKAGE_USERNAME: ${{ secrets.PACKAGE_USERNAME }}
       PACKAGE_PASSWORD: ${{ secrets.PACKAGE_PASSWORD }}
     steps:
+      - name: Reclaim stale A25 runner caches
+        shell: bash
+        run: |
+          set -euo pipefail
+          build_root=/home/builder/work/build
+          if [ -d "$build_root" ]; then
+            find "$build_root" -mindepth 1 -maxdepth 1 -type d -name 'a25-*' -exec rm -rf -- {} +
+          fi
+          df -h "$build_root"
+
       - name: Clone from the local Forgejo instance
         shell: bash
         run: |
