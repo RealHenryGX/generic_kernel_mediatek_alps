@@ -387,7 +387,7 @@ static int hifAxiIsWifiDrvOwn(void)
 	return (g_prGlueInfo->prAdapter->fgIsFwOwn == FALSE) ? 1 : 0;
 }
 
-static void register_wmt_cb(void)
+static int register_wmt_cb(void)
 {
 	struct _MTK_WCN_WMT_WLAN_CB_INFO rWmtCb;
 
@@ -399,7 +399,7 @@ static void register_wmt_cb(void)
 	rWmtCb.wlan_emi_mpu_set_protection_cb = hifAxiSetMpuProtect;
 	rWmtCb.wlan_is_wifi_drv_own_cb = hifAxiIsWifiDrvOwn;
 
-	mtk_wcn_wmt_wlan_reg(&rWmtCb);
+	return mtk_wcn_wmt_wlan_reg(&rWmtCb);
 }
 
 #else
@@ -963,7 +963,9 @@ static int mtk_axi_probe(IN struct platform_device *pdev)
 
 #if CFG_MTK_ANDROID_WMT
 #if (CFG_SUPPORT_CONNINFRA == 0)
-	register_wmt_cb();
+	ret = register_wmt_cb();
+	if (ret)
+		goto exit;
 #else
 	register_conninfra_cb();
 #endif
