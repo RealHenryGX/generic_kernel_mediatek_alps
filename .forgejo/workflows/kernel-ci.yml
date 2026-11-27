@@ -57,16 +57,17 @@ jobs:
             -Wl,-e,_start -Wl,--build-id=none \
             tools/bpf-fcntl-probe.c \
             -o /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-fcntl-probe
-      - name: Upload read-only BPF map inventory
-        uses: actions/upload-artifact@v4
-        with:
-          name: a25-bpf-map-inventory
-          path: |
-            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-map-inventory
-            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-flock-probe
-            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-native-contract-probe
-            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-netd-map-dump
-            /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-fcntl-probe
+      - name: Publish read-only BPF map inventory
+        run: |
+          artifact_dir=/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/${GITHUB_SHA}
+          mkdir -p "${artifact_dir}/bpf-map-inventory"
+          cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-map-inventory \
+             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-flock-probe \
+             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-native-contract-probe \
+             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-netd-map-dump \
+             /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf/bpf-fcntl-probe \
+             "${artifact_dir}/bpf-map-inventory/"
+          sha256sum "${artifact_dir}/bpf-map-inventory"/* > "${artifact_dir}/bpf-map-inventory/SHA256SUMS"
           if-no-files-found: error
       - name: Incremental BPF netd build
         run: |
@@ -76,7 +77,7 @@ jobs:
           make O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- olddefconfig
           make -j$(nproc) O=/home/builder/work/build/a25-wusb-kbuild-integration/out/ci-bpf ARCH=arm64 CC=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/clang LD=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/ld.lld AR=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-ar NM=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-nm OBJCOPY=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objcopy OBJDUMP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-objdump READELF=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-readelf STRIP=/home/builder/work/toolchain/llvm20/LLVM-20.1.8-Linux-X64/bin/llvm-strip CROSS_COMPILE=/home/builder/work/toolchain/toolchain/bin/aarch64-linux-gnu- security/selinux/hooks.o
       - name: Full Image gz build
-        if: inputs.full_build == true || startsWith(github.ref, 'refs/heads/codex/cleanup-bpf-20261104')
+        if: github.event_name == 'workflow_dispatch' || inputs.full_build == true || startsWith(github.ref, 'refs/heads/codex/cleanup-bpf-20261104')
         run: |
           mkdir -p /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full
           export KCFLAGS="-Wno-error=implicit-function-declaration -Wno-error=implicit-int -Wno-error=incompatible-function-pointer-types -Wno-error=deprecated-non-prototype -Wno-error=array-bounds -Wno-error=pointer-bool-conversion -Wno-error=string-plus-int -Wno-error=sizeof-array-div -Wno-error=tautological-compare -Wno-error=deprecated-declarations -Wno-error=strict-prototypes -Wno-error=date-time -Wno-error=int-conversion -Wno-error=single-bit-bitfield-constant-conversion -Wno-error=pointer-to-int-cast -Wno-error=unused-variable -Wno-unknown-warning-option"
@@ -86,9 +87,9 @@ jobs:
           ls -l /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
           sha256sum /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
       - name: Upload full kernel artifact
-        if: inputs.full_build == true || startsWith(github.ref, 'refs/heads/codex/cleanup-bpf-20261104')
-        uses: actions/upload-artifact@v4
-        with:
-          name: a25-bpf-cleanup-full-kernel
-          path: /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz
-          if-no-files-found: error
+        if: github.event_name == 'workflow_dispatch' || inputs.full_build == true || startsWith(github.ref, 'refs/heads/codex/cleanup-bpf-20261104')
+        run: |
+          artifact_dir=/home/builder/work/build/a25-wusb-kbuild-integration/artifacts/${GITHUB_SHA}
+          mkdir -p "${artifact_dir}"
+          cp /home/builder/work/build/a25-wusb-kbuild-integration/out/ci-full/arch/arm64/boot/Image.gz "${artifact_dir}/Image.gz"
+          sha256sum "${artifact_dir}/Image.gz" | tee "${artifact_dir}/SHA256SUMS"
